@@ -1,77 +1,252 @@
 import './App.css';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import M from "materialize-css";
 
 
 
 function App() {
-  const [feedbackFiles, setFeedbackFiles] = useState([]);
+  
   const [requirementFile, setRequirementFile] = useState(null);
+  const [prioritizedData, setPrioritizedData] = useState([]);
+  const [stakeholders, setStakeholders] = useState([]);
+  const [isStakeholdersPrioritized, setisStakeholdersPrioritized] = useState(false);
+  const [errors, setErrors] = useState([]);
 
-  const handleUserFeedbackData = (event) => {
-    const newFiles = Array.from(event.target.files);
-    setFeedbackFiles((prevFiles) => [...prevFiles, ...newFiles]);
+  useEffect(() => {
+    M.Collapsible.init(document.querySelectorAll(".collapsible"));
+  }, [stakeholders]);
+
+  const handleRquirementFileUpload = (event) => {
+    setRequirementFile(event.target.files[0]);
   };
 
-  const handleRquirementFileData = (event) => {
-    const file = event.target.files[0];
-    setRequirementFile(file);
+  const handleAddStakeholder = () => {
+    setStakeholders([...stakeholders, { name: "", file: null }])
   };
 
+  const handleUpdateStakeholderName = (index, newName) => {
+    const updateStakeholders = [...stakeholders];
+    updateStakeholders[index].name = newName;
+    setStakeholders(updateStakeholders);
+  };
 
-  const removeFeedbackFile = (index) => {
-    setFeedbackFiles(feedbackFiles.filter((_, i) => i !== index));
+  const handleStakeholderFileUpload = (index, event) => {
+    const updateStakeholders = [...stakeholders];
+    updateStakeholders[index].file = event.target.files[0];
+    setStakeholders(updateStakeholders);
+  };
+
+  const handleChangeStakeholderPriority = (index, direction) => {
+    const updateStakeholders = [...stakeholders];
+    const newIndex = index + direction;
+
+    if (newIndex >= 0 && newIndex < stakeholders.length) {
+      [updateStakeholders[index], updateStakeholders[newIndex]] = 
+      [updateStakeholders[newIndex], updateStakeholders[index]];
+      setStakeholders(updateStakeholders);
+    } 
+  };
+
+  const handleRemoveStakeholder = (index) => {
+    setStakeholders(stakeholders.filter((_, i) => i !== index));
+  };
+
+  const handlePrioritizeRequirements = async () => {
+    let newErrors = [];
+    if (!requirementFile) {
+      newErrors.push("Please upload a file with the requirements you want prioritized.");
+    }
+    if (stakeholders.length === 0) {
+      newErrors.push("Please add a least one stakeholder.");
+    } else {
+      stakeholders.forEach((stakeholder, index) => {
+        if (!stakeholder.name || !stakeholder.file) {
+          newErrors.push(`Stakeholder ${index + 1} is missing ${!stakeholder.name ? "a name" : ""}${!stakeholder.name && !stakeholder.file ? " and " : ""}${!stakeholder.file ? "a file" : ""}.`);
+        }
+      });
+    }
+    if (newErrors.length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors([]);
+
+    //insert api call here to set prioritized data - use flask
   };
 
   return (
     <div className="App">
+
       <h1 className="blue-text text-darken-2 center-align">ReqRank</h1>
-      {/* Div for displaying prioritization results */}
+
+      {/* Displaying prioritization results */}
       <div className="card-panel grey lighten-4">
-        <h5 className="center-align">Prioritized Results</h5>
-        <p className="center-align">Results will be displayed here.</p>
+        <h5 className="center-align">Prioritized Requirements</h5>
+        <div style={{ maxHeight: "400px", overflow: "auto"}}>
+          <table className="highlight centered">
+            <thead>
+              <tr>
+                <th>Requirement</th>
+                <th>Priority</th>
+                <th>Dependency Group</th>
+                <th>Dependency count</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {prioritizedData.length > 0 ? (
+                prioritizedData.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.requirement}</td>
+                    <td>{item.priority}</td>
+                    <td>{item.dependency_group}</td>
+                    <td>{item.dependency_count}</td>
+                    <td>{item.score}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="5">No results available yet.</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      {/* File uploads */}
-      <div className="file_upload_container">
-        <div className="row">
-          {/* User feedback field */}
-          <div className="col s12 m6 l6">
-            <div className="feedback_input_field">
-              <label className="active">Upload user feedback</label>
-              <input type="file" multiple onChange={handleUserFeedbackData} />
-            </div>
-
-            <ul className="collection">
-              {feedbackFiles.map((file, index) => (
-                <li key={index} className="collection-item">
-                  {file.name}
-                  <button className="btn red btn-small right" onClick={() => removeFeedbackFile(index)}>Remove</button>
-                </li>
-              ))}
-            </ul>
+      {/*Requirements file upload field*/}
+      <ul className='collapsible popout'>
+        <li>
+          <div className='collapsible-header'>
+            <i className='material-icons'>description</i>
+            Upload Requirements
           </div>
-
-          {/* Requirements input field */}
-          <div className="col s12 m6 l6">
-            <div className="req_input_field">
-              <label className="active">Upload Requirements</label>
-              <input type="file" onChange={handleRquirementFileData} />
-            </div>
-
-            {requirementFile && (
-              <div className="card-panel">
-                <p>Uploaded file: {requirementFile.name}</p>
+          <div className='collapsible-body'>
+            <div className='file-field input-field'>
+              <div className='btn blue'>
+                <span>Upload file</span>
+                <input
+                type='file'
+                onChange={(e) => handleRquirementFileUpload(e)}/>
               </div>
-            )}
+              <div className='file-path-wrapper'>
+                <input
+                className='file-path validate'
+                type='text'
+                placeholder='Upload document'
+                value={requirementFile ? requirementFile.name : ""}
+                readOnly/>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div className='row'>
+        <div className='col s12 m6'>
+          {/*Add stakeholder button*/}
+          <button className='waves-effect waves-light btn-large' onClick={handleAddStakeholder}>
+            <i className='material-icons right'>add</i>
+            Add Stakeholder
+          </button>
+        </div>
+
+        <div className='col s12 m6'>
+          {/*Checkbox: prioritized?*/}
+          <div className="input-field">
+            <label>
+            <input type="checkbox" checked={isStakeholdersPrioritized} onChange={() => setisStakeholdersPrioritized(!isStakeholdersPrioritized)}/>
+            <span>Stakeholders are listed in order of importance</span>
+            </label>
           </div>
         </div>
       </div>
 
-      {/* Prioritization button */}
+      {/*Stakeholder list and files*/}
+      <ul className='collapsible popout'>
+        {stakeholders.map((stakeholder, index) => (
+          <li key={index}>
+            <div className='collapsible-header'>
+              <i className='material-icons'>person</i>
+              {stakeholder.name || `Stakeholder ${index + 1}`}
+              <div className='right' style={{ marginLeft: '10px'}}>
+                <button 
+                className='btn-small yellow darken-3' 
+                disabled={index === 0} 
+                style={{ marginLeft: '5px'}}
+                onClick={(e) => {e.stopPropagation(); handleChangeStakeholderPriority(index, -1); }}>
+                  <i className='material-icons'>arrow_upward</i>
+                </button>
+                <button
+                className='btn-small yellow darken-3'
+                disabled={index === stakeholder.length - 1}
+                style={{ marginLeft: '5px'}}
+                onClick={(e) => {e.stopPropagation(); handleChangeStakeholderPriority(index, 1); }}>
+                  <i className='material-icons'>arrow_downward</i>
+                </button>
+                <button
+                className='btn-small red'
+                style={{ marginLeft: '5px'}}
+                onClick={(e) => {e.stopPropagation(); handleRemoveStakeholder(index); }}>
+                  <i className='material-icons'>delete</i>
+                </button>
+              </div>
+            </div>
+
+            <div className='collapsible-body'>
+              <div className='input-field'>
+                <input 
+                type='text' 
+                value={stakeholder.name} 
+                onChange={(e) => handleUpdateStakeholderName(index, e.target.value)}
+                placeholder='Enter stakeholder name'/>
+                <label className='active'>Stakeholder Name</label>
+              </div>
+
+              <div className='file-field input-field'>
+                <div className='btn blue'>
+                  <span>Upload file</span>
+                  <input
+                  type='file'
+                  onChange={(e) => handleStakeholderFileUpload(index, e)}/>
+                </div>
+                <div className='file-path-wrapper'>
+                  <input
+                  className='file-path validate'
+                  type='text'
+                  placeholder='Upload document'
+                  value={stakeholder.file ? stakeholder.file.name : ""}
+                  readOnly/>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+
       <div>
-        <button type="button" className='waves-effect waves-light btn-large'><i className="material-icons right">send</i>
-        Prioritize Requirements</button>
+        {/* Display error messages */}
+        {errors.length > 0 && (
+          <div className='card-panel red lighten-4 red-text text-darken-4'>
+            <i className='material-icons right'>error</i>
+            <ul>
+              {errors.map((error, index) => (
+                <div key={index}>
+                   <li>{error}</li>
+                   {index < errors.length - 1 && <hr />}
+                </div>
+              ))}
+            </ul>
+          </div>)}
+
+        {/* Prioritization button */}
+        <button type="button" className='waves-effect waves-light btn-large' onClick={handlePrioritizeRequirements}>
+          <i className="material-icons right">send</i>
+          Prioritize Requirements
+        </button>
       </div>
+
     </div>
   );
 }

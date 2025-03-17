@@ -1,16 +1,6 @@
 
-
-def preprocess_data():
-    return 0
-
-def vectorize_input():
-    return 0
-
-def generate_clusters():
-    return 0
-
-def analyze_sentiment():
-    return 0
+#Use app routes - flask to call methods from other files - however not for methods that are simply internal to the backend
+#Further divide if needed
 
 def calculate_score():
     return 0

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head><title>Sample Text for Preprocessing</title></head>
+<body>
+<p>This is a <b>sample</b> text! It contains <i>HTML tags</i> and emojis. 😊 Here are some common things to check: <u>whitespace</u> normalization, punctuation, and stopwords.</p>
+<p>For instance: "This is a test sentence! 😎 Have fun!"</p>
+<p>What's next? Should we remove: special characters, like @, #, $, or something else?</p>
+</body>
+</html>

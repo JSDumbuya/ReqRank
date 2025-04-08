@@ -1,13 +1,19 @@
-from utils import *
+from utils import read_file
+import pandas as pd
 import emoji
 import re
 import spacy
 from bs4 import BeautifulSoup
+from wtpsplit import SaT
+from nltk.tokenize import word_tokenize
 
-nlp = spacy.load("en_core_web_sm")
+sat_sm = SaT("sat-3l-sm")
 
 def preprocess_general(file_path):
     file_content = read_file(file_path)
+
+    if isinstance(file_content, pd.DataFrame):
+        file_content = file_content.to_string(index=False, header=False)
 
     # Strip HTML/XML tags: BeautifulSoup
     file_content = BeautifulSoup(file_content, "html.parser").get_text()
@@ -15,20 +21,25 @@ def preprocess_general(file_path):
     file_content = file_content.lower()
     # Whitespace
     file_content = re.sub(r'\s+', ' ', file_content).strip()
+    #Segment SaT
+    sentences = sat_sm.split(file_content)
     # Remove some non-alphanumeric characters
     #file_content = re.sub(r'[^\w\s!.,;?\'":-]', '', file_content) 
     # Segment: spaCy
-    doc = nlp(file_content)
-    sentences = [sent.text.strip() for sent in doc.sents if sent.text.strip()]
+    #doc = nlp(file_content)
+    #sentences = [sent.text.strip() for sent in doc.sents if sent.text.strip()]
 
     return sentences
+
+
+nlp = spacy.load("en_core_web_sm")
 
 def preprocess_sentiment_analysis(file_path):
     normalized_sentences = preprocess_general(file_path)
 
-    #Emoji conversion: emoji
+    # Emoji conversion: emoji
     normalized_sentences = [emoji.demojize(sentence) for sentence in normalized_sentences]
-    #Lemmatization, stop word removal: spaCy
+    # Lemmatization, stop word removal: spaCy
     processed_sentences = []
     for sentence in normalized_sentences:
         doc = nlp(sentence)
@@ -37,10 +48,32 @@ def preprocess_sentiment_analysis(file_path):
 
     return processed_sentences 
 
+def preprocess_classification(file_path):
+    file_content = read_file(file_path)
+
+    if isinstance(file_content, pd.DataFrame):
+        file_content = file_content.to_string(index=False, header=False)
+
+    #split into individual reqs
+    lines = file_content.split("\n")
+    
+    cleaned_reqs = []
+
+    for line in lines:
+        # lower case, remove potential whitespace
+        line = line.lower().strip()
+        # stop word, punctuation removal: spaCy
+        doc = nlp(line)
+        tokens = [token.text for token in doc if not token.is_stop and not token.is_punct]
+        cleaned_req = " ".join(tokens).strip()
+        if cleaned_req:
+            cleaned_reqs.append(cleaned_req)
+
+    return cleaned_reqs
 
 
 '''#Testing pipeline
-file_path = "backend/uploads/test_preprocess.txt"
+file_path = "backend/testing/test_preprocess.txt"
 test_general = preprocess_general(file_path)
 test_sentiment = preprocess_sentiment_analysis(file_path)
 create_csv(test_sentiment, "general_sent")'''

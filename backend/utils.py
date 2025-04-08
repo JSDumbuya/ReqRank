@@ -2,10 +2,12 @@ import pandas as pd
 from PyPDF2 import PdfReader
 from docx import Document
 
-
 def create_csv(text, file_name):
-    df = pd.DataFrame(text)
-    df.to_csv(file_name, index=True, header=True)
+    if isinstance(text, pd.DataFrame):
+        df = text
+    else:
+        df = pd.DataFrame(text)
+    df.to_csv(file_name, index=False, header=True)
 
 def read_txt(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -26,10 +28,17 @@ def read_docx(file_path):
     return text
 
 def read_csv(file_path):
-    return pd.read_csv(file_path).to_string(index=False)
+    return pd.read_csv(file_path)
 
 def read_excel(file_path):
-    return pd.read_excel(file_path).to_string(index=False)
+    file_extension = file_path.split('.')[-1].lower()
+    
+    if file_extension == "xlsx":
+        return pd.read_excel(file_path, engine="openpyxl")
+    elif file_extension == "xls":
+        return pd.read_excel(file_path, engine="xlrd")
+    else:
+        raise ValueError("Unsupported Excel file format.")
 
 def read_file(file_path):
     file_extension = file_path.split('.')[-1].lower()
@@ -42,9 +51,11 @@ def read_file(file_path):
         return read_docx(file_path)
     elif file_extension == 'csv':
         return read_csv(file_path)
-    elif file_extension == 'xlsx':
+    elif file_extension == ['xlsx', 'xls']:
         return read_excel(file_path)
     else:
         raise ValueError("Unsupported file type")
 
 # Todo: all errors should be displayed in the user interface
+
+

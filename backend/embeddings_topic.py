@@ -1,0 +1,26 @@
+from sentence_transformers import SentenceTransformer
+from preprocess import preprocess_general
+from bertopic import BERTopic
+from utils import *
+
+
+embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+
+def generate_embeddings(file_path, model):
+    sentences = preprocess_general(file_path)
+    embeddings = model.encode(sentences)
+    return sentences, embeddings
+
+#Probability of a sentence belonging to each topic - get dominant topics.
+#Reuse embeddings from sbert.
+def extract_topics(sentences, embeddings):
+    topic_model = BERTopic()
+    topics, probabilities = topic_model.fit_transform(documents=sentences, embeddings=embeddings)
+    return topic_model, topics, probabilities
+
+#For testing
+'''sentences, embeddings = generate_embeddings("backend/datasets/topic-Eval-Dataset.csv", embedding_model)
+model, topics, probs = extract_topics(sentences, embeddings)
+create_csv(model.get_topic_info(), "topics_text.csv")'''
+
+

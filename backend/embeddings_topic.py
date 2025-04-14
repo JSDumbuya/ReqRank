@@ -1,13 +1,11 @@
 from sentence_transformers import SentenceTransformer
-from preprocess import preprocess_general
 from bertopic import BERTopic
 from utils import *
 
 
 embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
-def generate_embeddings(file_path, model):
-    sentences = preprocess_general(file_path)
+def generate_embeddings(sentences, model):
     embeddings = model.encode(sentences)
     return sentences, embeddings
 

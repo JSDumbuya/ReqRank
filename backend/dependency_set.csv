@@ -1,0 +1,107 @@
+requirementtext, dependency type, group
+"Encrypt all user data before storage", Combination - Complete, 1
+"Store user data in a secure cloud database", Combination - Complete, 1
+"Enable biometric login", Combination - Limited, 2
+"Allow users to reset password via email", Combination - Limited, 2
+"System must allow anonymous user access", Exclusion, 3
+"System must require user authentication for all access", Exclusion, 3
+"System must generate monthly financial reports", Implication, 4
+"System must store transaction history", Implication, 4
+"System must have time-based data tagging", Implication, 4
+"Process payment", Direct, 5
+"Display confirmation message after payment", Direct, 5
+"User places an order", Indirect, 6
+"Generate invoice from order", Indirect, 6
+"Send invoice to user", Indirect, 6
+"The system must ensure user data security", Refines, 7
+"Implement HTTPS for all communications", Refines, 7
+"Encrypt data at rest using AES-256", Refines, 7
+"Enable two-factor authentication for admin users", Refines, 7
+"Enable real-time chat support for logged-in users", Combination - Complete, 8
+"Store chat transcripts securely in the support system", Combination - Complete, 8
+"Enable dark mode toggle", Combination - Limited, 9
+"Preserve user theme preference across sessions", Combination - Limited, 9
+"Enable simultaneous login from multiple devices", Exclusion, 10
+"Restrict login to one active session per user", Exclusion, 10
+"Allow users to download invoices", Implication, 11
+"Store invoice history for each user", Implication, 11
+"Generate invoices automatically on successful payment", Implication, 11
+"Send SMS notification after transaction", Direct, 12
+"Validate phone number before sending SMS", Direct, 12
+"User updates profile", Indirect, 13
+"Changes logged in audit history", Indirect, 13
+"Audit history backed up weekly", Indirect, 13
+"Improve user account security", Refines, 14
+"Introduce password strength validation", Refines, 14
+"Enable email alerts for suspicious login", Refines, 14
+"Restrict account access after multiple failed attempts", Refines, 14
+"Log out user after inactivity", Combination - Complete, 15
+"Redirect to login page after logout", Combination - Complete, 15
+"Enable voice search for premium users", Combination - Limited, 16
+"Allow text fallback for voice-unavailable environments", Combination - Limited, 16
+"Allow users to delete their accounts", Exclusion, 17
+"Preserve all user data indefinitely", Exclusion, 17
+"Enable multi-currency support", Implication, 18
+"Convert currency based on user location", Implication, 18
+"Display currency symbols consistently across site", Implication, 18
+"Allow social media login", Direct, 19
+"Link social login to internal user record", Direct, 19
+"Allow user comments on blog posts", Indirect, 20
+"Require user authentication for commenting", Indirect, 20
+"Enable spam filter for comments", Indirect, 20
+"Enhance dashboard usability", Refines, 21
+"Add drag-and-drop widgets", Refines, 21
+"Include customizable data panels", Refines, 21
+"Support light/dark UI switch", Refines, 21
+"Allow product rating after purchase", Combination - Complete, 22
+"Verify user has purchased product before rating", Combination - Complete, 22
+"Enable offline access to files", Combination - Limited, 23
+"Synchronize files when connection is restored", Combination - Limited, 23
+"Show personalized ads", Exclusion, 24
+"Enforce strict user privacy settings", Exclusion, 24
+"Allow user to schedule meetings", Implication, 25
+"Sync meetings with calendar", Implication, 25
+"Send reminders before scheduled time", Implication, 25
+"Enable one-click checkout", Direct, 26
+"Pre-fill shipping information", Direct, 26
+"Enable machine learning recommendations", Indirect, 27
+"Track user behavior on products", Indirect, 27
+"Log product clicks and views", Indirect, 27
+"Support customer loyalty program", Refines, 28
+"Track points per transaction", Refines, 28
+"Allow redemption of points during checkout", Refines, 28
+"Allow product pre-orders", Combination - Complete, 29
+"Notify users before release date", Combination - Complete, 29
+"Enable product comparison feature", Combination - Limited, 30
+"Let users save comparisons", Combination - Limited, 30
+"Enable incognito browsing", Exclusion, 31
+"Track user activity for personalization", Exclusion, 31
+"Provide real-time stock updates", Implication, 32
+"Integrate with supplier inventory system", Implication, 32
+"Fetch inventory status every 10 minutes", Implication, 32
+"Validate promo codes on checkout", Direct, 33
+"Apply discount to total amount", Direct, 33
+"User selects delivery slot", Indirect, 34
+"System checks availability", Indirect, 34
+"System books delivery with courier", Indirect, 34
+"Improve system accessibility", Refines, 35
+"Support screen readers", Refines, 35
+"Allow keyboard-only navigation", Refines, 35
+"Provide high-contrast mode", Refines, 35
+"Enable email verification after signup", Combination - Complete, 36
+"Restrict access to features before verification", Combination - Complete, 36
+"Offer biometric authentication", Combination - Limited, 37
+"Allow password login as fallback", Combination - Limited, 37
+"Require VPN for internal access", Exclusion, 38
+"Allow access from any IP", Exclusion, 38
+"Support file version history", Implication, 39
+"Store previous file revisions", Implication, 39
+"Allow rollback to earlier version", Implication, 39
+"Display user avatar in profile", Direct, 40
+"Allow user to upload avatar", Direct, 40
+"User sends friend request", Indirect, 41
+"System stores request", Indirect, 41
+"Recipient receives notification", Indirect, 41
+"Refactor user settings module", Refines, 42
+"Split into notification, privacy, and profile settings", Refines, 42
+"Make each submodule independently configurable", Refines, 42

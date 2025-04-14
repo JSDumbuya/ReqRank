@@ -1,8 +1,7 @@
-import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from collections import defaultdict
 
-def identify_dependencies(embeddings, threshold=0.7):
+def identify_dependencies(embeddings, threshold=0.6):
     dependencies = []
     
     for i in range(len(embeddings)):

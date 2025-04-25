@@ -129,6 +129,7 @@ function App() {
             Upload Requirements
           </div>
           <div className='collapsible-body'>
+            {/*Requirements file upload field*/}
             <div className='file-field input-field'>
               <div className='btn blue'>
                 <span>Upload file</span>
@@ -145,7 +146,9 @@ function App() {
                 readOnly />
               </div>
             </div>
+            {/*Requirements file upload field*/}
 
+            {/*Display uploaded requirements*/}
             {requirements.length > 0 && (
               <div style={{ maxHeight: "200px", overflowY: "scroll", marginTop: "1rem" }}>
                 <table className="striped responsive-table">
@@ -166,7 +169,7 @@ function App() {
                 </table>
               </div>
             )}
-
+            {/*Display uploaded requirements*/}
           </div>
         </li>
       </ul>
@@ -193,6 +196,8 @@ function App() {
           </div>
         </div>
       </div>
+
+      {/*Row with add stakeholder button + are stakeholders prioritized checkbox */}
 
       {/*Stakeholder list and files*/}
       <ul className='collapsible popout'>
@@ -255,9 +260,10 @@ function App() {
           </li>
         ))}
       </ul>
-
+      {/*Stakeholder list and files*/}
+        
+      {/* Display error messages + prioritization button*/}
       <div>
-        {/* Display error messages */}
         {errors.length > 0 && (
           <div className='card-panel red lighten-4 red-text text-darken-4'>
             <i className='material-icons right'>error</i>
@@ -270,13 +276,19 @@ function App() {
               ))}
             </ul>
           </div>)}
+        
+        {/* Display error messages */}
 
         {/* Prioritization button */}
         <button type="button" className='waves-effect waves-light btn-large' onClick={handlePrioritizeRequirements}>
           <i className="material-icons right">send</i>
           Prioritize Requirements
         </button>
+        {/* Prioritization button */}
       </div>
+
+      {/* Display error messages + prioritization button*/}
+      
 
     </div>
   );

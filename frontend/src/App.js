@@ -8,6 +8,8 @@ function App() {
   
   const [requirementFile, setRequirementFile] = useState(null);
   const [requirements, setRequirements] = useState([]);
+  const [includeCost, setIncludeCost] = useState(false);
+  const [includeEffort, setIncludeEffort] = useState(false);
   const [prioritizedData, setPrioritizedData] = useState([]);
   const [stakeholders, setStakeholders] = useState([]);
   const [isStakeholdersPrioritized, setisStakeholdersPrioritized] = useState(false);
@@ -18,17 +20,32 @@ function App() {
   }, [stakeholders]);
 
   const handleRquirementFileUpload = (event) => {
-    const file = event.target.files[0]
+    const file = event.target.files[0];
     setRequirementFile(file);
-
+  
     const reader = new FileReader();
     reader.onload = (e) => {
       const text = e.target.result;
-      const lines = text.split(/\r?\n/).slice(1).map(line => line.trim()).filter(line => line.length > 0);
-      setRequirements(lines);
+      const lines = text.split(/\r?\n/).slice(1); 
+  
+      const parsed = lines
+        .map(line => line.trim())
+        .filter(line => line.length > 0)
+        .map(line => {
+          const [text, cost, effort] = line.split(",");
+          return {
+            text: text?.replaceAll('"', '').trim(),
+            cost: cost ? parseFloat(cost.trim()) : null,
+            effort: effort ? parseFloat(effort.trim()) : null,
+          };
+        });
+  
+      setRequirements(parsed);
     };
+  
     reader.readAsText(file);
   };
+  
 
   const handleAddStakeholder = () => {
     setStakeholders([...stakeholders, { name: "", file: null }])
@@ -83,6 +100,15 @@ function App() {
     setErrors([]);
 
     //insert api call here to set prioritized data - use flask
+    //Send requirements (the list) with the post call
+    {/*
+      fetch("/api/prioritize", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ requirements })
+});
+
+      */}
   };
 
   return (
@@ -156,13 +182,43 @@ function App() {
                     <tr>
                       <th>#</th>
                       <th>Requirement</th>
+                      {includeCost && <th>Cost</th>}
+                      {includeEffort && <th>Effort</th>}
                     </tr>
                   </thead>
                   <tbody>
                     {requirements.map((req, index) => (
                       <tr key={index}>
                         <td>{index + 1}</td>
-                        <td>{req.replaceAll('"', '')}</td>
+                        <td>{req.text}</td>
+                        {includeCost && (
+                          <td>
+                            <input
+                              type="number"
+                              value={req.cost ?? ""}
+                              onChange={(e) => {
+                                const newValue = e.target.value;
+                                const updated = [...requirements];
+                                updated[index].cost = newValue !== "" ? parseFloat(newValue) : null;
+                                setRequirements(updated);
+                              }}
+                            />
+                          </td>
+                        )}
+                        {includeEffort && (
+                          <td>
+                            <input
+                              type="number"
+                              value={req.effort ?? ""}
+                              onChange={(e) => {
+                                const newValue = e.target.value;
+                                const updated = [...requirements];
+                                updated[index].effort = newValue !== "" ? parseFloat(newValue) : null;
+                                setRequirements(updated);
+                              }}
+                            />
+                          </td>
+                        )}
                       </tr>
                     ))}
                   </tbody>
@@ -170,6 +226,25 @@ function App() {
               </div>
             )}
             {/*Display uploaded requirements*/}
+
+            {/*Additional criteria*/}
+            <div className="section">
+            <h5>Add Additional Prioritization Criteria</h5>
+            <p><strong>
+            To include cost and/or effort for each requirement, check the boxes below. <br/>
+            You can upload a CSV file that already contains this information, or add it manually after the upload.
+            </strong></p>
+            <label>
+              <input type="checkbox" checked={includeCost} onChange={() => setIncludeCost(!includeCost)} />
+              <span style={{fontSize: '20px'}}><strong>Include Cost</strong></span>
+            </label>
+            <br/>
+            <label>
+              <input type="checkbox" checked={includeEffort} onChange={() => setIncludeEffort(!includeEffort)} />
+              <span style={{fontSize: '20px'}}><strong>Include Effort</strong></span>
+            </label>
+          </div>
+          {/*Additional criteria*/}
           </div>
         </li>
       </ul>

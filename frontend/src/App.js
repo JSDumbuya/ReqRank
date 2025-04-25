@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import M from "materialize-css";
 
 
@@ -7,6 +7,7 @@ import M from "materialize-css";
 function App() {
   
   const [requirementFile, setRequirementFile] = useState(null);
+  const [requirements, setRequirements] = useState([]);
   const [prioritizedData, setPrioritizedData] = useState([]);
   const [stakeholders, setStakeholders] = useState([]);
   const [isStakeholdersPrioritized, setisStakeholdersPrioritized] = useState(false);
@@ -17,7 +18,16 @@ function App() {
   }, [stakeholders]);
 
   const handleRquirementFileUpload = (event) => {
-    setRequirementFile(event.target.files[0]);
+    const file = event.target.files[0]
+    setRequirementFile(file);
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const text = e.target.result;
+      const lines = text.split(/\r?\n/).slice(1).map(line => line.trim()).filter(line => line.length > 0);
+      setRequirements(lines);
+    };
+    reader.readAsText(file);
   };
 
   const handleAddStakeholder = () => {
@@ -88,10 +98,8 @@ function App() {
             <thead>
               <tr>
                 <th>Requirement</th>
-                <th>Priority</th>
-                <th>Dependency Group</th>
-                <th>Dependency count</th>
-                <th>Score</th>
+                <th>Priority Score</th>
+                <th>Group</th>
               </tr>
             </thead>
             <tbody>
@@ -99,10 +107,8 @@ function App() {
                 prioritizedData.map((item, index) => (
                   <tr key={index}>
                     <td>{item.requirement}</td>
-                    <td>{item.priority}</td>
-                    <td>{item.dependency_group}</td>
-                    <td>{item.dependency_count}</td>
-                    <td>{item.score}</td>
+                    <td>{item.priority_score}</td>
+                    <td>{item.group}</td>
                   </tr>
                 ))
               ) : (
@@ -136,13 +142,38 @@ function App() {
                 type='text'
                 placeholder='Upload document'
                 value={requirementFile ? requirementFile.name : ""}
-                readOnly/>
+                readOnly />
               </div>
             </div>
+
+            {requirements.length > 0 && (
+              <div style={{ maxHeight: "200px", overflowY: "scroll", marginTop: "1rem" }}>
+                <table className="striped responsive-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Requirement</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {requirements.map((req, index) => (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{req.replaceAll('"', '')}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+
           </div>
         </li>
       </ul>
 
+      {/*Requirements file upload field*/}
+
+      {/*Row with add stakeholder button + are stakeholders prioritized checkbox */}
       <div className='row'>
         <div className='col s12 m6'>
           {/*Add stakeholder button*/}

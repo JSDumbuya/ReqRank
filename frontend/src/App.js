@@ -146,6 +146,7 @@ function App() {
           </table>
         </div>
       </div>
+      {/* Displaying prioritization results */}
 
       {/*Requirements file upload field*/}
       <ul className='collapsible popout'>
@@ -231,7 +232,7 @@ function App() {
             <div className="section">
             <h5>Add Additional Prioritization Criteria</h5>
             <p><strong>
-            To include cost and/or effort for each requirement, check the boxes below. <br/>
+            To include cost and/or effort for each requirement, check the boxes below. 
             You can upload a CSV file that already contains this information, or add it manually after the upload.
             </strong></p>
             <label>
@@ -248,8 +249,21 @@ function App() {
           </div>
         </li>
       </ul>
-
       {/*Requirements file upload field*/}
+      
+      {/*Configuration of requirements prioritization*/}
+      <ul className='collapsible popout'>
+        <li>
+          <div className='collapsible-header'>
+            <i className='material-icons'>tune</i>
+            Set Prioritization Rules
+          </div>
+          <div className='collapsible-body'>
+            {/* Add your content here */}
+          </div>
+        </li>
+      </ul>
+      {/*Configuration of requirements prioritization*/}
 
       {/*Row with add stakeholder button + are stakeholders prioritized checkbox */}
       <div className='row'>

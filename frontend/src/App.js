@@ -3,21 +3,59 @@ import React, { use, useEffect, useState } from "react";
 import M from "materialize-css";
 
 
-
 function App() {
   
-  const [requirementFile, setRequirementFile] = useState(null);
-  const [requirements, setRequirements] = useState([]);
+  const [requirementFile, setRequirementFile] = useState(null); //to display file in interface
+  const [requirements, setRequirements] = useState([]); //actual req list
   const [includeCost, setIncludeCost] = useState(false);
   const [includeEffort, setIncludeEffort] = useState(false);
   const [prioritizedData, setPrioritizedData] = useState([]);
   const [stakeholders, setStakeholders] = useState([]);
   const [isStakeholdersPrioritized, setisStakeholdersPrioritized] = useState(false);
   const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [weights, setWeights] = useState({
+    cost: 5,
+    effort: 5,
+    amountRelatedReqs: 5,
+    sentiment: 5,
+    popularity: 5,
+    nfrImportance: 5
+  })
+
+  const [nfrWeights, setNfrWeights] = useState({
+    PE: 5, 
+    US: 5,
+    SE: 5, 
+    A: 5, 
+    MN: 5, 
+    L: 5,  
+    SC: 5, 
+    LF: 5, 
+    O: 5,  
+    FT: 5,
+    PO: 5,
+  });
+  const nfrLabels = {
+    PE: "Performance",
+    US: "Usability",
+    SE: "Security",
+    A: "Availability",
+    MN: "Maintainability",
+    L: "Legal",
+    SC: "Scalability",
+    LF: "Look-and-Feel",
+    O: "Operability",
+    FT: "Fault Tolerance",
+    PO: "Portability"
+  };
+  
 
   useEffect(() => {
     M.Collapsible.init(document.querySelectorAll(".collapsible"));
   }, [stakeholders]);
+
+  //Requirement file upload
 
   const handleRquirementFileUpload = (event) => {
     const file = event.target.files[0];
@@ -26,29 +64,50 @@ function App() {
     const reader = new FileReader();
     reader.onload = (e) => {
       const text = e.target.result;
-      const lines = text.split(/\r?\n/).slice(1); 
+      const lines = text.split(/\r?\n/);
   
       const parsed = lines
         .map(line => line.trim())
         .filter(line => line.length > 0)
-        .map(line => {
-          const [text, cost, effort] = line.split(",");
-          return {
-            text: text?.replaceAll('"', '').trim(),
-            cost: cost ? parseFloat(cost.trim()) : null,
-            effort: effort ? parseFloat(effort.trim()) : null,
-          };
-        });
+        .map(line => ({
+          text: line.replaceAll('"', ''),
+        }));
   
       setRequirements(parsed);
     };
   
     reader.readAsText(file);
+  };  
+
+  // Configuration of prioritization
+
+  const handleCriteriaWeightChange = (name, value) => {
+    setWeights((prev) => ({
+      ...prev,
+      [name]: Number(value),
+    }));
   };
+
+  const handleNfrWeightChange = (key, value) => {
+    setNfrWeights(prev => ({
+      ...prev,
+      [key]: Number(value)
+    }));
+  };  
   
+  const normalizeWeights = (weights) => {
+    const total = Object.values(weights).reduce((sum, val) => sum + val, 0);
+    const normalized = {};
+    for (const key in weights) {
+      normalized[key] = weights[key] / total;
+    }
+    return normalized;
+  };
+
+  //Stakeholder related
 
   const handleAddStakeholder = () => {
-    setStakeholders([...stakeholders, { name: "", file: null }])
+    setStakeholders([...stakeholders, { name: "", file: null, feedback: "", weight: stakeholders.length + 1 }])
   };
 
   const handleUpdateStakeholderName = (index, newName) => {
@@ -57,34 +116,59 @@ function App() {
     setStakeholders(updateStakeholders);
   };
 
-  const handleStakeholderFileUpload = (index, event) => {
+ /*  const handleStakeholderFileUpload = (index, event) => {
     const updateStakeholders = [...stakeholders];
     updateStakeholders[index].file = event.target.files[0];
     setStakeholders(updateStakeholders);
+  }; */
+
+  const handleStakeholderFeedbackChange = (index, value) => {
+    const updatedStakeholders = [...stakeholders];
+
+    const textFile = new File([value], `stakeholder_${index}_feedback.txt`, {
+      type: 'text/plain',
+    });
+  
+    updatedStakeholders[index].feedback = value;
+    updatedStakeholders[index].file = textFile;
+  
+    setStakeholders(updatedStakeholders);
   };
 
   const handleChangeStakeholderPriority = (index, direction) => {
-    const updateStakeholders = [...stakeholders];
+    const updatedStakeholders = [...stakeholders];
     const newIndex = index + direction;
-
+  
     if (newIndex >= 0 && newIndex < stakeholders.length) {
-      [updateStakeholders[index], updateStakeholders[newIndex]] = 
-      [updateStakeholders[newIndex], updateStakeholders[index]];
-      setStakeholders(updateStakeholders);
-    } 
+      [updatedStakeholders[index], updatedStakeholders[newIndex]] =
+        [updatedStakeholders[newIndex], updatedStakeholders[index]];
+  
+      setStakeholders(updateStakeholderWeights(updatedStakeholders));
+    }
+  };
+
+  const updateStakeholderWeights = (stakeholdersList) => {
+    const total = stakeholdersList.length;
+    return stakeholdersList.map((stakeholder, index) => ({
+      ...stakeholder,
+      weight: total - index,
+    }));
   };
 
   const handleRemoveStakeholder = (index) => {
     setStakeholders(stakeholders.filter((_, i) => i !== index));
   };
 
+  //Prioritize reqs
+
   const handlePrioritizeRequirements = async () => {
     let newErrors = [];
-    if (!requirementFile) {
-      newErrors.push("Please upload a file with the requirements you want prioritized.");
+  
+    if (requirements.length === 0) {
+      newErrors.push("Please upload a requirements file.");
     }
     if (stakeholders.length === 0) {
-      newErrors.push("Please add a least one stakeholder.");
+      newErrors.push("Please add at least one stakeholder.");
     } else {
       stakeholders.forEach((stakeholder, index) => {
         if (!stakeholder.name || !stakeholder.file) {
@@ -92,23 +176,43 @@ function App() {
         }
       });
     }
+  
     if (newErrors.length > 0) {
       setErrors(newErrors);
       return;
     }
-
+  
     setErrors([]);
-
-    //insert api call here to set prioritized data - use flask
-    //Send requirements (the list) with the post call
-    {/*
-      fetch("/api/prioritize", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ requirements })
-});
-
-      */}
+    setIsLoading(true);
+  
+    const formData = new FormData();
+    
+    formData.append("requirements", JSON.stringify(requirements));
+    formData.append("normalizedWeights", JSON.stringify(normalizeWeights(weights)));
+    formData.append("normalizedNfrWeights", JSON.stringify(normalizeWeights(nfrWeights)));
+    formData.append("stakeholdersPrioritized", JSON.stringify(isStakeholdersPrioritized));
+  
+    stakeholders.forEach((stakeholder, index) => {
+      formData.append(`stakeholderFile`, stakeholder.file);
+      formData.append(`stakeholderNames`, stakeholder.name); 
+      formData.append(`stakeholderWeights`, stakeholder.weight); 
+    });
+  
+    try {
+      const response = await fetch("http://localhost:8000/api/prioritize", {
+        method: "POST",
+        body: formData,
+      });
+  
+      if (!response.ok) {
+        throw new Error("Something went wrong.");
+      }
+  
+      const data = await response.json();
+      setPrioritizedData(data.prioritized_data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -132,8 +236,8 @@ function App() {
               {prioritizedData.length > 0 ? (
                 prioritizedData.map((item, index) => (
                   <tr key={index}>
-                    <td>{item.requirement}</td>
-                    <td>{item.priority_score}</td>
+                    <td>{item.text}</td>
+                    <td>{item.final_score}</td>
                     <td>{item.group}</td>
                   </tr>
                 ))
@@ -147,6 +251,8 @@ function App() {
         </div>
       </div>
       {/* Displaying prioritization results */}
+
+      <h4>Upload Requirements & Set Prioritization Rules</h4>
 
       {/*Requirements file upload field*/}
       <ul className='collapsible popout'>
@@ -259,11 +365,158 @@ function App() {
             Set Prioritization Rules
           </div>
           <div className='collapsible-body'>
-            {/* Add your content here */}
+            {/* Weighting criteria */}
+            <h5>Apply Weights to Prioritization Criteria</h5>
+            <p>Set the weights of the following criteria according to their importance for the prioritization of requirements.</p>
+            <form className='container'>
+              {includeCost && (
+                <div className="input-field">
+                  <p className="range-field">
+                    <label htmlFor="costWeight" className="active">
+                      Cost Importance: {weights.cost}
+                    </label>
+                    <input
+                      type="range"
+                      id="costWeight"
+                      min="0"
+                      max="10"
+                      step="1"
+                      value={weights.cost}
+                      onChange={(e) => handleCriteriaWeightChange("cost", e.target.value)}
+                    />
+                  </p>
+                </div>
+              )}
+
+              {includeEffort && (
+                <div className="input-field">
+                  <p className="range-field">
+                    <label htmlFor="effortWeight" className="active">
+                      Effort Importance: {weights.effort}
+                    </label>
+                    <input
+                      type="range"
+                      id="effortWeight"
+                      min="0"
+                      max="10"
+                      step="1"
+                      value={weights.effort}
+                      onChange={(e) => handleCriteriaWeightChange("effort", e.target.value)}
+                    />
+                  </p>
+                </div>
+              )}
+
+              <div className="input-field">
+                <p className="range-field">
+                  <label htmlFor="amountRelatedReqsWeight" className="active">
+                    Amount of Related Requirements Importance: {weights.amountRelatedReqs}
+                  </label>
+                  <input
+                    type="range"
+                    id="amountRelatedReqsWeight"
+                    min="0"
+                    max="10"
+                    step="1"
+                    value={weights.amountRelatedReqs}
+                    onChange={(e) => handleCriteriaWeightChange("amountRelatedReqs", e.target.value)}
+                  />
+                </p>
+              </div>
+
+              <div className="input-field">
+                <p className="range-field">
+                  <label htmlFor="sentimentWeight" className="active">
+                    Sentiment Importance: {weights.sentiment}
+                  </label>
+                  <input
+                    type="range"
+                    id="sentimentWeight"
+                    min="0"
+                    max="10"
+                    step="1"
+                    value={weights.sentiment}
+                    onChange={(e) => handleCriteriaWeightChange("sentiment", e.target.value)}
+                  />
+                </p>
+              </div>
+
+              <div className="input-field">
+                <p className="range-field">
+                  <label htmlFor="popularityWeight" className="active">
+                    Popularity Among Stakeholders Importance: {weights.popularity}
+                  </label>
+                  <input
+                    type="range"
+                    id="popularityWeight"
+                    min="0"
+                    max="10"
+                    step="1"
+                    value={weights.popularity}
+                    onChange={(e) => handleCriteriaWeightChange("popularity", e.target.value)}
+                  />
+                </p>
+              </div>
+
+              <div className="input-field">
+                <p className="range-field">
+                  <label htmlFor="nfrImportance" className="active">
+                    Influence of NFR Category Weights: {weights.nfrImportance}
+                  </label>
+                  <input
+                    type="range"
+                    id="nfrImportance"
+                    min="0"
+                    max="10"
+                    step="1"
+                    value={weights.nfrImportance}
+                    onChange={(e) => handleCriteriaWeightChange("nfrImportance", e.target.value)}
+                  />
+                </p>
+              </div>
+            </form>
+            {/* Weighting criteria */}
+
+            <div className="divider"></div>
+
+          {/* NFR ranking */}
+          <div className="section">
+            <h5>Rate Non-Functional Requirements by Importance</h5>
+            <p>All NFRs are treated equally unless their importance is adjusted.</p>
+            <form className="container">
+              {Object.keys(nfrWeights).map((key) => (
+                <div key={key} className="input-field">
+                  <p className="range-field">
+                    <label htmlFor={key} className="active">
+                      {nfrLabels[key]} Importance: {nfrWeights[key]}
+                    </label>
+                    <input
+                      type="range"
+                      id={key}
+                      min="0"
+                      max="10"
+                      step="1"
+                      value={nfrWeights[key]}
+                      onChange={(e) => handleNfrWeightChange(key, e.target.value)}
+                    />
+                  </p>
+                </div>
+              ))}
+            </form>
+          </div>
+          {/* NFR ranking */}
           </div>
         </li>
       </ul>
       {/*Configuration of requirements prioritization*/}
+
+      <h4>Stakeholder Feedback & Requirements Prioritization</h4>
+
+      <p>
+        Add stakeholders and upload their feedback. If you'd like to prioritize certain stakeholders, check the box below. <br/>
+        You can adjust their priority using the arrow buttons.
+      </p>
+
 
       {/*Row with add stakeholder button + are stakeholders prioritized checkbox */}
       <div className='row'>
@@ -297,7 +550,7 @@ function App() {
               {stakeholder.name || `Stakeholder ${index + 1}`}
               <div className='right' style={{ marginLeft: '10px'}}>
                 <button 
-                className='btn-small yellow darken-3' 
+                className='btn-small yellow darken-1' 
                 disabled={index === 0} 
                 style={{ marginLeft: '5px'}}
                 onClick={(e) => {e.stopPropagation(); handleChangeStakeholderPriority(index, -1); }}>
@@ -328,8 +581,18 @@ function App() {
                 placeholder='Enter stakeholder name'/>
                 <label className='active'>Stakeholder Name</label>
               </div>
+              
+              <div className='input-field'>
+                <label className='active'>Stakeholder Feedback</label>
+                <textarea
+                  className='materialize-textarea'
+                  value={stakeholder.feedback || ''}
+                  onChange={(e) => handleStakeholderFeedbackChange(index, e.target.value)}
+                  placeholder='Paste or type stakeholder feedback here...'
+                  style={{ minHeight: '150px', maxHeight: '300px', overflowY: 'scroll' }}/>
+              </div>
 
-              <div className='file-field input-field'>
+              {/*<div className='file-field input-field'>
                 <div className='btn blue'>
                   <span>Upload file</span>
                   <input
@@ -344,7 +607,7 @@ function App() {
                   value={stakeholder.file ? stakeholder.file.name : ""}
                   readOnly/>
                 </div>
-              </div>
+              </div>*/}
             </div>
           </li>
         ))}
@@ -369,13 +632,17 @@ function App() {
         {/* Display error messages */}
 
         {/* Prioritization button */}
-        <button type="button" className='waves-effect waves-light btn-large' onClick={handlePrioritizeRequirements}>
+        <button type="button" className='waves-effect waves-light btn-large' onClick={handlePrioritizeRequirements} disabled={isLoading}>
           <i className="material-icons right">send</i>
           Prioritize Requirements
         </button>
+        {isLoading && (
+          <div className="card-panel yellow lighten-4 amber-text text-darken-4">
+          <i className="material-icons right">hourglass_empty</i>
+          Prioritization is running. Please wait...
+        </div>)}
         {/* Prioritization button */}
       </div>
-
       {/* Display error messages + prioritization button*/}
       
 

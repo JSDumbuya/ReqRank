@@ -50,11 +50,11 @@ def preprocess_sentiment_analysis(file_path):
 
     return processed_sentences 
 
-def preprocess_classification(file_path):
-    file_content = read_file(file_path)
-
-    if isinstance(file_content, pd.DataFrame):
-        file_content = file_content.to_string(index=False, header=False)
+def preprocess_classification_experiments(file_path):
+    if isinstance(file_path, pd.DataFrame):
+        file_content = file_path.to_string(index=False, header=False)
+    else:
+        file_content = read_file(file_path)
 
     #split into individual reqs
     lines = file_content.split("\n")
@@ -75,11 +75,26 @@ def preprocess_classification(file_path):
 
     return cleaned_reqs
 
-def preprocess_reqs(file_path):
-    file_content = read_file(file_path)
+def preprocess_classification_production(prepared_reqs):
+    cleaned_reqs = []
+    for req in prepared_reqs.values():
+        line = req["text"].lower().strip()
+        line = re.sub(r'\s+', ' ', line).strip()
 
-    if isinstance(file_content, pd.DataFrame):
-        file_content = file_content.to_string(index=False, header=False)
+        doc = nlp(line)
+        tokens = [token.text for token in doc if not token.is_stop and not token.is_punct]
+        cleaned_line = " ".join(tokens).strip()
+
+        if cleaned_line:
+            cleaned_reqs.append(cleaned_line)
+
+    return cleaned_reqs   
+
+def preprocess_reqs(file_path):
+    if isinstance(file_path, pd.DataFrame):
+        file_content = file_path.to_string(index=False, header=False)
+    else:
+        file_content = read_file(file_path)
 
     lines = file_content.split("\n")
     

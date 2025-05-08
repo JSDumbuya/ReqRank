@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import pickle
 from utils import read_csv
-from preprocess import preprocess_classification
+from preprocess import preprocess_classification_experiments
 from sentence_transformers import SentenceTransformer
 from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
 from sklearn.svm import SVC
@@ -16,7 +16,7 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 full_NFR_data = read_csv("/Users/jariasallydumbuya/Library/CloudStorage/OneDrive-ITU/Computer Science/4. semester/Thesis/Datasets/Promise_exp/NFR_PROMISE.csv")
 requirementtext_nfr_file_path = "/Users/jariasallydumbuya/Library/CloudStorage/OneDrive-ITU/Computer Science/4. semester/Thesis/Datasets/Promise_exp/requirementtext_NFR_PROMISE.csv"
 
-cleaned_nfrs = preprocess_classification(requirementtext_nfr_file_path)
+cleaned_nfrs = preprocess_classification_experiments(requirementtext_nfr_file_path)
 cleaned_nfrs_df = pd.DataFrame({'cleaned_nfr': cleaned_nfrs})
 
 full_NFR_data['cleaned_nfr'] = cleaned_nfrs_df['cleaned_nfr']
@@ -29,7 +29,6 @@ X_embeddings = model.encode(X.tolist(), show_progress_bar=True)
 
 # Dataset split
 X_train, X_test, y_train, y_test = train_test_split(X_embeddings, y, test_size=0.2, stratify=y, random_state=42)
-
 
 # Tune C + gamma
 param_grid = {

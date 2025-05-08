@@ -3,7 +3,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score, classification_report
-from preprocess import preprocess_classification
+from preprocess import preprocess_classification_experiments
 from utils import read_csv
 import pickle
 import numpy as np
@@ -12,7 +12,7 @@ import numpy as np
 full_data = read_csv("/Users/jariasallydumbuya/Library/CloudStorage/OneDrive-ITU/Computer Science/4. semester/Thesis/Datasets/Promise_exp/PROMISE_exp.csv")
 requirement_text_file_path = "/Users/jariasallydumbuya/Library/CloudStorage/OneDrive-ITU/Computer Science/4. semester/Thesis/Datasets/Promise_exp/requirement_text_PROMISE.csv"
 
-cleaned_reqs = preprocess_classification(requirement_text_file_path)
+cleaned_reqs = preprocess_classification_experiments(requirement_text_file_path)
 cleaned_reqs_df = pd.DataFrame({'cleaned_reqs': cleaned_reqs})
 
 full_data['binary_class'] = full_data['class'].apply(lambda x: 'FR' if x == 'F' else 'NFR')

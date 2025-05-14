@@ -79,20 +79,27 @@ async def prioritize_requirements(
     # Prioritize requirements
 
     # 1. Sentiment + topic extraction
-    sentence_meta_data, all_sentences, all_embeddings, representation_type = prepare_stakeholders(stakeholders)
-    topic_model, topic_sentiment_scores, topic_popularity_scores = derive_topics_and_score(sentence_meta_data, all_sentences, all_embeddings)
+    sentence_meta_data, all_sentences, all_embeddings, representation_type, vectorizer = prepare_stakeholders(stakeholders)
+    topic_model, topic_sentiment_scores, topic_popularity_scores = derive_topics_and_score(sentence_meta_data, all_sentences, all_embeddings, vectorizer)
     
     # 2. Relatedness + prep of requirements
     prepared_requirements = prepare_requirements(requirements_file_path)
 
     # 3. Relate stakeholder feedback to reqs
-    prepared_requirements = relate_topics_to_reqs_and_score(prepare_requirements, topic_model, topic_sentiment_scores, topic_popularity_scores, representation_type)
+    prepared_requirements = relate_topics_to_reqs_and_score(prepared_requirements, topic_model, topic_sentiment_scores, topic_popularity_scores, representation_type, vectorizer)
 
     # 4. Classification
     prepared_requirements = classify_requirements(prepared_requirements, normalized_nfr_weights)
 
-    # 5. prioritize and rank data
+    # 5. prioritize, rank, add explanations
     prioritized_requirements = calculate_final_score_and_rank(prepared_requirements, normalized_weights)
+    prioritized_requirements = generate_explanation(prioritized_requirements)
+
+    for req in prioritized_requirements:
+        req_to_print = {k: v for k, v in req.items() if k != 'embedding'}
+        pprint.pprint(req_to_print, sort_dicts=False)
+
+    prioritized_requirements = convert_ndarrays(prioritized_requirements)
 
     # 6. Delete files in uploads - if everythings is okay
     try:
@@ -110,6 +117,59 @@ async def prioritize_requirements(
         content={"message": "Prioritization completed!", "prioritized_data": prioritized_requirements},
         status_code=200
     )
+
+
+
+# -------- utils ----------
+
+def convert_ndarrays(obj):
+    if isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, list):
+        return [convert_ndarrays(i) for i in obj]
+    elif isinstance(obj, dict):
+        return {k: convert_ndarrays(v) for k, v in obj.items()}
+    else:
+        return obj
+    
+def generate_explanation(requirements):
+    for req in requirements:
+        exp_parts = []
+
+        if req["type"] == "FR":
+            exp_parts.append("Type: Functional Requirement – describes what the system should do.")
+            exp_parts.append(
+                f"Normalized NFR Importance Score: {req['normalized_nfr_importance_score']:.2f} – based on the average importance of the non-functional requirements linked to this group."
+            )
+        else:
+            exp_parts.append(f"Type: Non-Functional Requirement ({req['category']}) – defines qualities or constraints of the system.")
+            exp_parts.append(
+                f"Normalized NFR Importance Score: {req['normalized_nfr_importance_score']:.2f} – based on the priority you assigned to its category."
+            )
+
+        exp_parts.append(
+            f"Normalized Topic Score: {req['normalized_topic_score']:.2f} – reflects how many unique stakeholders discussed the topic related to this requirement. "
+            "This helps highlight areas of shared interest or concern."
+        )
+
+        exp_parts.append(
+            f"Normalized Sentiment Score: {req['normalized_sentiment_score']:.2f} – based on the average negative sentiment from stakeholder feedback in this topic. "
+            "Negative feedback is weighted more heavily to prioritize issues that need attention."
+        )
+
+        exp_parts.append(
+            f"Normalized Relatedness Score: {req['normalized_relatedness_score']:.2f} – based on the number of related requirements, which is {req['group_size']}."
+        )
+
+        exp_parts.append(
+            f"Final Score: {req['final_score']:.2f} – calculated as a weighted combination of the above factors based on your chosen prioritization rules."
+        )
+
+        req['explanation'] = "\n\n".join(exp_parts)
+
+    return requirements
+
+ 
 
 # -------- Stakeholders and feedback ----------
 
@@ -136,7 +196,7 @@ def prepare_stakeholders(list_of_stakeholders):
                 representation_type = "bertopic"
             else:
                 vectorizer = TfidfVectorizer()
-                embeddings = vectorizer.fit_transform(preprocessed_sentences_sa).toarray()
+                embeddings = vectorizer.fit_transform(preprocessed_sentences_sa)
                 representation_type = "lda"
            
         
@@ -155,13 +215,13 @@ def prepare_stakeholders(list_of_stakeholders):
             all_sentences.append(sentence)
             all_embeddings.append(embeddings[i])
 
-    return sentence_metadata, all_sentences, all_embeddings, representation_type
+    return sentence_metadata, all_sentences, all_embeddings, representation_type, vectorizer
 
 
 def dynamically_chose_n_comps():
     return 0
 
-def derive_topics_and_score(sentence_metadata, all_sentences, all_embeddings):
+def derive_topics_and_score(sentence_metadata, all_sentences, all_embeddings, vectorizer):
     representation_type = sentence_metadata[0]["representation_type"]
     topics = []
 
@@ -171,7 +231,6 @@ def derive_topics_and_score(sentence_metadata, all_sentences, all_embeddings):
         topics, _ = topic_model.fit_transform(all_sentences, all_embeddings)
 
     elif representation_type == "lda":
-        vectorizer = CountVectorizer()
         doc_term_matrix = vectorizer.fit_transform(all_sentences)
         #Make n_components dynamic - chosen based on the size of all_sentences
         lda_model = LatentDirichletAllocation(n_components=10, random_state=42)
@@ -217,7 +276,7 @@ def derive_topics_and_score(sentence_metadata, all_sentences, all_embeddings):
     
     return topic_model, topic_sentiment_scores, topic_popularity_scores
 
-def relate_topics_to_reqs_and_score(requirements, topic_model, topic_sentiment_scores, topic_popularity_scores, representation_type):
+def relate_topics_to_reqs_and_score(requirements, topic_model, topic_sentiment_scores, topic_popularity_scores, representation_type, vectorizer):
     topic_representations = []
     topic_ids = []
 
@@ -230,26 +289,37 @@ def relate_topics_to_reqs_and_score(requirements, topic_model, topic_sentiment_s
                 topic_ids.append(topic)
         topic_embeddings = embedding_model.encode(topic_representations, show_progress_bar=False)
 
+        for req in requirements.values():
+            req_emb = req['embedding']
+            #Maybe experiment with cosine similarity treshold depending on results from tests
+            similarities = cosine_similarity([req_emb], topic_embeddings)[0]
+            best_topic_idx = int(np.argmax(similarities))
+            best_topic_id = topic_ids[best_topic_idx]
+            best_similarity = float(similarities[best_topic_idx])
+
+            req['topic_id'] = best_topic_id
+            req['topic_score'] = topic_popularity_scores.get(best_topic_id, 0.0)
+            req['sentiment_score'] = topic_sentiment_scores.get(best_topic_id, 0.0)
+            req['cosine_similarity_score'] = best_similarity
+
     elif representation_type == "lda":
         for topic in range(topic_model.n_components):
             topic_ids.append(topic)
-            topic_representations.append(topic)
-        topic_embeddings = topic_model.transform([req['embedding'] for req in requirements.values()])
 
-    for req in requirements.values():
-        req_emb = req['embedding']
-        similarities = cosine_similarity([req_emb], topic_embeddings)[0]
+        req_texts = [req["text"] for req in requirements.values()]
+        vectorized_reqs = vectorizer.transform(req_texts)
+        topic_distributions = topic_model.transform(vectorized_reqs)
 
-        #Maybe experiment with a cosine similarity threshold depending on results from tests.
-        best_topic_idx = int(np.argmax(similarities))
-        best_topic_id = topic_ids[best_topic_idx]
-        best_similarity = float(similarities[best_topic_idx])
+        for i, req in enumerate(requirements.values()):
+            topic_probs = topic_distributions[i]
+            best_topic_idx = int(np.argmax(topic_probs))
+            best_similarity = float(topic_probs[best_topic_idx])  # confidence
 
-        req['topic_id'] = best_topic_id
-        req['topic_score'] = topic_popularity_scores.get(best_topic_id, 0.0)
-        req['sentiment_score'] = topic_sentiment_scores.get(best_topic_id, 0.0)
-        req['cosine_similarity_score'] = best_similarity
-    
+            req['topic_id'] = best_topic_idx
+            req['topic_score'] = topic_popularity_scores.get(best_topic_idx, 0.0)
+            req['sentiment_score'] = topic_sentiment_scores.get(best_topic_idx, 0.0)
+            req['cosine_similarity_score'] = best_similarity  # still usable as a "confidence" metric
+
     return requirements
 
 
@@ -277,7 +347,7 @@ def prepare_requirements(file_path):
         group_size = 0
         group_nr = None 
 
-        for idx, g in enumerate(groups):
+        for idx, g in enumerate(groups, start=1):
             if i in g:
                 group = g
                 group_size = len(g)
@@ -353,39 +423,60 @@ def calculate_final_score_and_rank(requirements, normalized_weights):
         'amountRelatedReqs': 'normalized_relatedness_score'
     }
 
+    # Normalize scores for all requirements
     normalized_requirements = normalize_scores(requirements)
 
-    for req in normalized_requirements:
+    # Calculate the final score for each requirement
+    for req in normalized_requirements.values():
         req['final_score'] = sum(req[weight_to_score_map[key]] * normalized_weights[key] 
                                  for key in weight_to_score_map if key in normalized_weights)
     
+    # Group the requirements by their group number
     group_scores = defaultdict(list)
-    for req in normalized_requirements:
+    for req in normalized_requirements.values():
         group_scores[req['group_nr']].append(req['final_score'])
 
+    # Calculate the average score for each group
     group_avg_scores = {group_nr: np.mean(scores) for group_nr, scores in group_scores.items()}
 
+    # Sort the groups by their average score, highest to lowest
     sorted_groups = sorted(group_avg_scores.items(), key=lambda x: x[1], reverse=True)
     group_ranks = {group_nr: rank + 1 for rank, (group_nr, _) in enumerate(sorted_groups)}
 
-    sorted_reqs = sorted(normalized_requirements, key=lambda r: r['final_score'], reverse=True)
-    for i, req in enumerate(sorted_reqs):
-        req['rank'] = i + 1
-        req['group_avg_score'] = group_avg_scores[req['group_nr']]
-        req['group_rank'] = group_ranks[req['group_nr']]
+    # Group the requirements by their group number for sorting within each group
+    grouped_reqs = defaultdict(list)
+    for req in normalized_requirements.values():
+        grouped_reqs[req['group_nr']].append(req)
+    
+    # Sort the requirements within each group by their final score
+    for group_nr, group_reqs in grouped_reqs.items():
+        group_reqs.sort(key=lambda r: r['final_score'], reverse=True)
+        
+        # Assign ranks within the group
+        for i, req in enumerate(group_reqs):
+            req['rank'] = i + 1
+            req['group_avg_score'] = group_avg_scores[group_nr]
+            req['group_rank'] = group_ranks[group_nr]
+
+    # Flatten the grouped requirements and sort all requirements globally by final score
+    sorted_reqs = [req for group_reqs in grouped_reqs.values() for req in group_reqs]
+
+    # Global sort by final_score (in descending order)
+    sorted_reqs.sort(key=lambda r: r['final_score'], reverse=True)
 
     return sorted_reqs
 
+
 def normalize_scores(requirements):
     score_keys = ['sentiment_score', 'topic_score', 'nfr_importance_score', 'relatedness_score']
-    scores = np.array([[req[key] for key in score_keys] for req in requirements])
-    
+    scores = np.array([[req[key] for key in score_keys] for req in requirements.values()])
+
     scaler = MinMaxScaler()
     normalized_scores = scaler.fit_transform(scores)
 
-    for i, req in enumerate(requirements):
-        for j, key in enumerate(score_keys):
-            req[f'normalized_{key}'] = normalized_scores[i][j]
+    for i, req in enumerate(requirements.values()):
+        for j, score_key in enumerate(score_keys):
+            req[f'normalized_{score_key}'] = normalized_scores[i][j]
     
     return requirements
 

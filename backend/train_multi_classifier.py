@@ -4,9 +4,11 @@ import pickle
 from utils import read_csv
 from preprocess import preprocess_classification_experiments
 from sentence_transformers import SentenceTransformer
-from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import classification_report
+from imblearn.over_sampling import SMOTE
+from collections import Counter
 
 import os
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -27,8 +29,13 @@ y = full_NFR_data['class']
 model = SentenceTransformer('all-MiniLM-L6-v2')
 X_embeddings = model.encode(X.tolist(), show_progress_bar=True)
 
-# Dataset split
-X_train, X_test, y_train, y_test = train_test_split(X_embeddings, y, test_size=0.2, stratify=y, random_state=42)
+# Dataset split + oversample
+smote = SMOTE(random_state=42)
+X_resampled, y_resampled = smote.fit_resample(X_embeddings, y)
+print("Original distribution:", Counter(y))
+print("After SMOTE:", Counter(y_resampled))
+#X_train, X_test, y_train, y_test = train_test_split(X_embeddings, y, test_size=0.2, stratify=y, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, test_size=0.2, random_state=42, stratify=y_resampled)
 
 # Tune C + gamma
 param_grid = {
@@ -48,13 +55,7 @@ best_rbf_model = grid_search.best_estimator_
 y_pred = best_rbf_model.predict(X_test) 
 
 # Evalution
-
-print("Accuracy:", accuracy_score(y_test, y_pred))
 print("Classification Report:\n", classification_report(y_test, y_pred))
-
-cv_scores = cross_val_score(best_rbf_model, X_embeddings, y, cv=10, scoring='accuracy')
-print(f"Cross-validation accuracy scores: {cv_scores}")
-print(f"Average 10-fold CV accuracy: {np.mean(cv_scores):.4f}")
 
 # Save model
 with open("rbf_model_multi.pkl", "wb") as model_file:

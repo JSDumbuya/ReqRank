@@ -1,5 +1,5 @@
 import './App.css';
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import M from "materialize-css";
 
 
@@ -12,6 +12,7 @@ function App() {
   const [prioritizedData, setPrioritizedData] = useState([]);
   const [stakeholders, setStakeholders] = useState([]);
   const [isStakeholdersPrioritized, setisStakeholdersPrioritized] = useState(false);
+  const [selectedExplanation, setSelectedExplanation] = useState('');
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [weights, setWeights] = useState({
@@ -53,12 +54,20 @@ function App() {
 
   useEffect(() => {
     M.Collapsible.init(document.querySelectorAll(".collapsible"));
-  }, [stakeholders]);
+    M.Modal.init(document.querySelectorAll('.modal'));
+  }, [stakeholders, prioritizedData]);
+
 
   //Requirement file upload
 
   const handleRquirementFileUpload = (event) => {
     const file = event.target.files[0];
+  
+    if (!file || !(file instanceof Blob)) {
+      alert("Please select a valid file.");
+      return;
+    }
+  
     setRequirementFile(file);
   
     const reader = new FileReader();
@@ -77,8 +86,8 @@ function App() {
     };
   
     reader.readAsText(file);
-  };  
-
+  };
+  
   // Configuration of prioritization
 
   const handleCriteriaWeightChange = (name, value) => {
@@ -159,7 +168,7 @@ function App() {
     setStakeholders(stakeholders.filter((_, i) => i !== index));
   };
 
-  //Prioritize reqs
+  //Prioritize reqs and display reqs
 
   const handlePrioritizeRequirements = async () => {
     let newErrors = [];
@@ -204,16 +213,27 @@ function App() {
         body: formData,
       });
   
-      if (!response.ok) {
-        throw new Error("Something went wrong.");
+      if (response.ok) {
+        const data = await response.json();
+        setPrioritizedData(data.prioritized_data);
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.message || "Something went wrong!"}`);
       }
-  
-      const data = await response.json();
-      setPrioritizedData(data.prioritized_data);
     } catch (error) {
-      console.error("Error:", error);
+      alert(`Network Error: ${error.message}`);
+    } finally {
+      setIsLoading(false);
     }
   };
+
+  const handleShowExplanation = (explanation) => {
+    setSelectedExplanation(explanation);
+    const modalElem = document.getElementById('explanation-modal');
+    const modalInstance = M.Modal.getInstance(modalElem);
+    modalInstance.open();
+  };
+  
 
   return (
     <div className="App">
@@ -236,9 +256,9 @@ function App() {
               {prioritizedData.length > 0 ? (
                 prioritizedData.map((item, index) => (
                   <tr key={index}>
-                    <td>{item.text}</td>
-                    <td>{item.final_score}</td>
-                    <td>{item.group}</td>
+                    <td onClick={() => handleShowExplanation(item.explanation)} style={{ cursor: 'pointer' }}>{item.text}</td>
+                    <td>{item.final_score.toFixed(2)}</td>
+                    <td>{item.group_nr}</td>
                   </tr>
                 ))
               ) : (
@@ -248,6 +268,17 @@ function App() {
               )}
             </tbody>
           </table>
+
+          <div id="explanation-modal" className="modal">
+            <div className="modal-content">
+              <h4>Scoring Explanation</h4>
+              <p style={{ whiteSpace: 'pre-line' }}>{selectedExplanation}</p>
+            </div>
+            <div className="modal-footer">
+              <a href="#!" className="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+          </div>
+
         </div>
       </div>
       {/* Displaying prioritization results */}
@@ -632,15 +663,15 @@ function App() {
         {/* Display error messages */}
 
         {/* Prioritization button */}
-        <button type="button" className='waves-effect waves-light btn-large' onClick={handlePrioritizeRequirements} disabled={isLoading}>
-          <i className="material-icons right">send</i>
-          Prioritize Requirements
-        </button>
         {isLoading && (
           <div className="card-panel yellow lighten-4 amber-text text-darken-4">
           <i className="material-icons right">hourglass_empty</i>
           Prioritization is running. Please wait...
         </div>)}
+        <button type="button" className='waves-effect waves-light btn-large' onClick={handlePrioritizeRequirements} disabled={isLoading}>
+          <i className="material-icons right">send</i>
+          Prioritize Requirements
+        </button>
         {/* Prioritization button */}
       </div>
       {/* Display error messages + prioritization button*/}

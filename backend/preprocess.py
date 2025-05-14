@@ -55,6 +55,9 @@ def preprocess_classification_experiments(file_path):
         file_content = file_path.to_string(index=False, header=False)
     else:
         file_content = read_file(file_path)
+    
+    if isinstance(file_content, pd.DataFrame):
+        file_content = file_content.to_string(index=False, header=False)
 
     #split into individual reqs
     lines = file_content.split("\n")

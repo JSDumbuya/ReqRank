@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import M from "materialize-css";
 
 
@@ -23,7 +23,6 @@ function App() {
     popularity: 5,
     nfrImportance: 5
   })
-
   const [nfrWeights, setNfrWeights] = useState({
     PE: 5, 
     US: 5,
@@ -50,11 +49,31 @@ function App() {
     FT: "Fault Tolerance",
     PO: "Portability"
   };
+  const nfrDefinitions = {
+    SE: "Protecting data and systems from unauthorized access or harm.",
+    US: "Making the system easy and pleasant for people to use and understand.",
+    O:  "Ensuring the system runs smoothly and can be managed easily.",
+    PE: "How fast and responsive the system is during use.",
+    LF: "The visual style and overall experience of using the system.",
+    A:  "Making sure the system is up and running when people need it.",
+    MN: "How easy it is to update, fix, or improve the system.",
+    SC: "The ability to handle more users or work without problems.",
+    FT: "The system’s ability to keep working even when something goes wrong.",
+    L:  "Following laws and rules that apply to the system and its use.",
+    PO: "How easily the system can work on different devices or environments."
+  };
   
+  const tooltipInitialized = useRef(false);
 
   useEffect(() => {
     M.Collapsible.init(document.querySelectorAll(".collapsible"));
     M.Modal.init(document.querySelectorAll('.modal'));
+
+    if (!tooltipInitialized.current) {
+      M.Tooltip.init(document.querySelectorAll(".tooltipped"));
+      tooltipInitialized.current = true;
+    }
+  
   }, [stakeholders, prioritizedData]);
 
 
@@ -513,12 +532,15 @@ function App() {
           {/* NFR ranking */}
           <div className="section">
             <h5>Rate Non-Functional Requirements by Importance</h5>
-            <p>All NFRs are treated equally unless their importance is adjusted.</p>
+            <p>All NFRs are treated equally unless their importance is adjusted. <br></br> Tip: Hover over each NFR name to see a short definition.</p>
             <form className="container">
               {Object.keys(nfrWeights).map((key) => (
                 <div key={key} className="input-field">
                   <p className="range-field">
-                    <label htmlFor={key} className="active">
+                    <label
+                      htmlFor={key}
+                      className="active tooltipped"
+                      data-tooltip={nfrDefinitions[key]}>
                       {nfrLabels[key]} Importance: {nfrWeights[key]}
                     </label>
                     <input

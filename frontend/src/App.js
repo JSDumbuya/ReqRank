@@ -93,6 +93,8 @@ function App() {
     reader.onload = (e) => {
       const text = e.target.result;
       const lines = text.split(/\r?\n/);
+      //Removes header, assuming the user uploads a .csv file with header
+      lines = lines.slice(1);
   
       const parsed = lines
         .map(line => line.trim())
@@ -219,6 +221,8 @@ function App() {
     formData.append("normalizedWeights", JSON.stringify(normalizeWeights(weights)));
     formData.append("normalizedNfrWeights", JSON.stringify(normalizeWeights(nfrWeights)));
     formData.append("stakeholdersPrioritized", JSON.stringify(isStakeholdersPrioritized));
+    formData.append("includeCost", JSON.stringify(includeCost));
+    formData.append("includeEffort", JSON.stringify(includeEffort));
   
     stakeholders.forEach((stakeholder, index) => {
       formData.append(`stakeholderFile`, stakeholder.file);
@@ -262,6 +266,7 @@ function App() {
       {/* Displaying prioritization results */}
       <div className="card-panel grey lighten-4">
         <h5 className="center-align">Prioritized Requirements</h5>
+        <p>Hover over the requirements in the table to see an explanation of how each score was determined</p>
         <div style={{ maxHeight: "400px", overflow: "auto"}}>
           <table className="highlight centered">
             <thead>
@@ -339,8 +344,8 @@ function App() {
                     <tr>
                       <th>#</th>
                       <th>Requirement</th>
-                      {includeCost && <th>Cost</th>}
-                      {includeEffort && <th>Effort</th>}
+                      {includeCost && <th>Resource Cost</th>}
+                      {includeEffort && <th>Implementation Effort</th>}
                     </tr>
                   </thead>
                   <tbody>
@@ -388,7 +393,7 @@ function App() {
             <div className="section">
             <h5>Add Additional Prioritization Criteria</h5>
             <p><strong>
-            To include cost and/or effort for each requirement, check the boxes below. 
+            To include Ressource cost and/or implementation effort for each requirement, check the boxes below. 
             You can upload a CSV file that already contains this information, or add it manually after the upload.
             </strong></p>
             <label>

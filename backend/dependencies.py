@@ -37,15 +37,3 @@ def group_dependencies(num_reqs, dependencies):
                 groups.append(group)
 
     return groups
-
-
-'''
-Usage example:
-sentences, embeddings = generate_embeddings(file_path, model)
-dependencies = find_dependencies(embeddings)
-
-groups = group_dependencies(len(sentences), dependencies)
-'''
-
-# to do: determining optimal threshold
-# ** Find labelled dataset, if not use clusters + silhouette score to determine performance/quality.

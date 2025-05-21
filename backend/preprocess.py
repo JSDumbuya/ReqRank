@@ -35,6 +35,19 @@ def preprocess_embeddings(file_path):
 
 nlp = spacy.load("en_core_web_sm")
 
+#For inspection of stopword list:
+#print(sorted(list(nlp.Defaults.stop_words)))
+
+stopwords_to_keep = [
+    "not", "no", "never", "n't", "nor", "neither", 
+    "very", "much", "more", "most", "so", "too", "quite", "just", "really",  
+    "would", "could", "should", "might", "must", "may", "can", "will", "do", "does", "did", 
+    "but", "although", "however", "though", "yet", "still" 
+]
+
+for word in stopwords_to_keep:
+    nlp.vocab[word].is_stop = False
+
 def preprocess_sentiment_analysis(file_path):
     normalized_content = normalize(file_path)
     segmented_sentences = segment_sat(normalized_content)

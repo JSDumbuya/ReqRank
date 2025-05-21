@@ -15,8 +15,9 @@ normalized_reqs = preprocess_reqs(text_dep_file_path)
 # Create embeddings
 sentences, dep_embeddings = generate_embeddings(normalized_reqs, embedding_model)
 
-# Setup experiment - automated
 
+'''
+Experiment - automated with silhouette score, bss, wss
 thresholds = np.arange(0.3, 0.7, 0.1)
 silhouette_scores = []
 bss_scores = []
@@ -44,13 +45,11 @@ for threshold in thresholds:
 
     grouped_deps = group_dependencies(num_reqs=len(normalized_reqs), dependencies=deps)
 
-    # Flatten cluster assignments into labels
     labels = np.full(len(normalized_reqs), -1)
     for cluster_id, group in enumerate(grouped_deps):
         for idx in group:
             labels[idx] = cluster_id
 
-    # Remove unclustered items
     clustered_mask = labels != -1
     filtered_embeddings = dep_embeddings[clustered_mask]
     filtered_labels = labels[clustered_mask]
@@ -69,7 +68,7 @@ for threshold in thresholds:
     bss_scores.append(bss)
     wss_scores.append(wss)
 
-# Plotting results
+# Plot results
 plt.figure(figsize=(12, 6))
 
 plt.subplot(1, 3, 1)
@@ -91,12 +90,12 @@ plt.xlabel("Threshold")
 plt.ylabel("Score")
 
 plt.tight_layout()
-plt.show()
+plt.show()''' 
 
 
 
 '''
-# Setup experiment - manual inspection
+Manual inspection
 
 deps = identify_dependencies(dep_embeddings, 0.5)
 

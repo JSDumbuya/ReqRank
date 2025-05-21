@@ -1,0 +1,12 @@
+english_req_text,danish_req_text,type
+"The system shall allow the user to search emails using filters such as sender, subject, date, and attachments.","Systemet skal give brugeren mulighed for at søge i e-mails ved hjælp af filtre såsom afsender, emne, dato og vedhæftede filer.",FR
+"The system shall display search results without duplicate emails and highlight matching keywords in subject and body.","Systemet skal vise søgeresultater uden dubletter og med tydelig fremhævning af søgeord i emnefelt og brødtekst.",US
+"The system’s search function shall return results within 2 seconds for datasets up to 1,000 emails.","Systemets søgefunktion skal svare inden for 2 sekunder ved almindelig brug (op til 1.000 e-mails).",PE
+"The user shall be able to view and manage emails from multiple accounts in a unified inbox without switching views.","Brugeren skal kunne se og administrere e-mails fra flere konti i én samlet indbakke uden at skifte visning.",FR
+"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.","Systemet skal indlæse indbakke- og kalendervisninger inden for 3 sekunder, selv ved postkasser med op til 10.000 e-mails.",PE
+"The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.","Systemet skal understøtte single sign-on (SSO) via Microsoft-konto på tværs af eksterne tjenester såsom e-handelsplatforme.",PO
+"The user interface shall remain consistent and recognizable across desktop, web, and mobile platforms.","Systemets brugergrænseflade skal være konsistent og genkendelig, uanset om det anvendes på desktop, web eller mobil.",LF
+"The system shall display emails belonging to the same conversation as a thread to improve message overview.","Systemet skal vise e-mails, der tilhører samme samtale, i en tråd for at forbedre overblikket.",FR
+"The system shall provide contextual tips that help users understand and use available features in the interface.","Systemet skal vise kontekstuelle tips, der støtter brugeren i at forstå og anvende funktionerne i brugergrænsefladen.",US
+"Users shall be able to mark emails as “not spam” if incorrectly filtered, and the system shall learn from this correction.","Brugeren skal nemt kunne markere e-mails som ""ikke spam"", hvis de fejlagtigt er blevet filtreret, og systemet skal lære af disse rettelser.",FR
+

@@ -9,10 +9,10 @@ from wtpsplit import SaT
 sat_sm = SaT("sat-3l-sm")
 
 def normalize(file_path):
-    file_content = read_file(file_path)
-
-    if isinstance(file_content, pd.DataFrame):
-        file_content = file_content.to_string(index=False, header=False)
+    if isinstance(file_path, pd.DataFrame):
+        file_content = file_path.to_string(index=False, header=False)
+    else:
+        file_content = read_file(file_path)
 
     # Strip HTML/XML tags: BeautifulSoup
     file_content = BeautifulSoup(file_content, "html.parser").get_text()
@@ -29,11 +29,19 @@ def segment_sat(file_content):
     return sentences
 
 def preprocess_embeddings(file_path):
-    normalized_content = normalize(file_path)
+    if isinstance(file_path, pd.DataFrame):
+        file_content = file_path
+    else:
+        file_content = read_file(file_path)
+    
+    if not isinstance(file_content, pd.DataFrame):
+        file_content = pd.DataFrame([file_content], columns=["text"])
+    
+    normalized_content = normalize(file_content)
     segmented_sentences = segment_sat(normalized_content)
     return segmented_sentences
 
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_md")
 
 #For inspection of stopword list:
 #print(sorted(list(nlp.Defaults.stop_words)))
@@ -84,12 +92,36 @@ def preprocess_classification_experiments(file_path):
         line = re.sub(r'\s+', ' ', line).strip()
         # stop word, punctuation removal: spaCy
         doc = nlp(line)
-        tokens = [token.text for token in doc if not token.is_stop and not token.is_punct]
+        tokens = [token.lemma_ for token in doc if not token.is_stop and not token.is_punct]
         cleaned_req = " ".join(tokens).strip()
         if cleaned_req:
             cleaned_reqs.append(cleaned_req)
 
     return cleaned_reqs
+
+def preprocess_reqs_clustering(file_path):
+    if isinstance(file_path, pd.DataFrame):
+        file_content = file_path.to_string(index=False, header=False)
+    else:
+        file_content = read_file(file_path)
+
+    lines = file_content.split("\n")
+    
+    cleaned_reqs = []
+    
+    for line in lines:
+        # Lowercase and strip whitespace
+        line = line.lower().strip()
+        line = re.sub(r'\s+', ' ', line).strip()
+
+        # Lemmatize using spaCy
+        doc = nlp(line)
+        lemmatized_line = ' '.join(token.lemma_ for token in doc if not token.is_space)
+
+        cleaned_reqs.append(lemmatized_line)
+
+    return cleaned_reqs
+
 
 def preprocess_classification_production(prepared_reqs):
     cleaned_reqs = []
@@ -106,6 +138,7 @@ def preprocess_classification_production(prepared_reqs):
 
     return cleaned_reqs   
 
+# Remove punctuation
 def preprocess_reqs(file_path):
     if isinstance(file_path, pd.DataFrame):
         file_content = file_path.to_string(index=False, header=False)

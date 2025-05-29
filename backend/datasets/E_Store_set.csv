@@ -1,4 +1,4 @@
-requirement_text, group_id
+requirement_text,group_id
 The system shall display all the products that can be configured., 1
 The system shall allow user to select the product to configure., 1
 The system shall display all the available components of the product to configure., 1
@@ -55,7 +55,7 @@ The system shall notify the user about any changes made to the order., 15
 The system shall enable the user to enter their reviews and ratings., 16
 The system shall display all the available financing options., 17
 The system shall allow user to select the financing option., 17
-The system shall notify the use about the financing request., 17
+The system shall notify the user about the financing request., 17
 The system shall allow user to view detailed sitemap., 18
 The system shall display all the available promotions to the user., 19
 The system shall allow user to select available promotion., 19

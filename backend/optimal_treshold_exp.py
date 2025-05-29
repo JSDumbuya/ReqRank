@@ -1,101 +1,76 @@
-from dependencies import identify_dependencies, group_dependencies
-from embeddings_topic import generate_embeddings, embedding_model
-from utils import read_csv
+from sentence_transformers import SentenceTransformer
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import silhouette_score
-from preprocess import preprocess_reqs
+from preprocess import preprocess_reqs, preprocess_reqs_clustering
+from sklearn.metrics import adjusted_rand_score, silhouette_score
+from sklearn.cluster import AgglomerativeClustering
+from sklearn.metrics.pairwise import cosine_distances
 
-# Load and preprocess data
-full_set = read_csv("backend/dependency_set.csv")
-text_dep_file_path = "backend/text_dependency_set.csv"
-normalized_reqs = preprocess_reqs(text_dep_file_path)
-
-# Create embeddings
-sentences, dep_embeddings = generate_embeddings(normalized_reqs, embedding_model)
-
-
-'''
-Experiment - automated with silhouette score, bss, wss
-thresholds = np.arange(0.3, 0.7, 0.1)
-silhouette_scores = []
-bss_scores = []
-wss_scores = []
-
-def compute_bss_wss(embeddings, labels):
-    wss = 0
-    bss = 0
-    overall_mean = np.mean(embeddings, axis=0)
-    unique_labels = np.unique(labels)
-
-    for label in unique_labels:
-        cluster_points = embeddings[labels == label]
-        cluster_mean = np.mean(cluster_points, axis=0)
-        wss += np.sum((cluster_points - cluster_mean) ** 2)
-        bss += len(cluster_points) * np.sum((cluster_mean - overall_mean) ** 2)
-
-    return bss, wss
-
-for threshold in thresholds:
-    deps = identify_dependencies(dep_embeddings, threshold)
-
-    # for dep in deps:
-    #     print("This is a dependency group: ", dep[0], "-",  normalized_reqs[dep[0]], ",", dep[1], "-", normalized_reqs[dep[1]],",", "similarity score: ", dep[2])
-
-    grouped_deps = group_dependencies(num_reqs=len(normalized_reqs), dependencies=deps)
-
-    labels = np.full(len(normalized_reqs), -1)
-    for cluster_id, group in enumerate(grouped_deps):
-        for idx in group:
-            labels[idx] = cluster_id
-
-    clustered_mask = labels != -1
-    filtered_embeddings = dep_embeddings[clustered_mask]
-    filtered_labels = labels[clustered_mask]
-
-    n_clusters = len(np.unique(filtered_labels))
-    n_samples = len(filtered_labels)
-
-    if 2 <= n_clusters < n_samples:
-        silhouette = silhouette_score(filtered_embeddings, filtered_labels)
+def load_data(source='voyager'):
+    if source == 'estore':
+        df = pd.read_csv('backend/datasets/E_Store_set.csv')
+        reqs = df[['requirement_text']].dropna()
+        labels = df['group_id'].dropna().astype(int).tolist()
     else:
-        silhouette = np.nan  # Silhouette score undefined in this case
-
-    bss, wss = compute_bss_wss(filtered_embeddings, filtered_labels)
-
-    silhouette_scores.append(silhouette)
-    bss_scores.append(bss)
-    wss_scores.append(wss)
-
-# Plot results
-plt.figure(figsize=(12, 6))
-
-plt.subplot(1, 3, 1)
-plt.plot(thresholds, silhouette_scores, marker='o')
-plt.title("Silhouette Score")
-plt.xlabel("Threshold")
-plt.ylabel("Score")
-
-plt.subplot(1, 3, 2)
-plt.plot(thresholds, bss_scores, marker='o', color='green')
-plt.title("Between-cluster Sum of Squares (BSS)")
-plt.xlabel("Threshold")
-plt.ylabel("Score")
-
-plt.subplot(1, 3, 3)
-plt.plot(thresholds, wss_scores, marker='o', color='red')
-plt.title("Within-cluster Sum of Squares (WSS)")
-plt.xlabel("Threshold")
-plt.ylabel("Score")
-
-plt.tight_layout()
-plt.show()''' 
+        df = pd.read_csv('backend/datasets/Voyager_reqs_treshold.csv')
+        reqs = df[['requirementtext']].dropna()
+        labels = df['group_id'].dropna().astype(int).tolist()
+    return reqs, labels
 
 
+def evaluate_ahc_clustering_on_embeddings(reqs_df, true_labels, thresholds=np.arange(0.50, 0.86, 0.05)):
+    preprocessed_requirements = preprocess_reqs_clustering(reqs_df) 
+
+    model = SentenceTransformer("all-MiniLM-L6-v2")
+    embeddings = model.encode(preprocessed_requirements, show_progress_bar=False)
+
+    results = []
+
+    for threshold in thresholds:
+        dist_matrix = cosine_distances(embeddings)
+
+        clusterer = AgglomerativeClustering(
+            n_clusters=None,
+            metric='precomputed',
+            linkage='average',
+            distance_threshold=1 - threshold
+        )
+        cluster_labels = clusterer.fit_predict(dist_matrix)
+
+        ari = adjusted_rand_score(true_labels, cluster_labels)
+        if 2 <= len(set(cluster_labels)) < len(embeddings):
+            sil = silhouette_score(embeddings, cluster_labels, metric='cosine')
+        else:
+            sil = np.nan
+
+        results.append({
+            'Threshold': round(threshold, 2),
+            'ARI': ari,
+            'Silhouette': sil,
+            'NumClusters': len(set(cluster_labels))
+        })
+
+    return pd.DataFrame(results)
+
+
+if __name__ == "__main__":
+    reqs_df, true_labels = load_data(source='voyager')
+    results_df = evaluate_ahc_clustering_on_embeddings(reqs_df, true_labels)
+    print(results_df)
+
+    results_df.set_index('Threshold')[['ARI', 'Silhouette']].plot(
+        marker='o', figsize=(10, 6), title="Agglomerative Clustering on Requirement Embeddings"
+    )
+    plt.xlabel("Cosine Similarity Threshold")
+    plt.ylabel("Score")
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
 
 '''
-Manual inspection
+Manual inspection - old method cosine + dfs
 
 deps = identify_dependencies(dep_embeddings, 0.5)
 

@@ -51,11 +51,10 @@ def read_file(file_path):
         return read_docx(file_path)
     elif file_extension == 'csv':
         return read_csv(file_path)
-    elif file_extension == ['xlsx', 'xls']:
+    elif file_extension in ['xlsx', 'xls']:
         return read_excel(file_path)
     else:
         raise ValueError("Unsupported file type")
 
-# Todo: all errors should be displayed in the user interface
 
 

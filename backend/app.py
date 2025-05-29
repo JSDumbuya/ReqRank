@@ -10,13 +10,14 @@ from transformers import pipeline
 from bertopic import BERTopic
 from collections import defaultdict
 from preprocess import *
-from dependencies import *
 from classify_reqs import * 
 from sentence_transformers import SentenceTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import MinMaxScaler
+from req_quality import flesch_reading_ease, find_req_smells
+from subcomponent_identification import compute_cosine_distance, cluster_reqs
 
 app = FastAPI()
 
@@ -42,23 +43,12 @@ async def prioritize_requirements(
     includeEffort: str = Form(...),
     includeCost: str = Form(...)
 ):
-    # Receive data from frontend
     requirements = json.loads(requirements)
     normalized_weights = json.loads(normalizedWeights)
     normalized_nfr_weights = json.loads(normalizedNfrWeights)
     is_stakeholders_prioritized = json.loads(stakeholdersPrioritized)
     includeEffort = json.loads(includeEffort)
     includeCost = json.loads(includeCost)
-
-    '''requirements_file_path = ""
-    if requirements:
-        file_path = os.path.join(UPLOAD_DIR, "requirementsfile.txt")
-        
-        with open(file_path, mode="w", newline="") as file:
-            for req in requirements:
-                file.write(f"{req['text']}\n")
-        
-        requirements_file_path = file_path'''
 
     stakeholders = []
 
@@ -100,8 +90,6 @@ async def prioritize_requirements(
 
     # 6. Delete files in uploads if everythings is okay
     try:
-        '''if requirements_file_path and os.path.exists(requirements_file_path):
-            os.remove(requirements_file_path)'''
 
         for stakeholder in stakeholders:
             if 'file' in stakeholder and os.path.exists(stakeholder['file']):
@@ -114,7 +102,6 @@ async def prioritize_requirements(
         content={"message": "Prioritization completed!", "prioritized_data": prioritized_requirements},
         status_code=200
     )
-
 
 
 # -------- utils ----------
@@ -151,11 +138,11 @@ def generate_explanation(requirements, include_cost, include_effort):
 
         exp_parts.append(
             f"Normalized Sentiment Score: {req['normalized_sentiment_score']:.2f} – based on the average negative sentiment from stakeholder feedback in this topic. "
-            "Negative feedback is weighted more heavily to prioritize issues that need attention."
+            "Focusing on the negative feedback helps to prioritize requirements that may represent problems or concerns the need urgent attention."
         )
 
         exp_parts.append(
-            f"Normalized Relatedness Score: {req['normalized_relatedness_score']:.2f} – based on the number of related requirements, which is {req['group_size']}."
+            f"Normalized Subcomponent Score: {req['normalized_relatedness_score']:.2f} – based on the number of related requirements, which is {req['group_size']}."
         )
 
         if include_cost:
@@ -167,7 +154,12 @@ def generate_explanation(requirements, include_cost, include_effort):
             exp_parts.append(
                 f"Normalized Implementation Effort Score: {req['normalized_effort_score']:.2f} – represents the estimated development effort required for this requirement."
             )
-
+        
+        exp_parts.append( 
+            f"Normalized Quality Score: {req['normalized_quality_score']:.2f} – measures how clear and well-written this requirement is. "
+            f"This score is included with a weight of {req['quality_weight']:.2f} in the final prioritization formula, ensuring that it does not have a strong influence on the overall prioritization. "
+            "However, it helps alleviate tie-breakers and ensures that all requirements receive a score."
+        )
 
         exp_parts.append(
             f"Final Score: {req['final_score']:.2f} – calculated as a weighted combination of the above factors based on your chosen prioritization rules."
@@ -333,54 +325,46 @@ def relate_topics_to_reqs_and_score(requirements, topic_model, topic_sentiment_s
 
 def prepare_requirements(recieved_reqs):
     requirements = {}
-    '''content = read_file(file_path)
-    lines = [line.strip() for line in content.splitlines() if line.strip()]
-    req_df = pd.DataFrame(lines[1:], columns=["req_text"])''' 
-
     req_texts = [req["text"] for req in recieved_reqs]
     req_df = pd.DataFrame(req_texts, columns=["req_text"])
-   
-    preprocessed_requirements = preprocess_reqs(req_df)
+
+    preprocessed_requirements_only_norm = preprocess_reqs(req_df)
+    preprocessed_requirements = preprocess_reqs_clustering(req_df)
     requirement_embeddings = embedding_model.encode(preprocessed_requirements, show_progress_bar=False)
 
-    dependencies = identify_dependencies(requirement_embeddings)
-    groups = group_dependencies(len(preprocessed_requirements), dependencies)
+    distance_matrix = compute_cosine_distance(requirement_embeddings)
+    labels = cluster_reqs(distance_matrix)
 
-    related_map = defaultdict(list)
-    for i, j, _ in dependencies:
-        related_map[i].append(j)
-        related_map[j].append(i)
+    cluster_to_reqs = defaultdict(list)
+    for idx, label in enumerate(labels):
+        cluster_to_reqs[label].append(idx)
 
-    for i, req_text in enumerate(preprocessed_requirements):
+    for i, req_text in enumerate(preprocessed_requirements_only_norm):
         org_req = recieved_reqs[i]
-        group = None
-        group_size = 0
-        group_nr = None 
-
-        for idx, g in enumerate(groups, start=1):
-            if i in g:
-                group = g
-                group_size = len(g)
-                group_nr = idx
-                break
-        related_to = related_map[i]
-        related_count = len(related_to)
+        group_label = labels[i]
+        group = cluster_to_reqs[group_label]
+        group_size = len(group)
+        group_nr = group_label + 1
+        smells_found = find_req_smells(req_text)
+        flesch_score = flesch_reading_ease(req_text)
 
         requirements[i] = {
             'id': i,
             'text': req_text,
             'embedding': requirement_embeddings[i],
-            'related_count': related_count,
-            'related_to': related_to,
             'group': group,
-            'group_size': group_size,
-            'group_nr': group_nr,
+            'group_size': int(group_size),
+            'group_nr': int(group_nr),
             'sentiment_score': 0.0,
             'topic_score': 0.0,
             'cost_score': org_req.get("cost", 0.0),
             'effort_score': org_req.get("effort", 0.0), 
             'nfr_importance_score': 0.0,
             'relatedness_score': np.log1p(group_size),
+            'smells_found': smells_found,
+            'readability_score': flesch_score,
+            #10 pt per smell detected
+            'quality_score': flesch_score - (smells_found * 10),
             'final_score': 0.0
         }
     
@@ -460,7 +444,12 @@ def calculate_final_score_and_rank(requirements, normalized_weights, include_cos
             #Add
             else:
                 final_score += score * weight
-
+     
+        # Dynamic quality weight to ensure it does not become overpowering, currently 5% of total score
+        total_weight = sum(normalized_weights.values())
+        quality_weight = total_weight * 0.05 
+        req['quality_weight'] = quality_weight  
+        final_score += req['normalized_quality_score'] * quality_weight
         req['final_score'] = final_score
     
     # Group the requirements by their group number
@@ -498,7 +487,7 @@ def calculate_final_score_and_rank(requirements, normalized_weights, include_cos
 
 
 def normalize_scores(requirements, include_cost, include_effort):
-    score_keys = ['sentiment_score', 'topic_score', 'nfr_importance_score', 'relatedness_score']
+    score_keys = ['sentiment_score', 'topic_score', 'nfr_importance_score', 'relatedness_score', 'quality_score']
     if include_cost:
         score_keys.append('cost_score')
     if include_effort:
@@ -511,7 +500,12 @@ def normalize_scores(requirements, include_cost, include_effort):
 
     for i, req in enumerate(requirements.values()):
         for j, score_key in enumerate(score_keys):
-            req[f'normalized_{score_key}'] = normalized_scores[i][j]
+            value = normalized_scores[i][j]
+
+            if score_key == 'quality_score':
+                value = max(value, 0.01)
+                
+            req[f'normalized_{score_key}'] = value
     
     return requirements
 

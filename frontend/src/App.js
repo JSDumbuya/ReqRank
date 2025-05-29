@@ -94,9 +94,9 @@ function App() {
       const text = e.target.result;
       const lines = text.split(/\r?\n/);
       //Removes header, assuming the user uploads a .csv file with header
-      lines = lines.slice(1);
+      const newLines = lines.slice(1);
   
-      const parsed = lines
+      const parsed = newLines
         .map(line => line.trim())
         .filter(line => line.length > 0)
         .map(line => ({
@@ -262,11 +262,18 @@ function App() {
     <div className="App">
 
       <h1 className="blue-text text-darken-2 center-align">ReqRank</h1>
+      <p> 
+        ReqRank is a multi-criteria requirements prioritization tool that considers factors such as sentiment, topic popularity, implicit stakeholder preferences, and system sub components to generate a prioritized list of functional and non-functional requirements.<br></br>
+        The tool allows you to tailor the prioritization process to your project by adjusting the influence of different criteria, stakeholders, and non-functional requirement categories.<br></br>
+        You can also manually add ressource cost and implementation effort estimates to support decision-making.
+      </p>
+
 
       {/* Displaying prioritization results */}
       <div className="card-panel grey lighten-4">
         <h5 className="center-align">Prioritized Requirements</h5>
-        <p>Hover over the requirements in the table to see an explanation of how each score was determined</p>
+        <p>The prioritized requirements will be displayed in the table below.<br></br>
+        Press each requirements in the table to see an explanation of how its score was determined</p>
         <div style={{ maxHeight: "400px", overflow: "auto"}}>
           <table className="highlight centered">
             <thead>
@@ -308,6 +315,7 @@ function App() {
       {/* Displaying prioritization results */}
 
       <h4>Upload Requirements & Set Prioritization Rules</h4>
+      <p>Upload your list of requirements. Add weights to criteria and non-functional requirements to influence prioritization.</p>
 
       {/*Requirements file upload field*/}
       <ul className='collapsible popout'>
@@ -398,12 +406,12 @@ function App() {
             </strong></p>
             <label>
               <input type="checkbox" checked={includeCost} onChange={() => setIncludeCost(!includeCost)} />
-              <span style={{fontSize: '20px'}}><strong>Include Cost</strong></span>
+              <span style={{fontSize: '20px'}}><strong>Include Ressource Cost</strong></span>
             </label>
             <br/>
             <label>
               <input type="checkbox" checked={includeEffort} onChange={() => setIncludeEffort(!includeEffort)} />
-              <span style={{fontSize: '20px'}}><strong>Include Effort</strong></span>
+              <span style={{fontSize: '20px'}}><strong>Include Implementation Effort</strong></span>
             </label>
           </div>
           {/*Additional criteria*/}
@@ -465,7 +473,7 @@ function App() {
               <div className="input-field">
                 <p className="range-field">
                   <label htmlFor="amountRelatedReqsWeight" className="active">
-                    Amount of Related Requirements Importance: {weights.amountRelatedReqs}
+                    Related Subcomponent Size Importance: {weights.amountRelatedReqs}
                   </label>
                   <input
                     type="range"
@@ -482,7 +490,7 @@ function App() {
               <div className="input-field">
                 <p className="range-field">
                   <label htmlFor="sentimentWeight" className="active">
-                    Sentiment Importance: {weights.sentiment}
+                    Negative Sentiment Importance: {weights.sentiment}
                   </label>
                   <input
                     type="range"
@@ -499,7 +507,7 @@ function App() {
               <div className="input-field">
                 <p className="range-field">
                   <label htmlFor="popularityWeight" className="active">
-                    Popularity Among Stakeholders Importance: {weights.popularity}
+                    Topic Popularity Importance: {weights.popularity}
                   </label>
                   <input
                     type="range"
@@ -516,7 +524,7 @@ function App() {
               <div className="input-field">
                 <p className="range-field">
                   <label htmlFor="nfrImportance" className="active">
-                    Influence of NFR Category Weights: {weights.nfrImportance}
+                    Non-Functional Requirement Category Weights: {weights.nfrImportance}
                   </label>
                   <input
                     type="range"

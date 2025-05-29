@@ -1,0 +1,1167 @@
+Requirement Index,Requirement,Token,Head,Dependency Label,POS,Head POS
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",The,user,det,DET,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",user,be,nsubj,NOUN,AUX
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",should,be,aux,AUX,AUX
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",be,be,ROOT,AUX,AUX
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",able,be,acomp,ADJ,AUX
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",to,see,aux,PART,VERB
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",see,able,xcomp,VERB,ADJ
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",the,price,det,DET,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",price,see,dobj,NOUN,VERB
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",",",price,punct,PUNCT,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",location,price,conj,NOUN,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",",",location,punct,PUNCT,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",accessibility,location,conj,NOUN,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",",",accessibility,punct,PUNCT,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",child,friendliness,compound,NOUN,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",friendliness,accessibility,conj,NOUN,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",",",friendliness,punct,PUNCT,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",adult,friendliness,compound,NOUN,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",friendliness,friendliness,conj,NOUN,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",",",price,punct,PUNCT,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",among,see,prep,ADP,VERB
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",others,among,pobj,NOUN,ADP
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",",",see,punct,PUNCT,VERB
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",regarding,see,prep,VERB,VERB
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",each,experience,det,DET,NOUN
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",experience,regarding,pobj,NOUN,VERB
+0,"The user should be able to see the price, location, accessibility, child friendliness, adult friendliness, among others, regarding each experience.",.,be,punct,PUNCT,AUX
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",When,presses,advmod,SCONJ,VERB
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",the,user,det,DET,NOUN
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",user,presses,nsubj,NOUN,VERB
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",presses,display,advcl,VERB,VERB
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",an,Experience,det,DET,NOUN
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",’,Experience,punct,PUNCT,NOUN
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",Experience,presses,dobj,NOUN,VERB
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",’,Experience,punct,PUNCT,NOUN
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",",",display,punct,PUNCT,VERB
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",the,app,det,DET,NOUN
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",app,display,nsubj,NOUN,VERB
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",should,display,aux,AUX,VERB
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",display,display,ROOT,VERB,VERB
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",pictures,display,dobj,NOUN,VERB
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",and,pictures,cc,CCONJ,NOUN
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",information,pictures,conj,NOUN,NOUN
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",about,pictures,prep,ADP,NOUN
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",the,Experience,det,DET,NOUN
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",’,Experience,punct,PUNCT,NOUN
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",Experience,about,pobj,NOUN,ADP
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",’,Experience,punct,PUNCT,NOUN
+1,"When the user presses an ’Experience’, the app should display pictures and information about the ’Experience’.",.,display,punct,PUNCT,VERB
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",The,user,det,DET,NOUN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",user,be,nsubj,NOUN,AUX
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",should,be,aux,AUX,AUX
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",be,be,ROOT,AUX,AUX
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",able,be,acomp,ADJ,AUX
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",to,register,aux,PART,VERB
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",register,able,xcomp,VERB,ADJ
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",for,register,prep,ADP,VERB
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",a,profile,det,DET,NOUN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",user,profile,compound,NOUN,NOUN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",-,profile,punct,PUNCT,NOUN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",profile,for,pobj,NOUN,ADP
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",with,profile,prep,ADP,NOUN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",the,methods,det,DET,NOUN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",following,methods,amod,ADJ,NOUN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",methods,with,pobj,NOUN,ADP
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",:,be,punct,PUNCT,AUX
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",Facebook,user,appos,PROPN,NOUN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",",",Facebook,punct,PUNCT,PROPN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",Google,Facebook,appos,PROPN,PROPN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",or,Google,cc,CCONJ,PROPN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",email,Google,conj,NOUN,PROPN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",and,email,cc,CCONJ,NOUN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",password,email,conj,NOUN,NOUN
+2,"The user should be able to register for a user-profile with the following methods: Facebook, Google or email and password.",.,be,punct,PUNCT,AUX
+3,The user should be able to navigate between attractions from a map of Copenhagen.,The,user,det,DET,NOUN
+3,The user should be able to navigate between attractions from a map of Copenhagen.,user,be,nsubj,NOUN,AUX
+3,The user should be able to navigate between attractions from a map of Copenhagen.,should,be,aux,AUX,AUX
+3,The user should be able to navigate between attractions from a map of Copenhagen.,be,be,ROOT,AUX,AUX
+3,The user should be able to navigate between attractions from a map of Copenhagen.,able,be,acomp,ADJ,AUX
+3,The user should be able to navigate between attractions from a map of Copenhagen.,to,navigate,aux,PART,VERB
+3,The user should be able to navigate between attractions from a map of Copenhagen.,navigate,able,xcomp,VERB,ADJ
+3,The user should be able to navigate between attractions from a map of Copenhagen.,between,navigate,prep,ADP,VERB
+3,The user should be able to navigate between attractions from a map of Copenhagen.,attractions,between,pobj,NOUN,ADP
+3,The user should be able to navigate between attractions from a map of Copenhagen.,from,attractions,prep,ADP,NOUN
+3,The user should be able to navigate between attractions from a map of Copenhagen.,a,map,det,DET,NOUN
+3,The user should be able to navigate between attractions from a map of Copenhagen.,map,from,pobj,NOUN,ADP
+3,The user should be able to navigate between attractions from a map of Copenhagen.,of,map,prep,ADP,NOUN
+3,The user should be able to navigate between attractions from a map of Copenhagen.,Copenhagen,of,pobj,PROPN,ADP
+3,The user should be able to navigate between attractions from a map of Copenhagen.,.,be,punct,PUNCT,AUX
+4,The user should be able to view all experiences near them on a map of Copenhagen.,The,user,det,DET,NOUN
+4,The user should be able to view all experiences near them on a map of Copenhagen.,user,be,nsubj,NOUN,AUX
+4,The user should be able to view all experiences near them on a map of Copenhagen.,should,be,aux,AUX,AUX
+4,The user should be able to view all experiences near them on a map of Copenhagen.,be,be,ROOT,AUX,AUX
+4,The user should be able to view all experiences near them on a map of Copenhagen.,able,be,acomp,ADJ,AUX
+4,The user should be able to view all experiences near them on a map of Copenhagen.,to,view,aux,PART,VERB
+4,The user should be able to view all experiences near them on a map of Copenhagen.,view,able,xcomp,VERB,ADJ
+4,The user should be able to view all experiences near them on a map of Copenhagen.,all,experiences,det,DET,NOUN
+4,The user should be able to view all experiences near them on a map of Copenhagen.,experiences,view,dobj,NOUN,VERB
+4,The user should be able to view all experiences near them on a map of Copenhagen.,near,experiences,prep,ADP,NOUN
+4,The user should be able to view all experiences near them on a map of Copenhagen.,them,near,pobj,PRON,ADP
+4,The user should be able to view all experiences near them on a map of Copenhagen.,on,view,prep,ADP,VERB
+4,The user should be able to view all experiences near them on a map of Copenhagen.,a,map,det,DET,NOUN
+4,The user should be able to view all experiences near them on a map of Copenhagen.,map,on,pobj,NOUN,ADP
+4,The user should be able to view all experiences near them on a map of Copenhagen.,of,map,prep,ADP,NOUN
+4,The user should be able to view all experiences near them on a map of Copenhagen.,Copenhagen,of,pobj,PROPN,ADP
+4,The user should be able to view all experiences near them on a map of Copenhagen.,.,be,punct,PUNCT,AUX
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,The,user,det,DET,NOUN
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,user,be,nsubj,NOUN,AUX
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,should,be,aux,AUX,AUX
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,be,be,ROOT,AUX,AUX
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,able,be,acomp,ADJ,AUX
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,to,save,aux,PART,VERB
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,save,able,xcomp,VERB,ADJ
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,an,itinerary,det,DET,NOUN
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,itinerary,save,dobj,NOUN,VERB
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,generated,itinerary,acl,VERB,NOUN
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,by,generated,prep,ADP,VERB
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,creating,by,pcomp,VERB,ADP
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,a,profile,det,DET,NOUN
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,user,profile,compound,NOUN,NOUN
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,-,profile,punct,PUNCT,NOUN
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,profile,creating,dobj,NOUN,VERB
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,and,creating,cc,CCONJ,VERB
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,adding,creating,conj,VERB,VERB
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,it,adding,dobj,PRON,VERB
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,to,adding,prep,ADP,VERB
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,their,profile,poss,PRON,NOUN
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,profile,to,pobj,NOUN,ADP
+5,The user should be able to save an itinerary generated by creating a user-profile and adding it to their profile.,.,be,punct,PUNCT,AUX
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",The,user,det,DET,NOUN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",user,be,nsubj,NOUN,AUX
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",should,be,aux,AUX,AUX
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",be,be,ROOT,AUX,AUX
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",able,be,acomp,ADJ,AUX
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",to,filter,aux,PART,VERB
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",filter,able,xcomp,VERB,ADJ
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",which,experiences,det,DET,VERB
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",experiences,filter,ccomp,VERB,VERB
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",they,see,nsubj,PRON,VERB
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",can,see,aux,AUX,VERB
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",see,experiences,ccomp,VERB,VERB
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",on,see,prep,ADP,VERB
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",the,map,det,DET,NOUN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",map,on,pobj,NOUN,ADP
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",of,map,prep,ADP,NOUN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",Copenhagen,of,pobj,PROPN,ADP
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",",",Copenhagen,punct,PUNCT,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",based,map,acl,VERB,NOUN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",on,based,prep,ADP,VERB
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",the,labels,det,DET,NOUN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",following,labels,amod,VERB,NOUN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",labels,on,pobj,NOUN,ADP
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",:,be,punct,PUNCT,AUX
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",CHILD,FRIENDLY,compound,NOUN,NOUN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",FRIENDLY,user,appos,NOUN,NOUN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",",",FRIENDLY,punct,PUNCT,NOUN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",ROMANTIC,FRIENDLY,appos,PROPN,NOUN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",",",ROMANTIC,punct,PUNCT,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",POPULAR,ROMANTIC,conj,PROPN,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",",",POPULAR,punct,PUNCT,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",UNIQUE,POPULAR,conj,PROPN,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",",",UNIQUE,punct,PUNCT,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",LOCAL,UNIQUE,conj,PROPN,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",",",LOCAL,punct,PUNCT,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",ACTIVE,LOCAL,conj,PROPN,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",",",ACTIVE,punct,PUNCT,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",CULTURE,ACTIVE,conj,PROPN,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",",",CULTURE,punct,PUNCT,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",NATURE,CULTURE,conj,PROPN,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",",",NATURE,punct,PUNCT,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",HISTORIC,NATURE,appos,PROPN,PROPN
+6,"The user should be able to filter which experiences they can see on the map of Copenhagen, based on the following labels: CHILD FRIENDLY, ROMANTIC, POPULAR, UNIQUE, LOCAL, ACTIVE, CULTURE, NATURE, HISTORIC.",.,be,punct,PUNCT,AUX
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",The,user,det,DET,NOUN
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",user,be,nsubj,NOUN,AUX
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",should,be,aux,AUX,AUX
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",be,be,ROOT,AUX,AUX
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",able,be,acomp,ADJ,AUX
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",to,edit,aux,PART,VERB
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",edit,able,xcomp,VERB,ADJ
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",the,itinerary,det,DET,NOUN
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",itinerary,edit,dobj,NOUN,VERB
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",",",be,punct,PUNCT,AUX
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",add,be,conj,VERB,AUX
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",their,experiences,poss,PRON,NOUN
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",own,experiences,amod,ADJ,NOUN
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",experiences,add,dobj,NOUN,VERB
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",",",add,punct,PUNCT,VERB
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",and,add,cc,CCONJ,VERB
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",delete,add,conj,ADJ,VERB
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",or,delete,cc,CCONJ,ADJ
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",move,delete,conj,VERB,ADJ
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",recommended,experiences,amod,VERB,NOUN
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",experiences,move,dobj,NOUN,VERB
+7,"The user should be able to edit the itinerary, add their own experiences, and delete or move recommended experiences.",.,be,punct,PUNCT,AUX
+8,The user should be able to access all services without a user profile.,The,user,det,DET,NOUN
+8,The user should be able to access all services without a user profile.,user,be,nsubj,NOUN,AUX
+8,The user should be able to access all services without a user profile.,should,be,aux,AUX,AUX
+8,The user should be able to access all services without a user profile.,be,be,ROOT,AUX,AUX
+8,The user should be able to access all services without a user profile.,able,be,acomp,ADJ,AUX
+8,The user should be able to access all services without a user profile.,to,access,aux,PART,VERB
+8,The user should be able to access all services without a user profile.,access,able,xcomp,VERB,ADJ
+8,The user should be able to access all services without a user profile.,all,services,det,DET,NOUN
+8,The user should be able to access all services without a user profile.,services,access,dobj,NOUN,VERB
+8,The user should be able to access all services without a user profile.,without,access,prep,ADP,VERB
+8,The user should be able to access all services without a user profile.,a,profile,det,DET,NOUN
+8,The user should be able to access all services without a user profile.,user,profile,compound,NOUN,NOUN
+8,The user should be able to access all services without a user profile.,profile,without,pobj,NOUN,ADP
+8,The user should be able to access all services without a user profile.,.,be,punct,PUNCT,AUX
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",The,user,det,DET,NOUN
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",user,be,nsubj,NOUN,AUX
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",should,be,aux,AUX,AUX
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",be,be,ROOT,AUX,AUX
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",able,be,acomp,ADJ,AUX
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",to,add,aux,PART,VERB
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",add,able,xcomp,VERB,ADJ
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",their,experience,poss,PRON,NOUN
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",own,experience,amod,ADJ,NOUN
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",experience,add,dobj,NOUN,VERB
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",",",add,punct,PUNCT,VERB
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",with,add,prep,ADP,VERB
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",location,with,pobj,NOUN,ADP
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",",",location,punct,PUNCT,NOUN
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",perceived,range,amod,VERB,NOUN
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",price,range,compound,NOUN,NOUN
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",range,location,conj,NOUN,NOUN
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",",",range,punct,PUNCT,NOUN
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",pictures,range,conj,NOUN,NOUN
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",and,pictures,cc,CCONJ,NOUN
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",text,pictures,conj,NOUN,NOUN
+9,"The user should be able to add their own experience, with location, perceived price range, pictures and text.",.,be,punct,PUNCT,AUX
+10,The user should be able to create and save multiple itineraries to their user profile.,The,user,det,DET,NOUN
+10,The user should be able to create and save multiple itineraries to their user profile.,user,be,nsubj,NOUN,AUX
+10,The user should be able to create and save multiple itineraries to their user profile.,should,be,aux,AUX,AUX
+10,The user should be able to create and save multiple itineraries to their user profile.,be,be,ROOT,AUX,AUX
+10,The user should be able to create and save multiple itineraries to their user profile.,able,be,acomp,ADJ,AUX
+10,The user should be able to create and save multiple itineraries to their user profile.,to,create,aux,PART,VERB
+10,The user should be able to create and save multiple itineraries to their user profile.,create,able,xcomp,VERB,ADJ
+10,The user should be able to create and save multiple itineraries to their user profile.,and,create,cc,CCONJ,VERB
+10,The user should be able to create and save multiple itineraries to their user profile.,save,create,conj,VERB,VERB
+10,The user should be able to create and save multiple itineraries to their user profile.,multiple,itineraries,amod,ADJ,NOUN
+10,The user should be able to create and save multiple itineraries to their user profile.,itineraries,save,dobj,NOUN,VERB
+10,The user should be able to create and save multiple itineraries to their user profile.,to,save,prep,ADP,VERB
+10,The user should be able to create and save multiple itineraries to their user profile.,their,profile,poss,PRON,NOUN
+10,The user should be able to create and save multiple itineraries to their user profile.,user,profile,compound,NOUN,NOUN
+10,The user should be able to create and save multiple itineraries to their user profile.,profile,to,pobj,NOUN,ADP
+10,The user should be able to create and save multiple itineraries to their user profile.,.,be,punct,PUNCT,AUX
+11,The user should be able to access a overview of all their itineraries.,The,user,det,DET,NOUN
+11,The user should be able to access a overview of all their itineraries.,user,be,nsubj,NOUN,AUX
+11,The user should be able to access a overview of all their itineraries.,should,be,aux,AUX,AUX
+11,The user should be able to access a overview of all their itineraries.,be,be,ROOT,AUX,AUX
+11,The user should be able to access a overview of all their itineraries.,able,be,acomp,ADJ,AUX
+11,The user should be able to access a overview of all their itineraries.,to,access,aux,PART,VERB
+11,The user should be able to access a overview of all their itineraries.,access,able,xcomp,VERB,ADJ
+11,The user should be able to access a overview of all their itineraries.,a,overview,det,DET,NOUN
+11,The user should be able to access a overview of all their itineraries.,overview,access,dobj,NOUN,VERB
+11,The user should be able to access a overview of all their itineraries.,of,overview,prep,ADP,NOUN
+11,The user should be able to access a overview of all their itineraries.,all,itineraries,predet,DET,NOUN
+11,The user should be able to access a overview of all their itineraries.,their,itineraries,poss,PRON,NOUN
+11,The user should be able to access a overview of all their itineraries.,itineraries,of,pobj,NOUN,ADP
+11,The user should be able to access a overview of all their itineraries.,.,be,punct,PUNCT,AUX
+12,The system shall display all the products that can be configured.,The,system,det,DET,NOUN
+12,The system shall display all the products that can be configured.,system,display,nsubj,NOUN,VERB
+12,The system shall display all the products that can be configured.,shall,display,aux,AUX,VERB
+12,The system shall display all the products that can be configured.,display,display,ROOT,VERB,VERB
+12,The system shall display all the products that can be configured.,all,products,predet,DET,NOUN
+12,The system shall display all the products that can be configured.,the,products,det,DET,NOUN
+12,The system shall display all the products that can be configured.,products,display,dobj,NOUN,VERB
+12,The system shall display all the products that can be configured.,that,configured,nsubjpass,PRON,VERB
+12,The system shall display all the products that can be configured.,can,configured,aux,AUX,VERB
+12,The system shall display all the products that can be configured.,be,configured,auxpass,AUX,VERB
+12,The system shall display all the products that can be configured.,configured,products,relcl,VERB,NOUN
+12,The system shall display all the products that can be configured.,.,display,punct,PUNCT,VERB
+13,The system shall allow user to select the product to configure.,The,system,det,DET,NOUN
+13,The system shall allow user to select the product to configure.,system,allow,nsubj,NOUN,VERB
+13,The system shall allow user to select the product to configure.,shall,allow,aux,AUX,VERB
+13,The system shall allow user to select the product to configure.,allow,allow,ROOT,VERB,VERB
+13,The system shall allow user to select the product to configure.,user,select,nsubj,NOUN,VERB
+13,The system shall allow user to select the product to configure.,to,select,aux,PART,VERB
+13,The system shall allow user to select the product to configure.,select,allow,ccomp,VERB,VERB
+13,The system shall allow user to select the product to configure.,the,product,det,DET,NOUN
+13,The system shall allow user to select the product to configure.,product,select,dobj,NOUN,VERB
+13,The system shall allow user to select the product to configure.,to,select,prep,ADP,VERB
+13,The system shall allow user to select the product to configure.,configure,to,pobj,NOUN,ADP
+13,The system shall allow user to select the product to configure.,.,allow,punct,PUNCT,VERB
+14,The system shall display all the available components of the product to configure.,The,system,det,DET,NOUN
+14,The system shall display all the available components of the product to configure.,system,display,nsubj,NOUN,VERB
+14,The system shall display all the available components of the product to configure.,shall,display,aux,AUX,VERB
+14,The system shall display all the available components of the product to configure.,display,display,ROOT,VERB,VERB
+14,The system shall display all the available components of the product to configure.,all,components,predet,DET,NOUN
+14,The system shall display all the available components of the product to configure.,the,components,det,DET,NOUN
+14,The system shall display all the available components of the product to configure.,available,components,amod,ADJ,NOUN
+14,The system shall display all the available components of the product to configure.,components,display,dobj,NOUN,VERB
+14,The system shall display all the available components of the product to configure.,of,components,prep,ADP,NOUN
+14,The system shall display all the available components of the product to configure.,the,product,det,DET,NOUN
+14,The system shall display all the available components of the product to configure.,product,of,pobj,NOUN,ADP
+14,The system shall display all the available components of the product to configure.,to,display,prep,ADP,VERB
+14,The system shall display all the available components of the product to configure.,configure,to,pobj,NOUN,ADP
+14,The system shall display all the available components of the product to configure.,.,display,punct,PUNCT,VERB
+15,The system shall enable user to add one or more component to the configuration.,The,system,det,DET,NOUN
+15,The system shall enable user to add one or more component to the configuration.,system,enable,nsubj,NOUN,VERB
+15,The system shall enable user to add one or more component to the configuration.,shall,enable,aux,AUX,VERB
+15,The system shall enable user to add one or more component to the configuration.,enable,enable,ROOT,VERB,VERB
+15,The system shall enable user to add one or more component to the configuration.,user,enable,dobj,NOUN,VERB
+15,The system shall enable user to add one or more component to the configuration.,to,add,aux,PART,VERB
+15,The system shall enable user to add one or more component to the configuration.,add,enable,xcomp,VERB,VERB
+15,The system shall enable user to add one or more component to the configuration.,one,component,nummod,NUM,NOUN
+15,The system shall enable user to add one or more component to the configuration.,or,one,cc,CCONJ,NUM
+15,The system shall enable user to add one or more component to the configuration.,more,one,conj,ADJ,NUM
+15,The system shall enable user to add one or more component to the configuration.,component,add,dobj,NOUN,VERB
+15,The system shall enable user to add one or more component to the configuration.,to,component,prep,ADP,NOUN
+15,The system shall enable user to add one or more component to the configuration.,the,configuration,det,DET,NOUN
+15,The system shall enable user to add one or more component to the configuration.,configuration,to,pobj,NOUN,ADP
+15,The system shall enable user to add one or more component to the configuration.,.,enable,punct,PUNCT,VERB
+16,The system shall notify the user about any conflict in the current configuration.,The,system,det,DET,NOUN
+16,The system shall notify the user about any conflict in the current configuration.,system,notify,nsubj,NOUN,VERB
+16,The system shall notify the user about any conflict in the current configuration.,shall,notify,aux,AUX,VERB
+16,The system shall notify the user about any conflict in the current configuration.,notify,notify,ROOT,VERB,VERB
+16,The system shall notify the user about any conflict in the current configuration.,the,user,det,DET,NOUN
+16,The system shall notify the user about any conflict in the current configuration.,user,notify,dobj,NOUN,VERB
+16,The system shall notify the user about any conflict in the current configuration.,about,user,prep,ADP,NOUN
+16,The system shall notify the user about any conflict in the current configuration.,any,conflict,det,DET,NOUN
+16,The system shall notify the user about any conflict in the current configuration.,conflict,about,pobj,NOUN,ADP
+16,The system shall notify the user about any conflict in the current configuration.,in,conflict,prep,ADP,NOUN
+16,The system shall notify the user about any conflict in the current configuration.,the,configuration,det,DET,NOUN
+16,The system shall notify the user about any conflict in the current configuration.,current,configuration,amod,ADJ,NOUN
+16,The system shall notify the user about any conflict in the current configuration.,configuration,in,pobj,NOUN,ADP
+16,The system shall notify the user about any conflict in the current configuration.,.,notify,punct,PUNCT,VERB
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,The,system,det,DET,NOUN
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,system,allow,nsubj,NOUN,VERB
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,shall,allow,aux,AUX,VERB
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,allow,allow,ROOT,VERB,VERB
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,user,update,nsubj,NOUN,VERB
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,to,update,aux,PART,VERB
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,update,allow,ccomp,VERB,VERB
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,the,configuration,det,DET,NOUN
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,configuration,update,dobj,NOUN,VERB
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,to,resolve,aux,PART,VERB
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,resolve,update,advcl,VERB,VERB
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,conflict,resolve,dobj,NOUN,VERB
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,in,conflict,prep,ADP,NOUN
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,the,configuration,det,DET,NOUN
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,current,configuration,amod,ADJ,NOUN
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,configuration,in,pobj,NOUN,ADP
+17,The system shall allow user to update the configuration to resolve conflict in the current configuration.,.,allow,punct,PUNCT,VERB
+18,The system shall allow user to confirm the completion of current configuration.,The,system,det,DET,NOUN
+18,The system shall allow user to confirm the completion of current configuration.,system,allow,nsubj,NOUN,VERB
+18,The system shall allow user to confirm the completion of current configuration.,shall,allow,aux,AUX,VERB
+18,The system shall allow user to confirm the completion of current configuration.,allow,allow,ROOT,VERB,VERB
+18,The system shall allow user to confirm the completion of current configuration.,user,confirm,nsubj,NOUN,VERB
+18,The system shall allow user to confirm the completion of current configuration.,to,confirm,aux,PART,VERB
+18,The system shall allow user to confirm the completion of current configuration.,confirm,allow,ccomp,VERB,VERB
+18,The system shall allow user to confirm the completion of current configuration.,the,completion,det,DET,NOUN
+18,The system shall allow user to confirm the completion of current configuration.,completion,confirm,dobj,NOUN,VERB
+18,The system shall allow user to confirm the completion of current configuration.,of,completion,prep,ADP,NOUN
+18,The system shall allow user to confirm the completion of current configuration.,current,configuration,amod,ADJ,NOUN
+18,The system shall allow user to confirm the completion of current configuration.,configuration,of,pobj,NOUN,ADP
+18,The system shall allow user to confirm the completion of current configuration.,.,allow,punct,PUNCT,VERB
+19,The system shall display detailed information of the selected products.,The,system,det,DET,NOUN
+19,The system shall display detailed information of the selected products.,system,display,nsubj,NOUN,VERB
+19,The system shall display detailed information of the selected products.,shall,display,aux,AUX,VERB
+19,The system shall display detailed information of the selected products.,display,display,ROOT,VERB,VERB
+19,The system shall display detailed information of the selected products.,detailed,information,amod,ADJ,NOUN
+19,The system shall display detailed information of the selected products.,information,display,dobj,NOUN,VERB
+19,The system shall display detailed information of the selected products.,of,information,prep,ADP,NOUN
+19,The system shall display detailed information of the selected products.,the,products,det,DET,NOUN
+19,The system shall display detailed information of the selected products.,selected,products,amod,VERB,NOUN
+19,The system shall display detailed information of the selected products.,products,of,pobj,NOUN,ADP
+19,The system shall display detailed information of the selected products.,.,display,punct,PUNCT,VERB
+20,The system shall provide browsing options to see product details.,The,system,det,DET,NOUN
+20,The system shall provide browsing options to see product details.,system,provide,nsubj,NOUN,VERB
+20,The system shall provide browsing options to see product details.,shall,provide,aux,AUX,VERB
+20,The system shall provide browsing options to see product details.,provide,provide,ROOT,VERB,VERB
+20,The system shall provide browsing options to see product details.,browsing,options,amod,VERB,NOUN
+20,The system shall provide browsing options to see product details.,options,provide,dobj,NOUN,VERB
+20,The system shall provide browsing options to see product details.,to,see,aux,PART,VERB
+20,The system shall provide browsing options to see product details.,see,provide,advcl,VERB,VERB
+20,The system shall provide browsing options to see product details.,product,details,compound,NOUN,NOUN
+20,The system shall provide browsing options to see product details.,details,see,dobj,NOUN,VERB
+20,The system shall provide browsing options to see product details.,.,provide,punct,PUNCT,VERB
+21,The system shall display detailed product categorization to the user.,The,system,det,DET,NOUN
+21,The system shall display detailed product categorization to the user.,system,display,nsubj,NOUN,VERB
+21,The system shall display detailed product categorization to the user.,shall,display,aux,AUX,VERB
+21,The system shall display detailed product categorization to the user.,display,display,ROOT,VERB,VERB
+21,The system shall display detailed product categorization to the user.,detailed,categorization,amod,ADJ,NOUN
+21,The system shall display detailed product categorization to the user.,product,categorization,compound,NOUN,NOUN
+21,The system shall display detailed product categorization to the user.,categorization,display,dobj,NOUN,VERB
+21,The system shall display detailed product categorization to the user.,to,display,prep,ADP,VERB
+21,The system shall display detailed product categorization to the user.,the,user,det,DET,NOUN
+21,The system shall display detailed product categorization to the user.,user,to,pobj,NOUN,ADP
+21,The system shall display detailed product categorization to the user.,.,display,punct,PUNCT,VERB
+22,The system shall enable user to enter the search text on the screen.,The,system,det,DET,NOUN
+22,The system shall enable user to enter the search text on the screen.,system,enable,nsubj,NOUN,VERB
+22,The system shall enable user to enter the search text on the screen.,shall,enable,aux,AUX,VERB
+22,The system shall enable user to enter the search text on the screen.,enable,enable,ROOT,VERB,VERB
+22,The system shall enable user to enter the search text on the screen.,user,enable,dobj,NOUN,VERB
+22,The system shall enable user to enter the search text on the screen.,to,enter,aux,PART,VERB
+22,The system shall enable user to enter the search text on the screen.,enter,enable,xcomp,VERB,VERB
+22,The system shall enable user to enter the search text on the screen.,the,text,det,DET,NOUN
+22,The system shall enable user to enter the search text on the screen.,search,text,compound,NOUN,NOUN
+22,The system shall enable user to enter the search text on the screen.,text,enter,dobj,NOUN,VERB
+22,The system shall enable user to enter the search text on the screen.,on,enter,prep,ADP,VERB
+22,The system shall enable user to enter the search text on the screen.,the,screen,det,DET,NOUN
+22,The system shall enable user to enter the search text on the screen.,screen,on,pobj,NOUN,ADP
+22,The system shall enable user to enter the search text on the screen.,.,enable,punct,PUNCT,VERB
+23,The system shall enable user to select multiple options on the screen to search.,The,system,det,DET,NOUN
+23,The system shall enable user to select multiple options on the screen to search.,system,enable,nsubj,NOUN,VERB
+23,The system shall enable user to select multiple options on the screen to search.,shall,enable,aux,AUX,VERB
+23,The system shall enable user to select multiple options on the screen to search.,enable,enable,ROOT,VERB,VERB
+23,The system shall enable user to select multiple options on the screen to search.,user,enable,dobj,NOUN,VERB
+23,The system shall enable user to select multiple options on the screen to search.,to,select,aux,PART,VERB
+23,The system shall enable user to select multiple options on the screen to search.,select,enable,xcomp,VERB,VERB
+23,The system shall enable user to select multiple options on the screen to search.,multiple,options,amod,ADJ,NOUN
+23,The system shall enable user to select multiple options on the screen to search.,options,select,dobj,NOUN,VERB
+23,The system shall enable user to select multiple options on the screen to search.,on,options,prep,ADP,NOUN
+23,The system shall enable user to select multiple options on the screen to search.,the,screen,det,DET,NOUN
+23,The system shall enable user to select multiple options on the screen to search.,screen,on,pobj,NOUN,ADP
+23,The system shall enable user to select multiple options on the screen to search.,to,search,aux,PART,VERB
+23,The system shall enable user to select multiple options on the screen to search.,search,options,acl,VERB,NOUN
+23,The system shall enable user to select multiple options on the screen to search.,.,enable,punct,PUNCT,VERB
+24,The system shall display all the matching products based on the search.,The,system,det,DET,NOUN
+24,The system shall display all the matching products based on the search.,system,display,nsubj,NOUN,VERB
+24,The system shall display all the matching products based on the search.,shall,display,aux,AUX,VERB
+24,The system shall display all the matching products based on the search.,display,display,ROOT,VERB,VERB
+24,The system shall display all the matching products based on the search.,all,products,predet,DET,NOUN
+24,The system shall display all the matching products based on the search.,the,products,det,DET,NOUN
+24,The system shall display all the matching products based on the search.,matching,products,amod,VERB,NOUN
+24,The system shall display all the matching products based on the search.,products,display,dobj,NOUN,VERB
+24,The system shall display all the matching products based on the search.,based,products,acl,VERB,NOUN
+24,The system shall display all the matching products based on the search.,on,based,prep,ADP,VERB
+24,The system shall display all the matching products based on the search.,the,search,det,DET,NOUN
+24,The system shall display all the matching products based on the search.,search,on,pobj,NOUN,ADP
+24,The system shall display all the matching products based on the search.,.,display,punct,PUNCT,VERB
+25,The system shall display only 10 matching result on the current screen.,The,system,det,DET,NOUN
+25,The system shall display only 10 matching result on the current screen.,system,display,nsubj,NOUN,VERB
+25,The system shall display only 10 matching result on the current screen.,shall,display,aux,AUX,VERB
+25,The system shall display only 10 matching result on the current screen.,display,display,ROOT,VERB,VERB
+25,The system shall display only 10 matching result on the current screen.,only,10,advmod,ADV,NUM
+25,The system shall display only 10 matching result on the current screen.,10,result,nummod,NUM,NOUN
+25,The system shall display only 10 matching result on the current screen.,matching,result,compound,NOUN,NOUN
+25,The system shall display only 10 matching result on the current screen.,result,display,dobj,NOUN,VERB
+25,The system shall display only 10 matching result on the current screen.,on,result,prep,ADP,NOUN
+25,The system shall display only 10 matching result on the current screen.,the,screen,det,DET,NOUN
+25,The system shall display only 10 matching result on the current screen.,current,screen,amod,ADJ,NOUN
+25,The system shall display only 10 matching result on the current screen.,screen,on,pobj,NOUN,ADP
+25,The system shall display only 10 matching result on the current screen.,.,display,punct,PUNCT,VERB
+26,The system shall enable user to navigate between the search results.,The,system,det,DET,NOUN
+26,The system shall enable user to navigate between the search results.,system,enable,nsubj,NOUN,VERB
+26,The system shall enable user to navigate between the search results.,shall,enable,aux,AUX,VERB
+26,The system shall enable user to navigate between the search results.,enable,enable,ROOT,VERB,VERB
+26,The system shall enable user to navigate between the search results.,user,enable,dobj,NOUN,VERB
+26,The system shall enable user to navigate between the search results.,to,navigate,aux,PART,VERB
+26,The system shall enable user to navigate between the search results.,navigate,enable,xcomp,VERB,VERB
+26,The system shall enable user to navigate between the search results.,between,navigate,prep,ADP,VERB
+26,The system shall enable user to navigate between the search results.,the,results,det,DET,NOUN
+26,The system shall enable user to navigate between the search results.,search,results,compound,NOUN,NOUN
+26,The system shall enable user to navigate between the search results.,results,between,pobj,NOUN,ADP
+26,The system shall enable user to navigate between the search results.,.,enable,punct,PUNCT,VERB
+27,The system shall notify the user when no matching product is found on the search.,The,system,det,DET,NOUN
+27,The system shall notify the user when no matching product is found on the search.,system,notify,nsubj,NOUN,VERB
+27,The system shall notify the user when no matching product is found on the search.,shall,notify,aux,AUX,VERB
+27,The system shall notify the user when no matching product is found on the search.,notify,notify,ROOT,VERB,VERB
+27,The system shall notify the user when no matching product is found on the search.,the,user,det,DET,NOUN
+27,The system shall notify the user when no matching product is found on the search.,user,notify,dobj,NOUN,VERB
+27,The system shall notify the user when no matching product is found on the search.,when,found,advmod,SCONJ,VERB
+27,The system shall notify the user when no matching product is found on the search.,no,product,det,DET,NOUN
+27,The system shall notify the user when no matching product is found on the search.,matching,product,compound,NOUN,NOUN
+27,The system shall notify the user when no matching product is found on the search.,product,found,nsubjpass,NOUN,VERB
+27,The system shall notify the user when no matching product is found on the search.,is,found,auxpass,AUX,VERB
+27,The system shall notify the user when no matching product is found on the search.,found,notify,advcl,VERB,VERB
+27,The system shall notify the user when no matching product is found on the search.,on,found,prep,ADP,VERB
+27,The system shall notify the user when no matching product is found on the search.,the,search,det,DET,NOUN
+27,The system shall notify the user when no matching product is found on the search.,search,on,pobj,NOUN,ADP
+27,The system shall notify the user when no matching product is found on the search.,.,notify,punct,PUNCT,VERB
+28,The system shall allow user to create profile and set his credential.,The,system,det,DET,NOUN
+28,The system shall allow user to create profile and set his credential.,system,allow,nsubj,NOUN,VERB
+28,The system shall allow user to create profile and set his credential.,shall,allow,aux,AUX,VERB
+28,The system shall allow user to create profile and set his credential.,allow,allow,ROOT,VERB,VERB
+28,The system shall allow user to create profile and set his credential.,user,create,nsubj,NOUN,VERB
+28,The system shall allow user to create profile and set his credential.,to,create,aux,PART,VERB
+28,The system shall allow user to create profile and set his credential.,create,allow,ccomp,VERB,VERB
+28,The system shall allow user to create profile and set his credential.,profile,create,dobj,NOUN,VERB
+28,The system shall allow user to create profile and set his credential.,and,create,cc,CCONJ,VERB
+28,The system shall allow user to create profile and set his credential.,set,create,conj,VERB,VERB
+28,The system shall allow user to create profile and set his credential.,his,credential,poss,PRON,NOUN
+28,The system shall allow user to create profile and set his credential.,credential,set,dobj,NOUN,VERB
+28,The system shall allow user to create profile and set his credential.,.,allow,punct,PUNCT,VERB
+29,The system shall authenticate user credentials to view the profile.,The,system,det,DET,NOUN
+29,The system shall authenticate user credentials to view the profile.,system,authenticate,nsubj,NOUN,VERB
+29,The system shall authenticate user credentials to view the profile.,shall,authenticate,aux,AUX,VERB
+29,The system shall authenticate user credentials to view the profile.,authenticate,authenticate,ROOT,VERB,VERB
+29,The system shall authenticate user credentials to view the profile.,user,credentials,compound,NOUN,NOUN
+29,The system shall authenticate user credentials to view the profile.,credentials,authenticate,dobj,NOUN,VERB
+29,The system shall authenticate user credentials to view the profile.,to,view,aux,PART,VERB
+29,The system shall authenticate user credentials to view the profile.,view,authenticate,advcl,VERB,VERB
+29,The system shall authenticate user credentials to view the profile.,the,profile,det,DET,NOUN
+29,The system shall authenticate user credentials to view the profile.,profile,view,dobj,NOUN,VERB
+29,The system shall authenticate user credentials to view the profile.,.,authenticate,punct,PUNCT,VERB
+30,The system shall allow user to update the profile information.,The,system,det,DET,NOUN
+30,The system shall allow user to update the profile information.,system,allow,nsubj,NOUN,VERB
+30,The system shall allow user to update the profile information.,shall,allow,aux,AUX,VERB
+30,The system shall allow user to update the profile information.,allow,allow,ROOT,VERB,VERB
+30,The system shall allow user to update the profile information.,user,update,nsubj,NOUN,VERB
+30,The system shall allow user to update the profile information.,to,update,aux,PART,VERB
+30,The system shall allow user to update the profile information.,update,allow,ccomp,VERB,VERB
+30,The system shall allow user to update the profile information.,the,information,det,DET,NOUN
+30,The system shall allow user to update the profile information.,profile,information,compound,NOUN,NOUN
+30,The system shall allow user to update the profile information.,information,update,dobj,NOUN,VERB
+30,The system shall allow user to update the profile information.,.,allow,punct,PUNCT,VERB
+31,The system shall display both the active and completed order history in the customer profile.,The,system,det,DET,NOUN
+31,The system shall display both the active and completed order history in the customer profile.,system,display,nsubj,NOUN,VERB
+31,The system shall display both the active and completed order history in the customer profile.,shall,display,aux,AUX,VERB
+31,The system shall display both the active and completed order history in the customer profile.,display,display,ROOT,VERB,VERB
+31,The system shall display both the active and completed order history in the customer profile.,both,active,preconj,PRON,ADJ
+31,The system shall display both the active and completed order history in the customer profile.,the,active,det,DET,ADJ
+31,The system shall display both the active and completed order history in the customer profile.,active,display,dobj,ADJ,VERB
+31,The system shall display both the active and completed order history in the customer profile.,and,display,cc,CCONJ,VERB
+31,The system shall display both the active and completed order history in the customer profile.,completed,display,conj,VERB,VERB
+31,The system shall display both the active and completed order history in the customer profile.,order,history,compound,NOUN,NOUN
+31,The system shall display both the active and completed order history in the customer profile.,history,completed,dobj,NOUN,VERB
+31,The system shall display both the active and completed order history in the customer profile.,in,history,prep,ADP,NOUN
+31,The system shall display both the active and completed order history in the customer profile.,the,profile,det,DET,NOUN
+31,The system shall display both the active and completed order history in the customer profile.,customer,profile,compound,NOUN,NOUN
+31,The system shall display both the active and completed order history in the customer profile.,profile,in,pobj,NOUN,ADP
+31,The system shall display both the active and completed order history in the customer profile.,.,display,punct,PUNCT,VERB
+32,The system shall allow user to select the order from the order history.,The,system,det,DET,NOUN
+32,The system shall allow user to select the order from the order history.,system,allow,nsubj,NOUN,VERB
+32,The system shall allow user to select the order from the order history.,shall,allow,aux,AUX,VERB
+32,The system shall allow user to select the order from the order history.,allow,allow,ROOT,VERB,VERB
+32,The system shall allow user to select the order from the order history.,user,select,nsubj,NOUN,VERB
+32,The system shall allow user to select the order from the order history.,to,select,aux,PART,VERB
+32,The system shall allow user to select the order from the order history.,select,allow,ccomp,VERB,VERB
+32,The system shall allow user to select the order from the order history.,the,order,det,DET,NOUN
+32,The system shall allow user to select the order from the order history.,order,select,dobj,NOUN,VERB
+32,The system shall allow user to select the order from the order history.,from,order,prep,ADP,NOUN
+32,The system shall allow user to select the order from the order history.,the,history,det,DET,NOUN
+32,The system shall allow user to select the order from the order history.,order,history,compound,NOUN,NOUN
+32,The system shall allow user to select the order from the order history.,history,from,pobj,NOUN,ADP
+32,The system shall allow user to select the order from the order history.,.,allow,punct,PUNCT,VERB
+33,The system shall display the detailed information about the selected order.,The,system,det,DET,NOUN
+33,The system shall display the detailed information about the selected order.,system,display,nsubj,NOUN,VERB
+33,The system shall display the detailed information about the selected order.,shall,display,aux,AUX,VERB
+33,The system shall display the detailed information about the selected order.,display,display,ROOT,VERB,VERB
+33,The system shall display the detailed information about the selected order.,the,information,det,DET,NOUN
+33,The system shall display the detailed information about the selected order.,detailed,information,amod,ADJ,NOUN
+33,The system shall display the detailed information about the selected order.,information,display,dobj,NOUN,VERB
+33,The system shall display the detailed information about the selected order.,about,information,prep,ADP,NOUN
+33,The system shall display the detailed information about the selected order.,the,order,det,DET,NOUN
+33,The system shall display the detailed information about the selected order.,selected,order,amod,VERB,NOUN
+33,The system shall display the detailed information about the selected order.,order,about,pobj,NOUN,ADP
+33,The system shall display the detailed information about the selected order.,.,display,punct,PUNCT,VERB
+34,The system shall display the most frequently searched items by the user in the profile.,The,system,det,DET,NOUN
+34,The system shall display the most frequently searched items by the user in the profile.,system,display,nsubj,NOUN,VERB
+34,The system shall display the most frequently searched items by the user in the profile.,shall,display,aux,AUX,VERB
+34,The system shall display the most frequently searched items by the user in the profile.,display,display,ROOT,VERB,VERB
+34,The system shall display the most frequently searched items by the user in the profile.,the,items,det,DET,NOUN
+34,The system shall display the most frequently searched items by the user in the profile.,most,frequently,advmod,ADV,ADV
+34,The system shall display the most frequently searched items by the user in the profile.,frequently,searched,advmod,ADV,VERB
+34,The system shall display the most frequently searched items by the user in the profile.,searched,items,amod,VERB,NOUN
+34,The system shall display the most frequently searched items by the user in the profile.,items,display,dobj,NOUN,VERB
+34,The system shall display the most frequently searched items by the user in the profile.,by,items,prep,ADP,NOUN
+34,The system shall display the most frequently searched items by the user in the profile.,the,user,det,DET,NOUN
+34,The system shall display the most frequently searched items by the user in the profile.,user,by,pobj,NOUN,ADP
+34,The system shall display the most frequently searched items by the user in the profile.,in,user,prep,ADP,NOUN
+34,The system shall display the most frequently searched items by the user in the profile.,the,profile,det,DET,NOUN
+34,The system shall display the most frequently searched items by the user in the profile.,profile,in,pobj,NOUN,ADP
+34,The system shall display the most frequently searched items by the user in the profile.,.,display,punct,PUNCT,VERB
+35,The system shall allow user to register for newsletters and surveys in the profile.,The,system,det,DET,NOUN
+35,The system shall allow user to register for newsletters and surveys in the profile.,system,allow,nsubj,NOUN,VERB
+35,The system shall allow user to register for newsletters and surveys in the profile.,shall,allow,aux,AUX,VERB
+35,The system shall allow user to register for newsletters and surveys in the profile.,allow,allow,ROOT,VERB,VERB
+35,The system shall allow user to register for newsletters and surveys in the profile.,user,register,nsubj,NOUN,VERB
+35,The system shall allow user to register for newsletters and surveys in the profile.,to,register,aux,PART,VERB
+35,The system shall allow user to register for newsletters and surveys in the profile.,register,allow,ccomp,VERB,VERB
+35,The system shall allow user to register for newsletters and surveys in the profile.,for,register,prep,ADP,VERB
+35,The system shall allow user to register for newsletters and surveys in the profile.,newsletters,for,pobj,NOUN,ADP
+35,The system shall allow user to register for newsletters and surveys in the profile.,and,newsletters,cc,CCONJ,NOUN
+35,The system shall allow user to register for newsletters and surveys in the profile.,surveys,newsletters,conj,NOUN,NOUN
+35,The system shall allow user to register for newsletters and surveys in the profile.,in,newsletters,prep,ADP,NOUN
+35,The system shall allow user to register for newsletters and surveys in the profile.,the,profile,det,DET,NOUN
+35,The system shall allow user to register for newsletters and surveys in the profile.,profile,in,pobj,NOUN,ADP
+35,The system shall allow user to register for newsletters and surveys in the profile.,.,allow,punct,PUNCT,VERB
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",The,system,det,DET,NOUN
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",system,provide,nsubj,NOUN,VERB
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",shall,provide,aux,AUX,VERB
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",provide,provide,ROOT,VERB,VERB
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",online,help,amod,ADJ,NOUN
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",help,provide,dobj,NOUN,VERB
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",",",provide,punct,PUNCT,VERB
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",FAQ,support,poss,PROPN,NOUN
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",’s,FAQ,case,PART,PROPN
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",customer,support,compound,NOUN,NOUN
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",support,provide,dobj,NOUN,VERB
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",",",support,punct,PUNCT,NOUN
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",and,support,cc,CCONJ,NOUN
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",sitemap,options,compound,NOUN,NOUN
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",options,support,conj,NOUN,NOUN
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",for,options,prep,ADP,NOUN
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",customer,support,compound,NOUN,NOUN
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",support,for,pobj,NOUN,ADP
+36,"The system shall provide online help, FAQ’s customer support, and sitemap options for customer support.",.,provide,punct,PUNCT,VERB
+37,The system shall allow user to select the support type he wants.,The,system,det,DET,NOUN
+37,The system shall allow user to select the support type he wants.,system,allow,nsubj,NOUN,VERB
+37,The system shall allow user to select the support type he wants.,shall,allow,aux,AUX,VERB
+37,The system shall allow user to select the support type he wants.,allow,allow,ROOT,VERB,VERB
+37,The system shall allow user to select the support type he wants.,user,select,nsubj,NOUN,VERB
+37,The system shall allow user to select the support type he wants.,to,select,aux,PART,VERB
+37,The system shall allow user to select the support type he wants.,select,allow,ccomp,VERB,VERB
+37,The system shall allow user to select the support type he wants.,the,type,det,DET,NOUN
+37,The system shall allow user to select the support type he wants.,support,type,compound,NOUN,NOUN
+37,The system shall allow user to select the support type he wants.,type,select,dobj,NOUN,VERB
+37,The system shall allow user to select the support type he wants.,he,wants,nsubj,PRON,VERB
+37,The system shall allow user to select the support type he wants.,wants,type,relcl,VERB,NOUN
+37,The system shall allow user to select the support type he wants.,.,allow,punct,PUNCT,VERB
+38,The system shall allow user to enter the customer and product information for the support.,The,system,det,DET,NOUN
+38,The system shall allow user to enter the customer and product information for the support.,system,allow,nsubj,NOUN,VERB
+38,The system shall allow user to enter the customer and product information for the support.,shall,allow,aux,AUX,VERB
+38,The system shall allow user to enter the customer and product information for the support.,allow,allow,ROOT,VERB,VERB
+38,The system shall allow user to enter the customer and product information for the support.,user,enter,nsubj,NOUN,VERB
+38,The system shall allow user to enter the customer and product information for the support.,to,enter,aux,PART,VERB
+38,The system shall allow user to enter the customer and product information for the support.,enter,allow,ccomp,VERB,VERB
+38,The system shall allow user to enter the customer and product information for the support.,the,customer,det,DET,NOUN
+38,The system shall allow user to enter the customer and product information for the support.,customer,information,nmod,NOUN,NOUN
+38,The system shall allow user to enter the customer and product information for the support.,and,customer,cc,CCONJ,NOUN
+38,The system shall allow user to enter the customer and product information for the support.,product,customer,conj,NOUN,NOUN
+38,The system shall allow user to enter the customer and product information for the support.,information,enter,dobj,NOUN,VERB
+38,The system shall allow user to enter the customer and product information for the support.,for,information,prep,ADP,NOUN
+38,The system shall allow user to enter the customer and product information for the support.,the,support,det,DET,NOUN
+38,The system shall allow user to enter the customer and product information for the support.,support,for,pobj,NOUN,ADP
+38,The system shall allow user to enter the customer and product information for the support.,.,allow,punct,PUNCT,VERB
+39,The system shall display the customer support contact numbers on the screen.,The,system,det,DET,NOUN
+39,The system shall display the customer support contact numbers on the screen.,system,display,nsubj,NOUN,VERB
+39,The system shall display the customer support contact numbers on the screen.,shall,display,aux,AUX,VERB
+39,The system shall display the customer support contact numbers on the screen.,display,display,ROOT,VERB,VERB
+39,The system shall display the customer support contact numbers on the screen.,the,numbers,det,DET,NOUN
+39,The system shall display the customer support contact numbers on the screen.,customer,support,compound,NOUN,NOUN
+39,The system shall display the customer support contact numbers on the screen.,support,numbers,compound,NOUN,NOUN
+39,The system shall display the customer support contact numbers on the screen.,contact,numbers,compound,NOUN,NOUN
+39,The system shall display the customer support contact numbers on the screen.,numbers,display,dobj,NOUN,VERB
+39,The system shall display the customer support contact numbers on the screen.,on,display,prep,ADP,VERB
+39,The system shall display the customer support contact numbers on the screen.,the,screen,det,DET,NOUN
+39,The system shall display the customer support contact numbers on the screen.,screen,on,pobj,NOUN,ADP
+39,The system shall display the customer support contact numbers on the screen.,.,display,punct,PUNCT,VERB
+40,The system shall allow user to enter the contact number for support personnel to call.,The,system,det,DET,NOUN
+40,The system shall allow user to enter the contact number for support personnel to call.,system,allow,nsubj,NOUN,VERB
+40,The system shall allow user to enter the contact number for support personnel to call.,shall,allow,aux,AUX,VERB
+40,The system shall allow user to enter the contact number for support personnel to call.,allow,allow,ROOT,VERB,VERB
+40,The system shall allow user to enter the contact number for support personnel to call.,user,enter,nsubj,NOUN,VERB
+40,The system shall allow user to enter the contact number for support personnel to call.,to,enter,aux,PART,VERB
+40,The system shall allow user to enter the contact number for support personnel to call.,enter,allow,ccomp,VERB,VERB
+40,The system shall allow user to enter the contact number for support personnel to call.,the,number,det,DET,NOUN
+40,The system shall allow user to enter the contact number for support personnel to call.,contact,number,compound,NOUN,NOUN
+40,The system shall allow user to enter the contact number for support personnel to call.,number,enter,dobj,NOUN,VERB
+40,The system shall allow user to enter the contact number for support personnel to call.,for,number,prep,ADP,NOUN
+40,The system shall allow user to enter the contact number for support personnel to call.,support,personnel,compound,NOUN,NOUN
+40,The system shall allow user to enter the contact number for support personnel to call.,personnel,for,pobj,NOUN,ADP
+40,The system shall allow user to enter the contact number for support personnel to call.,to,call,aux,PART,VERB
+40,The system shall allow user to enter the contact number for support personnel to call.,call,enter,advcl,VERB,VERB
+40,The system shall allow user to enter the contact number for support personnel to call.,.,allow,punct,PUNCT,VERB
+41,The system shall display the online help upon request.,The,system,det,DET,NOUN
+41,The system shall display the online help upon request.,system,display,nsubj,NOUN,VERB
+41,The system shall display the online help upon request.,shall,display,aux,AUX,VERB
+41,The system shall display the online help upon request.,display,display,ROOT,VERB,VERB
+41,The system shall display the online help upon request.,the,help,det,DET,NOUN
+41,The system shall display the online help upon request.,online,help,amod,ADJ,NOUN
+41,The system shall display the online help upon request.,help,display,dobj,NOUN,VERB
+41,The system shall display the online help upon request.,upon,display,prep,SCONJ,VERB
+41,The system shall display the online help upon request.,request,upon,pobj,NOUN,SCONJ
+41,The system shall display the online help upon request.,.,display,punct,PUNCT,VERB
+42,The system shall display the FAQ’s upon request.,The,system,det,DET,NOUN
+42,The system shall display the FAQ’s upon request.,system,display,nsubj,NOUN,VERB
+42,The system shall display the FAQ’s upon request.,shall,display,aux,AUX,VERB
+42,The system shall display the FAQ’s upon request.,display,display,ROOT,VERB,VERB
+42,The system shall display the FAQ’s upon request.,the,FAQ,det,DET,PROPN
+42,The system shall display the FAQ’s upon request.,FAQ,display,dobj,PROPN,VERB
+42,The system shall display the FAQ’s upon request.,’s,display,dep,PART,VERB
+42,The system shall display the FAQ’s upon request.,upon,display,prep,SCONJ,VERB
+42,The system shall display the FAQ’s upon request.,request,upon,pobj,NOUN,SCONJ
+42,The system shall display the FAQ’s upon request.,.,display,punct,PUNCT,VERB
+43,The system shall maintain customer email information as a required part of customer profile.,The,system,det,DET,NOUN
+43,The system shall maintain customer email information as a required part of customer profile.,system,maintain,nsubj,NOUN,VERB
+43,The system shall maintain customer email information as a required part of customer profile.,shall,maintain,aux,AUX,VERB
+43,The system shall maintain customer email information as a required part of customer profile.,maintain,maintain,ROOT,VERB,VERB
+43,The system shall maintain customer email information as a required part of customer profile.,customer,email,compound,NOUN,NOUN
+43,The system shall maintain customer email information as a required part of customer profile.,email,information,compound,NOUN,NOUN
+43,The system shall maintain customer email information as a required part of customer profile.,information,maintain,dobj,NOUN,VERB
+43,The system shall maintain customer email information as a required part of customer profile.,as,maintain,prep,ADP,VERB
+43,The system shall maintain customer email information as a required part of customer profile.,a,part,det,DET,NOUN
+43,The system shall maintain customer email information as a required part of customer profile.,required,part,amod,ADJ,NOUN
+43,The system shall maintain customer email information as a required part of customer profile.,part,as,pobj,NOUN,ADP
+43,The system shall maintain customer email information as a required part of customer profile.,of,part,prep,ADP,NOUN
+43,The system shall maintain customer email information as a required part of customer profile.,customer,profile,compound,NOUN,NOUN
+43,The system shall maintain customer email information as a required part of customer profile.,profile,of,pobj,NOUN,ADP
+43,The system shall maintain customer email information as a required part of customer profile.,.,maintain,punct,PUNCT,VERB
+44,The system shall send an order confirmation to the user through email.,The,system,det,DET,NOUN
+44,The system shall send an order confirmation to the user through email.,system,send,nsubj,NOUN,VERB
+44,The system shall send an order confirmation to the user through email.,shall,send,aux,AUX,VERB
+44,The system shall send an order confirmation to the user through email.,send,send,ROOT,VERB,VERB
+44,The system shall send an order confirmation to the user through email.,an,confirmation,det,DET,NOUN
+44,The system shall send an order confirmation to the user through email.,order,confirmation,compound,NOUN,NOUN
+44,The system shall send an order confirmation to the user through email.,confirmation,send,dobj,NOUN,VERB
+44,The system shall send an order confirmation to the user through email.,to,confirmation,prep,ADP,NOUN
+44,The system shall send an order confirmation to the user through email.,the,user,det,DET,NOUN
+44,The system shall send an order confirmation to the user through email.,user,to,pobj,NOUN,ADP
+44,The system shall send an order confirmation to the user through email.,through,send,prep,ADP,VERB
+44,The system shall send an order confirmation to the user through email.,email,through,pobj,NOUN,ADP
+44,The system shall send an order confirmation to the user through email.,.,send,punct,PUNCT,VERB
+45,The system shall display detailed invoice for current order once it is confirmed.,The,system,det,DET,NOUN
+45,The system shall display detailed invoice for current order once it is confirmed.,system,display,nsubj,NOUN,VERB
+45,The system shall display detailed invoice for current order once it is confirmed.,shall,display,aux,AUX,VERB
+45,The system shall display detailed invoice for current order once it is confirmed.,display,display,ROOT,VERB,VERB
+45,The system shall display detailed invoice for current order once it is confirmed.,detailed,invoice,amod,ADJ,NOUN
+45,The system shall display detailed invoice for current order once it is confirmed.,invoice,display,dobj,NOUN,VERB
+45,The system shall display detailed invoice for current order once it is confirmed.,for,display,prep,ADP,VERB
+45,The system shall display detailed invoice for current order once it is confirmed.,current,order,amod,ADJ,NOUN
+45,The system shall display detailed invoice for current order once it is confirmed.,order,for,pobj,NOUN,ADP
+45,The system shall display detailed invoice for current order once it is confirmed.,once,confirmed,mark,SCONJ,VERB
+45,The system shall display detailed invoice for current order once it is confirmed.,it,confirmed,nsubjpass,PRON,VERB
+45,The system shall display detailed invoice for current order once it is confirmed.,is,confirmed,auxpass,AUX,VERB
+45,The system shall display detailed invoice for current order once it is confirmed.,confirmed,display,advcl,VERB,VERB
+45,The system shall display detailed invoice for current order once it is confirmed.,.,display,punct,PUNCT,VERB
+46,The system shall optionally allow user to print the invoice.,The,system,det,DET,NOUN
+46,The system shall optionally allow user to print the invoice.,system,allow,nsubj,NOUN,VERB
+46,The system shall optionally allow user to print the invoice.,shall,allow,aux,AUX,VERB
+46,The system shall optionally allow user to print the invoice.,optionally,allow,advmod,ADV,VERB
+46,The system shall optionally allow user to print the invoice.,allow,allow,ROOT,VERB,VERB
+46,The system shall optionally allow user to print the invoice.,user,print,nsubj,NOUN,VERB
+46,The system shall optionally allow user to print the invoice.,to,print,aux,PART,VERB
+46,The system shall optionally allow user to print the invoice.,print,allow,ccomp,VERB,VERB
+46,The system shall optionally allow user to print the invoice.,the,invoice,det,DET,NOUN
+46,The system shall optionally allow user to print the invoice.,invoice,print,dobj,NOUN,VERB
+46,The system shall optionally allow user to print the invoice.,.,allow,punct,PUNCT,VERB
+47,The system shall provide shopping cart during online purchase.,The,system,det,DET,NOUN
+47,The system shall provide shopping cart during online purchase.,system,provide,nsubj,NOUN,VERB
+47,The system shall provide shopping cart during online purchase.,shall,provide,aux,AUX,VERB
+47,The system shall provide shopping cart during online purchase.,provide,provide,ROOT,VERB,VERB
+47,The system shall provide shopping cart during online purchase.,shopping,cart,compound,NOUN,NOUN
+47,The system shall provide shopping cart during online purchase.,cart,provide,dobj,NOUN,VERB
+47,The system shall provide shopping cart during online purchase.,during,provide,prep,ADP,VERB
+47,The system shall provide shopping cart during online purchase.,online,purchase,amod,ADJ,NOUN
+47,The system shall provide shopping cart during online purchase.,purchase,during,pobj,NOUN,ADP
+47,The system shall provide shopping cart during online purchase.,.,provide,punct,PUNCT,VERB
+48,The system shall allow user to add/remove products in the shopping cart.,The,system,det,DET,NOUN
+48,The system shall allow user to add/remove products in the shopping cart.,system,allow,nsubj,NOUN,VERB
+48,The system shall allow user to add/remove products in the shopping cart.,shall,allow,aux,AUX,VERB
+48,The system shall allow user to add/remove products in the shopping cart.,allow,allow,ROOT,VERB,VERB
+48,The system shall allow user to add/remove products in the shopping cart.,user,add,nsubj,NOUN,VERB
+48,The system shall allow user to add/remove products in the shopping cart.,to,add,aux,PART,VERB
+48,The system shall allow user to add/remove products in the shopping cart.,add,allow,ccomp,VERB,VERB
+48,The system shall allow user to add/remove products in the shopping cart.,/,add,punct,SYM,VERB
+48,The system shall allow user to add/remove products in the shopping cart.,remove,products,compound,VERB,NOUN
+48,The system shall allow user to add/remove products in the shopping cart.,products,add,dobj,NOUN,VERB
+48,The system shall allow user to add/remove products in the shopping cart.,in,add,prep,ADP,VERB
+48,The system shall allow user to add/remove products in the shopping cart.,the,cart,det,DET,NOUN
+48,The system shall allow user to add/remove products in the shopping cart.,shopping,cart,compound,NOUN,NOUN
+48,The system shall allow user to add/remove products in the shopping cart.,cart,in,pobj,NOUN,ADP
+48,The system shall allow user to add/remove products in the shopping cart.,.,allow,punct,PUNCT,VERB
+49,The system shall display different shipping options provided by shipping department.,The,system,det,DET,NOUN
+49,The system shall display different shipping options provided by shipping department.,system,display,nsubj,NOUN,VERB
+49,The system shall display different shipping options provided by shipping department.,shall,display,aux,AUX,VERB
+49,The system shall display different shipping options provided by shipping department.,display,display,ROOT,VERB,VERB
+49,The system shall display different shipping options provided by shipping department.,different,options,amod,ADJ,NOUN
+49,The system shall display different shipping options provided by shipping department.,shipping,options,compound,NOUN,NOUN
+49,The system shall display different shipping options provided by shipping department.,options,display,dobj,NOUN,VERB
+49,The system shall display different shipping options provided by shipping department.,provided,options,acl,VERB,NOUN
+49,The system shall display different shipping options provided by shipping department.,by,provided,agent,ADP,VERB
+49,The system shall display different shipping options provided by shipping department.,shipping,department,compound,VERB,NOUN
+49,The system shall display different shipping options provided by shipping department.,department,by,pobj,NOUN,ADP
+49,The system shall display different shipping options provided by shipping department.,.,display,punct,PUNCT,VERB
+50,The system shall enable user to select the shipping method during payment process.,The,system,det,DET,NOUN
+50,The system shall enable user to select the shipping method during payment process.,system,enable,nsubj,NOUN,VERB
+50,The system shall enable user to select the shipping method during payment process.,shall,enable,aux,AUX,VERB
+50,The system shall enable user to select the shipping method during payment process.,enable,enable,ROOT,VERB,VERB
+50,The system shall enable user to select the shipping method during payment process.,user,enable,dobj,NOUN,VERB
+50,The system shall enable user to select the shipping method during payment process.,to,select,aux,PART,VERB
+50,The system shall enable user to select the shipping method during payment process.,select,enable,xcomp,VERB,VERB
+50,The system shall enable user to select the shipping method during payment process.,the,method,det,DET,NOUN
+50,The system shall enable user to select the shipping method during payment process.,shipping,method,compound,NOUN,NOUN
+50,The system shall enable user to select the shipping method during payment process.,method,select,dobj,NOUN,VERB
+50,The system shall enable user to select the shipping method during payment process.,during,select,prep,ADP,VERB
+50,The system shall enable user to select the shipping method during payment process.,payment,process,compound,NOUN,NOUN
+50,The system shall enable user to select the shipping method during payment process.,process,during,pobj,NOUN,ADP
+50,The system shall enable user to select the shipping method during payment process.,.,enable,punct,PUNCT,VERB
+51,The system shall display the shipping charges.,The,system,det,DET,NOUN
+51,The system shall display the shipping charges.,system,display,nsubj,NOUN,VERB
+51,The system shall display the shipping charges.,shall,display,aux,AUX,VERB
+51,The system shall display the shipping charges.,display,display,ROOT,VERB,VERB
+51,The system shall display the shipping charges.,the,charges,det,DET,NOUN
+51,The system shall display the shipping charges.,shipping,charges,compound,NOUN,NOUN
+51,The system shall display the shipping charges.,charges,display,dobj,NOUN,VERB
+51,The system shall display the shipping charges.,.,display,punct,PUNCT,VERB
+52,The system shall display tentative duration for shipping.,The,system,det,DET,NOUN
+52,The system shall display tentative duration for shipping.,system,display,nsubj,NOUN,VERB
+52,The system shall display tentative duration for shipping.,shall,display,aux,AUX,VERB
+52,The system shall display tentative duration for shipping.,display,display,ROOT,VERB,VERB
+52,The system shall display tentative duration for shipping.,tentative,duration,amod,ADJ,NOUN
+52,The system shall display tentative duration for shipping.,duration,display,dobj,NOUN,VERB
+52,The system shall display tentative duration for shipping.,for,display,prep,ADP,VERB
+52,The system shall display tentative duration for shipping.,shipping,for,pobj,NOUN,ADP
+52,The system shall display tentative duration for shipping.,.,display,punct,PUNCT,VERB
+53,The system shall allow user to enter the order information for tracking.,The,system,det,DET,NOUN
+53,The system shall allow user to enter the order information for tracking.,system,allow,nsubj,NOUN,VERB
+53,The system shall allow user to enter the order information for tracking.,shall,allow,aux,AUX,VERB
+53,The system shall allow user to enter the order information for tracking.,allow,allow,ROOT,VERB,VERB
+53,The system shall allow user to enter the order information for tracking.,user,enter,nsubj,NOUN,VERB
+53,The system shall allow user to enter the order information for tracking.,to,enter,aux,PART,VERB
+53,The system shall allow user to enter the order information for tracking.,enter,allow,ccomp,VERB,VERB
+53,The system shall allow user to enter the order information for tracking.,the,information,det,DET,NOUN
+53,The system shall allow user to enter the order information for tracking.,order,information,compound,NOUN,NOUN
+53,The system shall allow user to enter the order information for tracking.,information,enter,dobj,NOUN,VERB
+53,The system shall allow user to enter the order information for tracking.,for,enter,prep,ADP,VERB
+53,The system shall allow user to enter the order information for tracking.,tracking,for,pobj,NOUN,ADP
+53,The system shall allow user to enter the order information for tracking.,.,allow,punct,PUNCT,VERB
+54,The system shall display the current tracking information about the order.,The,system,det,DET,NOUN
+54,The system shall display the current tracking information about the order.,system,display,nsubj,NOUN,VERB
+54,The system shall display the current tracking information about the order.,shall,display,aux,AUX,VERB
+54,The system shall display the current tracking information about the order.,display,display,ROOT,VERB,VERB
+54,The system shall display the current tracking information about the order.,the,information,det,DET,NOUN
+54,The system shall display the current tracking information about the order.,current,information,amod,ADJ,NOUN
+54,The system shall display the current tracking information about the order.,tracking,information,compound,NOUN,NOUN
+54,The system shall display the current tracking information about the order.,information,display,dobj,NOUN,VERB
+54,The system shall display the current tracking information about the order.,about,information,prep,ADP,NOUN
+54,The system shall display the current tracking information about the order.,the,order,det,DET,NOUN
+54,The system shall display the current tracking information about the order.,order,about,pobj,NOUN,ADP
+54,The system shall display the current tracking information about the order.,.,display,punct,PUNCT,VERB
+55,The system shall calculate tax for the order.,The,system,det,DET,NOUN
+55,The system shall calculate tax for the order.,system,calculate,nsubj,NOUN,VERB
+55,The system shall calculate tax for the order.,shall,calculate,aux,AUX,VERB
+55,The system shall calculate tax for the order.,calculate,calculate,ROOT,VERB,VERB
+55,The system shall calculate tax for the order.,tax,calculate,dobj,NOUN,VERB
+55,The system shall calculate tax for the order.,for,calculate,prep,ADP,VERB
+55,The system shall calculate tax for the order.,the,order,det,DET,NOUN
+55,The system shall calculate tax for the order.,order,for,pobj,NOUN,ADP
+55,The system shall calculate tax for the order.,.,calculate,punct,PUNCT,VERB
+56,The system shall display tax information for the order.,The,system,det,DET,NOUN
+56,The system shall display tax information for the order.,system,display,nsubj,NOUN,VERB
+56,The system shall display tax information for the order.,shall,display,aux,AUX,VERB
+56,The system shall display tax information for the order.,display,display,ROOT,VERB,VERB
+56,The system shall display tax information for the order.,tax,information,compound,NOUN,NOUN
+56,The system shall display tax information for the order.,information,display,dobj,NOUN,VERB
+56,The system shall display tax information for the order.,for,display,prep,ADP,VERB
+56,The system shall display tax information for the order.,the,order,det,DET,NOUN
+56,The system shall display tax information for the order.,order,for,pobj,NOUN,ADP
+56,The system shall display tax information for the order.,.,display,punct,PUNCT,VERB
+57,The system shall display available payment methods for payment.,The,system,det,DET,NOUN
+57,The system shall display available payment methods for payment.,system,display,nsubj,NOUN,VERB
+57,The system shall display available payment methods for payment.,shall,display,aux,AUX,VERB
+57,The system shall display available payment methods for payment.,display,display,ROOT,VERB,VERB
+57,The system shall display available payment methods for payment.,available,methods,amod,ADJ,NOUN
+57,The system shall display available payment methods for payment.,payment,methods,compound,NOUN,NOUN
+57,The system shall display available payment methods for payment.,methods,display,dobj,NOUN,VERB
+57,The system shall display available payment methods for payment.,for,methods,prep,ADP,NOUN
+57,The system shall display available payment methods for payment.,payment,for,pobj,NOUN,ADP
+57,The system shall display available payment methods for payment.,.,display,punct,PUNCT,VERB
+58,The system shall allow user to select the payment method for order.,The,system,det,DET,NOUN
+58,The system shall allow user to select the payment method for order.,system,allow,nsubj,NOUN,VERB
+58,The system shall allow user to select the payment method for order.,shall,allow,aux,AUX,VERB
+58,The system shall allow user to select the payment method for order.,allow,allow,ROOT,VERB,VERB
+58,The system shall allow user to select the payment method for order.,user,select,nsubj,NOUN,VERB
+58,The system shall allow user to select the payment method for order.,to,select,aux,PART,VERB
+58,The system shall allow user to select the payment method for order.,select,allow,ccomp,VERB,VERB
+58,The system shall allow user to select the payment method for order.,the,method,det,DET,NOUN
+58,The system shall allow user to select the payment method for order.,payment,method,compound,NOUN,NOUN
+58,The system shall allow user to select the payment method for order.,method,select,dobj,NOUN,VERB
+58,The system shall allow user to select the payment method for order.,for,select,prep,ADP,VERB
+58,The system shall allow user to select the payment method for order.,order,for,pobj,NOUN,ADP
+58,The system shall allow user to select the payment method for order.,.,allow,punct,PUNCT,VERB
+59,The system shall display the orders that are eligible to change.,The,system,det,DET,NOUN
+59,The system shall display the orders that are eligible to change.,system,display,nsubj,NOUN,VERB
+59,The system shall display the orders that are eligible to change.,shall,display,aux,AUX,VERB
+59,The system shall display the orders that are eligible to change.,display,display,ROOT,VERB,VERB
+59,The system shall display the orders that are eligible to change.,the,orders,det,DET,NOUN
+59,The system shall display the orders that are eligible to change.,orders,display,dobj,NOUN,VERB
+59,The system shall display the orders that are eligible to change.,that,are,nsubj,PRON,AUX
+59,The system shall display the orders that are eligible to change.,are,orders,relcl,AUX,NOUN
+59,The system shall display the orders that are eligible to change.,eligible,are,acomp,ADJ,AUX
+59,The system shall display the orders that are eligible to change.,to,change,aux,PART,VERB
+59,The system shall display the orders that are eligible to change.,change,eligible,xcomp,VERB,ADJ
+59,The system shall display the orders that are eligible to change.,.,display,punct,PUNCT,VERB
+60,The system shall allow user to select the order to be changed.,The,system,det,DET,NOUN
+60,The system shall allow user to select the order to be changed.,system,allow,nsubj,NOUN,VERB
+60,The system shall allow user to select the order to be changed.,shall,allow,aux,AUX,VERB
+60,The system shall allow user to select the order to be changed.,allow,allow,ROOT,VERB,VERB
+60,The system shall allow user to select the order to be changed.,user,select,nsubj,NOUN,VERB
+60,The system shall allow user to select the order to be changed.,to,select,aux,PART,VERB
+60,The system shall allow user to select the order to be changed.,select,allow,ccomp,VERB,VERB
+60,The system shall allow user to select the order to be changed.,the,order,det,DET,NOUN
+60,The system shall allow user to select the order to be changed.,order,select,dobj,NOUN,VERB
+60,The system shall allow user to select the order to be changed.,to,changed,aux,PART,VERB
+60,The system shall allow user to select the order to be changed.,be,changed,auxpass,AUX,VERB
+60,The system shall allow user to select the order to be changed.,changed,order,acl,VERB,NOUN
+60,The system shall allow user to select the order to be changed.,.,allow,punct,PUNCT,VERB
+61,The system shall allow user to cancel the order.,The,system,det,DET,NOUN
+61,The system shall allow user to cancel the order.,system,allow,nsubj,NOUN,VERB
+61,The system shall allow user to cancel the order.,shall,allow,aux,AUX,VERB
+61,The system shall allow user to cancel the order.,allow,allow,ROOT,VERB,VERB
+61,The system shall allow user to cancel the order.,user,cancel,nsubj,NOUN,VERB
+61,The system shall allow user to cancel the order.,to,cancel,aux,PART,VERB
+61,The system shall allow user to cancel the order.,cancel,allow,ccomp,VERB,VERB
+61,The system shall allow user to cancel the order.,the,order,det,DET,NOUN
+61,The system shall allow user to cancel the order.,order,cancel,dobj,NOUN,VERB
+61,The system shall allow user to cancel the order.,.,allow,punct,PUNCT,VERB
+62,"The system shall allow user to change shipping, payment method.",The,system,det,DET,NOUN
+62,"The system shall allow user to change shipping, payment method.",system,allow,nsubj,NOUN,VERB
+62,"The system shall allow user to change shipping, payment method.",shall,allow,aux,AUX,VERB
+62,"The system shall allow user to change shipping, payment method.",allow,allow,ROOT,VERB,VERB
+62,"The system shall allow user to change shipping, payment method.",user,change,nsubj,NOUN,VERB
+62,"The system shall allow user to change shipping, payment method.",to,change,aux,PART,VERB
+62,"The system shall allow user to change shipping, payment method.",change,allow,ccomp,VERB,VERB
+62,"The system shall allow user to change shipping, payment method.",shipping,change,dobj,NOUN,VERB
+62,"The system shall allow user to change shipping, payment method.",",",shipping,punct,PUNCT,NOUN
+62,"The system shall allow user to change shipping, payment method.",payment,method,compound,NOUN,NOUN
+62,"The system shall allow user to change shipping, payment method.",method,shipping,conj,NOUN,NOUN
+62,"The system shall allow user to change shipping, payment method.",.,allow,punct,PUNCT,VERB
+63,The system shall notify the user about any changes made to the order.,The,system,det,DET,NOUN
+63,The system shall notify the user about any changes made to the order.,system,notify,nsubj,NOUN,VERB
+63,The system shall notify the user about any changes made to the order.,shall,notify,aux,AUX,VERB
+63,The system shall notify the user about any changes made to the order.,notify,notify,ROOT,VERB,VERB
+63,The system shall notify the user about any changes made to the order.,the,user,det,DET,NOUN
+63,The system shall notify the user about any changes made to the order.,user,notify,dobj,NOUN,VERB
+63,The system shall notify the user about any changes made to the order.,about,user,prep,ADP,NOUN
+63,The system shall notify the user about any changes made to the order.,any,changes,det,DET,NOUN
+63,The system shall notify the user about any changes made to the order.,changes,about,pobj,NOUN,ADP
+63,The system shall notify the user about any changes made to the order.,made,changes,acl,VERB,NOUN
+63,The system shall notify the user about any changes made to the order.,to,made,prep,ADP,VERB
+63,The system shall notify the user about any changes made to the order.,the,order,det,DET,NOUN
+63,The system shall notify the user about any changes made to the order.,order,to,pobj,NOUN,ADP
+63,The system shall notify the user about any changes made to the order.,.,notify,punct,PUNCT,VERB
+64,"The system shall display the reviews and ratings of each product, when it is selected.",The,system,det,DET,NOUN
+64,"The system shall display the reviews and ratings of each product, when it is selected.",system,display,nsubj,NOUN,VERB
+64,"The system shall display the reviews and ratings of each product, when it is selected.",shall,display,aux,AUX,VERB
+64,"The system shall display the reviews and ratings of each product, when it is selected.",display,display,ROOT,VERB,VERB
+64,"The system shall display the reviews and ratings of each product, when it is selected.",the,reviews,det,DET,NOUN
+64,"The system shall display the reviews and ratings of each product, when it is selected.",reviews,display,dobj,NOUN,VERB
+64,"The system shall display the reviews and ratings of each product, when it is selected.",and,reviews,cc,CCONJ,NOUN
+64,"The system shall display the reviews and ratings of each product, when it is selected.",ratings,reviews,conj,NOUN,NOUN
+64,"The system shall display the reviews and ratings of each product, when it is selected.",of,reviews,prep,ADP,NOUN
+64,"The system shall display the reviews and ratings of each product, when it is selected.",each,product,det,DET,NOUN
+64,"The system shall display the reviews and ratings of each product, when it is selected.",product,of,pobj,NOUN,ADP
+64,"The system shall display the reviews and ratings of each product, when it is selected.",",",display,punct,PUNCT,VERB
+64,"The system shall display the reviews and ratings of each product, when it is selected.",when,selected,advmod,SCONJ,VERB
+64,"The system shall display the reviews and ratings of each product, when it is selected.",it,selected,nsubjpass,PRON,VERB
+64,"The system shall display the reviews and ratings of each product, when it is selected.",is,selected,auxpass,AUX,VERB
+64,"The system shall display the reviews and ratings of each product, when it is selected.",selected,display,advcl,VERB,VERB
+64,"The system shall display the reviews and ratings of each product, when it is selected.",.,display,punct,PUNCT,VERB
+65,The system shall enable the user to enter their reviews and ratings.,The,system,det,DET,NOUN
+65,The system shall enable the user to enter their reviews and ratings.,system,enable,nsubj,NOUN,VERB
+65,The system shall enable the user to enter their reviews and ratings.,shall,enable,aux,AUX,VERB
+65,The system shall enable the user to enter their reviews and ratings.,enable,enable,ROOT,VERB,VERB
+65,The system shall enable the user to enter their reviews and ratings.,the,user,det,DET,NOUN
+65,The system shall enable the user to enter their reviews and ratings.,user,enable,dobj,NOUN,VERB
+65,The system shall enable the user to enter their reviews and ratings.,to,enter,aux,PART,VERB
+65,The system shall enable the user to enter their reviews and ratings.,enter,enable,xcomp,VERB,VERB
+65,The system shall enable the user to enter their reviews and ratings.,their,reviews,poss,PRON,NOUN
+65,The system shall enable the user to enter their reviews and ratings.,reviews,enter,dobj,NOUN,VERB
+65,The system shall enable the user to enter their reviews and ratings.,and,reviews,cc,CCONJ,NOUN
+65,The system shall enable the user to enter their reviews and ratings.,ratings,reviews,conj,NOUN,NOUN
+65,The system shall enable the user to enter their reviews and ratings.,.,enable,punct,PUNCT,VERB
+66,The system shall display all the available financing options.,The,system,det,DET,NOUN
+66,The system shall display all the available financing options.,system,display,nsubj,NOUN,VERB
+66,The system shall display all the available financing options.,shall,display,aux,AUX,VERB
+66,The system shall display all the available financing options.,display,display,ROOT,VERB,VERB
+66,The system shall display all the available financing options.,all,options,predet,DET,NOUN
+66,The system shall display all the available financing options.,the,options,det,DET,NOUN
+66,The system shall display all the available financing options.,available,options,amod,ADJ,NOUN
+66,The system shall display all the available financing options.,financing,options,compound,NOUN,NOUN
+66,The system shall display all the available financing options.,options,display,dobj,NOUN,VERB
+66,The system shall display all the available financing options.,.,display,punct,PUNCT,VERB
+67,The system shall allow user to select the financing option.,The,system,det,DET,NOUN
+67,The system shall allow user to select the financing option.,system,allow,nsubj,NOUN,VERB
+67,The system shall allow user to select the financing option.,shall,allow,aux,AUX,VERB
+67,The system shall allow user to select the financing option.,allow,allow,ROOT,VERB,VERB
+67,The system shall allow user to select the financing option.,user,select,nsubj,NOUN,VERB
+67,The system shall allow user to select the financing option.,to,select,aux,PART,VERB
+67,The system shall allow user to select the financing option.,select,allow,ccomp,VERB,VERB
+67,The system shall allow user to select the financing option.,the,option,det,DET,NOUN
+67,The system shall allow user to select the financing option.,financing,option,compound,NOUN,NOUN
+67,The system shall allow user to select the financing option.,option,select,dobj,NOUN,VERB
+67,The system shall allow user to select the financing option.,.,allow,punct,PUNCT,VERB
+68,The system shall notify the user about the financing request.,The,system,det,DET,NOUN
+68,The system shall notify the user about the financing request.,system,notify,nsubj,NOUN,VERB
+68,The system shall notify the user about the financing request.,shall,notify,aux,AUX,VERB
+68,The system shall notify the user about the financing request.,notify,notify,ROOT,VERB,VERB
+68,The system shall notify the user about the financing request.,the,user,det,DET,NOUN
+68,The system shall notify the user about the financing request.,user,notify,dobj,NOUN,VERB
+68,The system shall notify the user about the financing request.,about,user,prep,ADP,NOUN
+68,The system shall notify the user about the financing request.,the,request,det,DET,NOUN
+68,The system shall notify the user about the financing request.,financing,request,compound,NOUN,NOUN
+68,The system shall notify the user about the financing request.,request,about,pobj,NOUN,ADP
+68,The system shall notify the user about the financing request.,.,notify,punct,PUNCT,VERB
+69,The system shall allow user to view detailed sitemap.,The,system,det,DET,NOUN
+69,The system shall allow user to view detailed sitemap.,system,allow,nsubj,NOUN,VERB
+69,The system shall allow user to view detailed sitemap.,shall,allow,aux,AUX,VERB
+69,The system shall allow user to view detailed sitemap.,allow,allow,ROOT,VERB,VERB
+69,The system shall allow user to view detailed sitemap.,user,view,nsubj,NOUN,VERB
+69,The system shall allow user to view detailed sitemap.,to,view,aux,PART,VERB
+69,The system shall allow user to view detailed sitemap.,view,allow,ccomp,VERB,VERB
+69,The system shall allow user to view detailed sitemap.,detailed,sitemap,amod,ADJ,NOUN
+69,The system shall allow user to view detailed sitemap.,sitemap,view,dobj,NOUN,VERB
+69,The system shall allow user to view detailed sitemap.,.,allow,punct,PUNCT,VERB
+70,The system shall display all the available promotions to the user.,The,system,det,DET,NOUN
+70,The system shall display all the available promotions to the user.,system,display,nsubj,NOUN,VERB
+70,The system shall display all the available promotions to the user.,shall,display,aux,AUX,VERB
+70,The system shall display all the available promotions to the user.,display,display,ROOT,VERB,VERB
+70,The system shall display all the available promotions to the user.,all,promotions,predet,DET,NOUN
+70,The system shall display all the available promotions to the user.,the,promotions,det,DET,NOUN
+70,The system shall display all the available promotions to the user.,available,promotions,amod,ADJ,NOUN
+70,The system shall display all the available promotions to the user.,promotions,display,dobj,NOUN,VERB
+70,The system shall display all the available promotions to the user.,to,display,prep,ADP,VERB
+70,The system shall display all the available promotions to the user.,the,user,det,DET,NOUN
+70,The system shall display all the available promotions to the user.,user,to,pobj,NOUN,ADP
+70,The system shall display all the available promotions to the user.,.,display,punct,PUNCT,VERB
+71,The system shall allow user to select available promotion.,The,system,det,DET,NOUN
+71,The system shall allow user to select available promotion.,system,allow,nsubj,NOUN,VERB
+71,The system shall allow user to select available promotion.,shall,allow,aux,AUX,VERB
+71,The system shall allow user to select available promotion.,allow,allow,ROOT,VERB,VERB
+71,The system shall allow user to select available promotion.,user,select,nsubj,NOUN,VERB
+71,The system shall allow user to select available promotion.,to,select,aux,PART,VERB
+71,The system shall allow user to select available promotion.,select,allow,ccomp,VERB,VERB
+71,The system shall allow user to select available promotion.,available,promotion,amod,ADJ,NOUN
+71,The system shall allow user to select available promotion.,promotion,select,dobj,NOUN,VERB
+71,The system shall allow user to select available promotion.,.,allow,punct,PUNCT,VERB
+72,The system shall allow user to confirm the purchase.,The,system,det,DET,NOUN
+72,The system shall allow user to confirm the purchase.,system,allow,nsubj,NOUN,VERB
+72,The system shall allow user to confirm the purchase.,shall,allow,aux,AUX,VERB
+72,The system shall allow user to confirm the purchase.,allow,allow,ROOT,VERB,VERB
+72,The system shall allow user to confirm the purchase.,user,confirm,nsubj,NOUN,VERB
+72,The system shall allow user to confirm the purchase.,to,confirm,aux,PART,VERB
+72,The system shall allow user to confirm the purchase.,confirm,allow,ccomp,VERB,VERB
+72,The system shall allow user to confirm the purchase.,the,purchase,det,DET,NOUN
+72,The system shall allow user to confirm the purchase.,purchase,confirm,dobj,NOUN,VERB
+72,The system shall allow user to confirm the purchase.,.,allow,punct,PUNCT,VERB
+73,The system shall enable user to enter the payment information.,The,system,det,DET,NOUN
+73,The system shall enable user to enter the payment information.,system,enable,nsubj,NOUN,VERB
+73,The system shall enable user to enter the payment information.,shall,enable,aux,AUX,VERB
+73,The system shall enable user to enter the payment information.,enable,enable,ROOT,VERB,VERB
+73,The system shall enable user to enter the payment information.,user,enable,dobj,NOUN,VERB
+73,The system shall enable user to enter the payment information.,to,enter,aux,PART,VERB
+73,The system shall enable user to enter the payment information.,enter,enable,xcomp,VERB,VERB
+73,The system shall enable user to enter the payment information.,the,information,det,DET,NOUN
+73,The system shall enable user to enter the payment information.,payment,information,compound,NOUN,NOUN
+73,The system shall enable user to enter the payment information.,information,enter,dobj,NOUN,VERB
+73,The system shall enable user to enter the payment information.,.,enable,punct,PUNCT,VERB
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,The,system,det,DET,NOUN
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,system,display,nsubj,NOUN,VERB
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,shall,display,aux,AUX,VERB
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,display,display,ROOT,VERB,VERB
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,search,results,compound,NOUN,NOUN
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,results,display,dobj,NOUN,VERB
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,without,display,prep,ADP,VERB
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,duplicate,emails,amod,ADJ,NOUN
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,emails,without,pobj,NOUN,ADP
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,and,display,cc,CCONJ,VERB
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,highlight,display,conj,VERB,VERB
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,matching,keywords,compound,NOUN,NOUN
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,keywords,highlight,dobj,NOUN,VERB
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,in,keywords,prep,ADP,NOUN
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,subject,in,pobj,NOUN,ADP
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,and,subject,cc,CCONJ,NOUN
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,body,subject,conj,NOUN,NOUN
+74,The system shall display search results without duplicate emails and highlight matching keywords in subject and body.,.,display,punct,PUNCT,VERB
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,The,system,det,DET,NOUN
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,system,support,nsubj,NOUN,VERB
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,shall,support,aux,AUX,VERB
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,support,support,ROOT,VERB,VERB
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,single,sign,amod,ADJ,NOUN
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,sign,support,dobj,NOUN,VERB
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,-,sign,punct,PUNCT,NOUN
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,on,sign,prep,ADP,NOUN
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,(,on,punct,PUNCT,ADP
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,SSO,sign,appos,PROPN,NOUN
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,),sign,punct,PUNCT,NOUN
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,via,support,prep,ADP,VERB
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,Microsoft,via,pobj,PROPN,ADP
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,account,support,conj,VERB,VERB
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,across,account,prep,ADP,VERB
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,external,services,amod,ADJ,NOUN
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,services,across,pobj,NOUN,ADP
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,such,as,amod,ADJ,ADP
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,as,services,prep,ADP,NOUN
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,e,platforms,compound,NOUN,NOUN
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,-,platforms,amod,ADJ,NOUN
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,commerce,platforms,amod,ADJ,NOUN
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,platforms,as,pobj,NOUN,ADP
+75,The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms.,.,support,punct,PUNCT,VERB
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",The,system,det,DET,NOUN
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",system,load,nsubj,NOUN,VERB
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",shall,load,aux,AUX,VERB
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",load,load,ROOT,VERB,VERB
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",inbox,views,nmod,NOUN,NOUN
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",and,inbox,cc,CCONJ,NOUN
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",calendar,inbox,conj,NOUN,NOUN
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",views,load,dobj,NOUN,VERB
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",within,load,prep,ADP,VERB
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",3,seconds,nummod,NUM,NOUN
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",seconds,within,pobj,NOUN,ADP
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",",",load,punct,PUNCT,VERB
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",even,for,advmod,ADV,ADP
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",for,load,prep,ADP,VERB
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",mailboxes,for,pobj,NOUN,ADP
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",containing,mailboxes,acl,VERB,NOUN
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",up,"10,000",quantmod,ADP,NUM
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",to,"10,000",quantmod,PART,NUM
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.","10,000",emails,nummod,NUM,NOUN
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",emails,containing,dobj,NOUN,VERB
+76,"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails.",.,load,punct,PUNCT,VERB
+77,The system must send a confirmation email after an order is placed.,The,system,det,DET,NOUN
+77,The system must send a confirmation email after an order is placed.,system,send,nsubj,NOUN,VERB
+77,The system must send a confirmation email after an order is placed.,must,send,aux,AUX,VERB
+77,The system must send a confirmation email after an order is placed.,send,send,ROOT,VERB,VERB
+77,The system must send a confirmation email after an order is placed.,a,email,det,DET,NOUN
+77,The system must send a confirmation email after an order is placed.,confirmation,email,compound,NOUN,NOUN
+77,The system must send a confirmation email after an order is placed.,email,send,dobj,NOUN,VERB
+77,The system must send a confirmation email after an order is placed.,after,placed,mark,SCONJ,VERB
+77,The system must send a confirmation email after an order is placed.,an,order,det,DET,NOUN
+77,The system must send a confirmation email after an order is placed.,order,placed,nsubjpass,NOUN,VERB
+77,The system must send a confirmation email after an order is placed.,is,placed,auxpass,AUX,VERB
+77,The system must send a confirmation email after an order is placed.,placed,send,advcl,VERB,VERB
+77,The system must send a confirmation email after an order is placed.,.,send,punct,PUNCT,VERB
+78,The system must allow users to register an account by entering their email and password.,The,system,det,DET,NOUN
+78,The system must allow users to register an account by entering their email and password.,system,allow,nsubj,NOUN,VERB
+78,The system must allow users to register an account by entering their email and password.,must,allow,aux,AUX,VERB
+78,The system must allow users to register an account by entering their email and password.,allow,allow,ROOT,VERB,VERB
+78,The system must allow users to register an account by entering their email and password.,users,register,nsubj,NOUN,VERB
+78,The system must allow users to register an account by entering their email and password.,to,register,aux,PART,VERB
+78,The system must allow users to register an account by entering their email and password.,register,allow,ccomp,VERB,VERB
+78,The system must allow users to register an account by entering their email and password.,an,account,det,DET,NOUN
+78,The system must allow users to register an account by entering their email and password.,account,register,dobj,NOUN,VERB
+78,The system must allow users to register an account by entering their email and password.,by,register,prep,ADP,VERB
+78,The system must allow users to register an account by entering their email and password.,entering,by,pcomp,VERB,ADP
+78,The system must allow users to register an account by entering their email and password.,their,email,poss,PRON,NOUN
+78,The system must allow users to register an account by entering their email and password.,email,entering,dobj,NOUN,VERB
+78,The system must allow users to register an account by entering their email and password.,and,email,cc,CCONJ,NOUN
+78,The system must allow users to register an account by entering their email and password.,password,email,conj,NOUN,NOUN
+78,The system must allow users to register an account by entering their email and password.,.,allow,punct,PUNCT,VERB
+79,The system must respond within 2 seconds to user interactions.,The,system,det,DET,NOUN
+79,The system must respond within 2 seconds to user interactions.,system,respond,nsubj,NOUN,VERB
+79,The system must respond within 2 seconds to user interactions.,must,respond,aux,AUX,VERB
+79,The system must respond within 2 seconds to user interactions.,respond,respond,ROOT,VERB,VERB
+79,The system must respond within 2 seconds to user interactions.,within,respond,prep,ADP,VERB
+79,The system must respond within 2 seconds to user interactions.,2,seconds,nummod,NUM,NOUN
+79,The system must respond within 2 seconds to user interactions.,seconds,within,pobj,NOUN,ADP
+79,The system must respond within 2 seconds to user interactions.,to,respond,prep,ADP,VERB
+79,The system must respond within 2 seconds to user interactions.,user,interactions,compound,NOUN,NOUN
+79,The system must respond within 2 seconds to user interactions.,interactions,to,pobj,NOUN,ADP
+79,The system must respond within 2 seconds to user interactions.,.,respond,punct,PUNCT,VERB
+80,The system must be available during standard business hours.,The,system,det,DET,NOUN
+80,The system must be available during standard business hours.,system,be,nsubj,NOUN,AUX
+80,The system must be available during standard business hours.,must,be,aux,AUX,AUX
+80,The system must be available during standard business hours.,be,be,ROOT,AUX,AUX
+80,The system must be available during standard business hours.,available,be,acomp,ADJ,AUX
+80,The system must be available during standard business hours.,during,be,prep,ADP,AUX
+80,The system must be available during standard business hours.,standard,hours,amod,ADJ,NOUN
+80,The system must be available during standard business hours.,business,hours,compound,NOUN,NOUN
+80,The system must be available during standard business hours.,hours,during,pobj,NOUN,ADP
+80,The system must be available during standard business hours.,.,be,punct,PUNCT,AUX
+81,The system must provide access to complete patient medical records.,The,system,det,DET,NOUN
+81,The system must provide access to complete patient medical records.,system,provide,nsubj,NOUN,VERB
+81,The system must provide access to complete patient medical records.,must,provide,aux,AUX,VERB
+81,The system must provide access to complete patient medical records.,provide,provide,ROOT,VERB,VERB
+81,The system must provide access to complete patient medical records.,access,provide,dobj,NOUN,VERB
+81,The system must provide access to complete patient medical records.,to,access,prep,ADP,NOUN
+81,The system must provide access to complete patient medical records.,complete,records,amod,VERB,NOUN
+81,The system must provide access to complete patient medical records.,patient,records,amod,ADJ,NOUN
+81,The system must provide access to complete patient medical records.,medical,records,amod,ADJ,NOUN
+81,The system must provide access to complete patient medical records.,records,to,pobj,NOUN,ADP
+81,The system must provide access to complete patient medical records.,.,provide,punct,PUNCT,VERB

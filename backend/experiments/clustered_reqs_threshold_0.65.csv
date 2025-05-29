@@ -1,0 +1,63 @@
+Requirement,Component,True Label,Predicted Cluster
+the system shall display all the products that can be configured.,product,1,0
+the system shall allow user to select the product to configure.,configure product,1,1
+the system shall display all the available components of the product to configure.,available component configure product,1,1
+the system shall enable user to add one or more component to the configuration.,component configuration user,1,2
+the system shall notify the user about any conflict in the current configuration.,conflict current configuration user,1,2
+the system shall allow user to update the configuration to resolve conflict in the current configuration.,configuration conflict current configuration,1,2
+the system shall allow user to confirm the completion of current configuration,completion current configuration,1,3
+the system shall display detailed information of the selected products.,detailed information select product,2,4
+the system shall provide browsing options to see product details.,browse option product detail,2,4
+the system shall display detailed product categorization to the user.,detailed product categorization user,3,5
+the system shall enable user to enter the search text on the screen.,screen search text user,4,6
+the system shall enable user to select multiple options on the screen to search.,multiple option screen user,4,7
+the system shall display all the matching products based on the search,match product search,4,8
+the system shall display only 10 matching result on the current screen.,current screen matching result,4,9
+the system shall enable user to navigate between the search results.,search result user,4,6
+the system shall notify the user when no matching product is found on the search.,search user,4,6
+the system shall allow user to create profile and set his credential.,credential profile,5,10
+the system shall authenticate user credentials to view the profile.,profile user credential,5,10
+the system shall allow user to update the profile information.,profile information,5,11
+the system shall display both the active and completed order history in the customer profile.,active customer profile order history,6,12
+the system shall allow user to select the order from the order history.,order order history,6,12
+the system shall display the detailed information about the selected order.,detailed information select order,6,13
+the system shall display the most frequently searched items by the user in the profile.,profile search item user,6,6
+the system shall allow user to register for newsletters and surveys in the profile.,newsletter profile,6,14
+"the system shall provide online help, faq’s customer support, and sitemap options for customer support.",customer support online help,7,15
+the system shall allow user to select the support type he wants.,support type,7,16
+the system shall allow user to enter the customer and product information for the support.,information support,7,17
+the system shall display the customer support contact numbers on the screen.,screen support contact number,7,18
+the system shall allow user to enter the contact number for support personnel to call.,contact number support personnel,7,18
+the system shall display the online help upon request.,online help request,7,19
+the system shall display the faq’s upon request.,faq request,7,20
+the system shall maintain customer email information as a required part of customer profile.,customer profile email information required part,8,21
+the system shall send an order confirmation to the user through email.,email order confirmation user,8,22
+the system shall display detailed invoice for current order once it is confirmed.,current order detailed invoice,9,23
+the system shall optionally allow user to print the invoice.,invoice,9,24
+the system shall provide shopping cart during online purchase.,online purchase shopping cart,10,25
+the system shall allow user to add/remove products in the shopping cart.,remove product shopping cart,10,26
+the system shall display different shipping options provided by shipping department.,different shipping option ship department,11,27
+the system shall enable user to select the shipping method during payment process.,payment process shipping method user,11,28
+the system shall display the shipping charges.,shipping charge,11,29
+the system shall display tentative duration for shipping.,shipping tentative duration,11,30
+the system shall allow user to enter the order information for tracking.,order information tracking,12,12
+the system shall display the current tracking information about the order.,current tracking information order,12,12
+the system shall calculate tax for the order.,order tax,13,31
+the system shall display tax information for the order.,order tax information,13,31
+the system shall display available payment methods for payment.,available payment method payment,14,32
+the system shall allow user to select the payment method for order.,order payment method,14,32
+the system shall display the orders that are eligible to change.,order,15,33
+the system shall allow user to select the order to be changed.,order,15,33
+the system shall allow user to cancel the order,order,15,33
+"the system shall allow user to change shipping, payment method.",shipping,15,29
+the system shall notify the user about any changes made to the order.,change order user,15,34
+"the system shall display the reviews and ratings of each product, when it is selected.",product review,16,35
+the system shall enable the user to enter their reviews and ratings.,review user,16,36
+the system shall display all the available financing options.,available financing option,17,37
+the system shall allow user to select the financing option.,financing option,17,37
+the system shall notify the user about the financing request.,financing request user,17,37
+the system shall allow user to view detailed sitemap.,detailed sitemap,18,38
+the system shall display all the available promotions to the user.,available promotion user,19,39
+the system shall allow user to select available promotion.,available promotion,19,39
+the system shall allow user to confirm the purchase.,purchase,20,40
+the system shall enable user to enter the payment information.,payment information user,20,41

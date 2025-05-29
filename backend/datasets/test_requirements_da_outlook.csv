@@ -1,0 +1,11 @@
+softwarekrav_tekst
+"Systemet skal give brugeren mulighed for at søge i e-mails ved hjælp af filtre såsom afsender, emne, dato og vedhæftede filer."
+"Systemet skal vise søgeresultater uden dubletter og med tydelig fremhævning af søgeord i emnefelt og brødtekst."
+"Systemets søgefunktion skal svare inden for 2 sekunder ved almindelig brug (op til 1.000 e-mails)."
+"Brugeren skal kunne se og administrere e-mails fra flere konti i én samlet indbakke uden at skifte visning."
+"Systemet skal indlæse indbakke- og kalendervisninger inden for 3 sekunder, selv ved postkasser med op til 10.000 e-mails."
+"Systemet skal understøtte single sign-on (SSO) via Microsoft-konto på tværs af eksterne tjenester såsom e-handelsplatforme."
+"Systemets brugergrænseflade skal være konsistent og genkendelig, uanset om det anvendes på desktop, web eller mobil."
+"Systemet skal vise e-mails, der tilhører samme samtale, i en tråd for at forbedre overblikket."
+"Systemet skal vise kontekstuelle tips, der støtter brugeren i at forstå og anvende funktionerne i brugergrænsefladen."
+"Brugeren skal nemt kunne markere e-mails som ""ikke spam"", hvis de fejlagtigt er blevet filtreret, og systemet skal lære af disse rettelser."

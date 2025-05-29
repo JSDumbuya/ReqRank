@@ -1,0 +1,50 @@
+I do wish you could more easily share your weekly schedule with colleagues and I wish you could specify what days/hours you're working in the office or working from home so that people know how to reach you. There are some features such as groups that I think are really cool, but a little difficult to figure out and use.
+The browser version can sometimes not provide the same notifications as the desktop version. This could be down to user error, but I'd want a more seamless experience between the two without the need to alter any settings. Desktop and mobile app however sync brilliantly.
+As soon as I start sending emails to multiple clients my emails go into clients' spam folders. And, this problem is not easily fixable. So, email effectiveness becomes very low.
+It is very difficult to follow a chain of emails because they are not grouped together, the replies do not appear directly related to the original emails unless you receive another reply. The function to schedule emails does not work well.
+Once we send an email, if we want to recall, it takes hard to find.
+Email organization seems to be an issue. There are two main categories in the main email inbox, 'focused' and 'other'. Outlook seems to have issues with knowing which one to send emails to. I have had some very important emails be sent to 'other' and some irrelevant emails sent to 'focused'.
+the 'junk email' folder is not very accurate at all. I have seen numerous spam emails be sent to me or the other staff but they're put in the 'focused' folder. Meanwhile, I have some of my subscription receipts sent to the 'junk' folder.
+The search feature could benefit from enhancements. When I look for specific words or phrases in my emails, it often displays unrelated emails instead.
+The creation of rules for contacts or tags for emails , can be tedious
+Outlook search needs to be more refined as the search results are not always very accurate
+Outlook’s navigation and UI can be tricky to navigate. I would prefer more tabs and less toolbar.
+Search functionality of received emails is janky and doesn't perform as expected.
+Sometimes it could be really complex, a lot of extra features that could confuse/overwhelm new users
+The address book doesn't let you see who all is in a group before selecting it to send to
+It could have more available tools for organizing and prioritizing emails.
+Some of the navigation and search functionalities makes it hard to find emails that end up being buried over time.
+The search function is the only function requiring attention.
+I don't like how you can't upload a pdf to an email signature. You can only add .jpg or .png, which means that your signature images will not be hyperlinked. Other than that, no complaints!
+The Layout has an old feel to it, it is way less intuitive than other programs
+As soon as I start sending emails to multiple clients my emails go into clients' spam folders. And, this problem is not easily fixable. So, email effectiveness becomes very low.
+I hate the search function it never pulls up what I'm looking for! I also don't like the app version I find the web version more intuitive.
+It doesnt sync well with other email servers.
+search crawls when mailbox is huge, and too many panes (people, todo, feed) clutter the screen, so clarity drops when you’re sprinting through emails
+Visually it is outdated, and when searching for emails it shows duplicates emails sometimes.
+It has too many options and is therefore difficult to configure. Furthermore, the search filters should be improved because it is difficult and not very intuitive to even search for all the emails containing a specific word in the subject
+There are too many things in the dashboard that for most users aren't useful and create a chaotic view.
+Outlook could improve loading times and integrations with many e-commerces and webs, so we can login using our Microsoft account as we do with Gmail.
+I'm not impressed by Outlook's search feature, which always strikes me as shockingly slow for being as inaccurate as it is. The search feature is an incredibly important part of my user experience, so this is a disappointment!
+Email chains also get messy, and I wish there were easier ways to track email chains and correspondence.
+It is nearly impossible to find an email in the past.
+The search functionality could be significantly improved. I've never had good experience when trying to go back and search for a previous email. Typically, the default search shows way too much, including things that aren't relevant. And then when filtering down within the search, it does not show enough to aid in finding what I was looking for.I utilize the delay sending feature and it has been difficult to use. I've experienced some issues previously. It will not release emails related to appointment responses, which results in confusion and additional manual steps.
+I dislike how hard to manage inboxes are. Mine always merge. I also cannot get scammers to stop emailing me even though I report them and put their addresses into “quarantine”.
+Improve email recall to at least 60 seconds
+Mostly it's slow while using, I think the application need more improvement to be more easy to use
+It does a REALLY poor job on filtering the spam emails. I wonder if it ever work, no matter how many times I marked and block those as spams! I wonder why should I pay for it if it doesn't improve at all. Also the desktop view is confused.
+The Junk Spam feature was terrible. Once an email was marked as Spam it was nearly impossible to unmark it as Spam.
+The organization, the way it focuses on what IT thinks is important. how difficult it is find anything you're looking for. It is the WORST EMAIL I'VE EVER USED. AND YOU HAVE TO PAY FOR IT!!!! OMG HORRIBLE.
+I’ll just say the web version of outlook is so much better and user-friendly than the desktop app.
+It does not do a great job dealing with multiple accounts, other mail apps do a much better job to view inboxes of multiple accounts at the same time. There is no option to do the same in outlook, and you will have to go into each account separately to view the respective inboxes, which takes a lot of time, a feature such as this would be a great time saver.
+I don't like that it sends an email every time something goes to the quarantine folder. Its always junk and if I am looking for something I can go check that folder.
+The differences between the browser based interface and the desktop application can be irritating.
+the user interface is outdated, and even thought the new versions improve on that front it's still feels old
+While Outlook offers a comprehensive suite of features, one of its drawbacks can be its complexity. The sheer number of options and settings can sometimes feel overwhelming, especially for users with less technical expertise. This complexity can occasionally hinder productivity as users navigate the interface and configure settings to their preferences.
+I dislike its performance issues particularly with large mailboxes or when using certain features like search or calendar synchronization or internet connection is lagged.
+I don't like that many times, Outlook became slow due to many emails open at once. However, I do not mind this issue since I only have a few emails open at a time.
+It has a somewhat busy user interface, especially with meetings
+Using it on other platforms than PC is challenging depending on business needs and other software used. Some features, addons, toolkits are not available on Mac OS.
+Sometimes outlook will not load new emails promptly however, rebooting the software is a quick fix.
+Its professional appearance makes it a little difficult to use compared to other software like Gmail
+What I liked least about Microsoft Outlook is its sometimes complex interface and occasional slow performance with large email volumes, which can hinder productivity.

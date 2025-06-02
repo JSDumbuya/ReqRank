@@ -93,7 +93,6 @@ function App() {
     reader.onload = (e) => {
       const text = e.target.result;
       const lines = text.split(/\r?\n/);
-      //Removes header, assuming the user uploads a .csv file with header
       const newLines = lines.slice(1);
   
       const parsed = newLines

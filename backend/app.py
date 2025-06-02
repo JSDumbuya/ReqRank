@@ -12,12 +12,13 @@ from collections import defaultdict
 from preprocess import *
 from classify_reqs import * 
 from sentence_transformers import SentenceTransformer
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import MinMaxScaler
 from req_quality import flesch_reading_ease, find_req_smells
 from subcomponent_identification import compute_cosine_distance, cluster_reqs
+from umap import UMAP
 
 app = FastAPI()
 
@@ -169,8 +170,6 @@ def generate_explanation(requirements, include_cost, include_effort):
 
     return requirements
 
- 
-
 # -------- Stakeholders and feedback ----------
 
 embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
@@ -188,18 +187,17 @@ def prepare_stakeholders(list_of_stakeholders):
         id = stakeholder["id"]
         if file_path:
             preprocessed_sentences_sbert = preprocess_embeddings(file_path)
+            preprocessed_feedback = preprocess_feedback(file_path)
+            preprocessed_feedback = [doc for doc in preprocessed_feedback if len(doc.split()) >= 4]
             preprocessed_sentences_sa = preprocess_sentiment_analysis(file_path)
             sentiment_results = sentiment_pipeline(preprocessed_sentences_sa)
 
-            #print(len(preprocessed_sentences_sbert))
-
-            #500 = somewhat arbitrary -> topic eval bertopic performed well on 304 sentences
-            if len(preprocessed_sentences_sbert) >= 500:
-                embeddings = embedding_model.encode(preprocessed_sentences_sa, show_progress_bar=False)
+            if len(preprocessed_sentences_sbert) >= 3000:
+                embeddings = embedding_model.encode(preprocessed_feedback, show_progress_bar=False)
                 representation_type = "bertopic"
             else:
-                vectorizer = TfidfVectorizer()
-                embeddings = vectorizer.fit_transform(preprocessed_sentences_sa)
+                vectorizer = CountVectorizer(ngram_range=(1, 3))
+                embeddings = vectorizer.fit_transform(preprocessed_feedback)
                 representation_type = "lda"
            
         
@@ -225,14 +223,21 @@ def derive_topics_and_score(sentence_metadata, all_sentences, all_embeddings, ve
 
     if representation_type == "bertopic":
         all_embeddings = np.array(all_embeddings)
+        umap_model = UMAP(n_neighbors=15, n_components=15, metric='cosine', random_state=42)
+        if len(all_sentences) < 4000:
+            topic_size = 15
+        elif len(all_sentences) < 10000:
+            topic_size = 30
+        else: 
+            topic_size = 50
+        topic_model = BERTopic(umap_model=umap_model, min_topic_size=topic_size)
         topic_model = BERTopic()
         topics, _ = topic_model.fit_transform(all_sentences, all_embeddings)
 
     elif representation_type == "lda":
         doc_term_matrix = vectorizer.fit_transform(all_sentences)
-        #Dynamically choosing n_components -> #5, 10, 20
         num_sentences = len(all_sentences)
-        n_components = max(5, min(num_sentences // 25, 20))
+        n_components = max(3, round(num_sentences // 2.5))
         lda_model = LatentDirichletAllocation(n_components=n_components, random_state=42)
         doc_topics = lda_model.fit_transform(doc_term_matrix)
         topics = np.argmax(doc_topics, axis=1)
@@ -424,14 +429,9 @@ def calculate_final_score_and_rank(requirements, normalized_weights, include_cos
     if include_effort:
         frontend_weight_to_score_map['effort'] = 'normalized_effort_score'
 
-    # Normalize scores for all requirements
     normalized_requirements = normalize_scores(requirements, include_cost, include_effort)
 
     # Calculate the final score for each requirement
-    '''for req in normalized_requirements.values():
-        req['final_score'] = sum(req[frontend_weight_to_score_map[key]] * normalized_weights[key] 
-                                 for key in frontend_weight_to_score_map if key in normalized_weights)'''
-    
     for req in normalized_requirements.values():
         final_score = 0.0
 
@@ -452,34 +452,34 @@ def calculate_final_score_and_rank(requirements, normalized_weights, include_cos
         final_score += req['normalized_quality_score'] * quality_weight
         req['final_score'] = final_score
     
-    # Group the requirements by their group number
+
     group_scores = defaultdict(list)
     for req in normalized_requirements.values():
         group_scores[req['group_nr']].append(req['final_score'])
 
-    # Calculate the average score for each group
+
     group_avg_scores = {group_nr: np.mean(scores) for group_nr, scores in group_scores.items()}
 
-    # Sort the groups by their average score, highest to lowest
+
     sorted_groups = sorted(group_avg_scores.items(), key=lambda x: x[1], reverse=True)
     group_ranks = {group_nr: rank + 1 for rank, (group_nr, _) in enumerate(sorted_groups)}
 
-    # Group the requirements by their group number for sorting within each group
+
     grouped_reqs = defaultdict(list)
     for req in normalized_requirements.values():
         grouped_reqs[req['group_nr']].append(req)
     
-    # Sort the requirements within each group by their final score
+
     for group_nr, group_reqs in grouped_reqs.items():
         group_reqs.sort(key=lambda r: r['final_score'], reverse=True)
         
-        # Assign ranks within the group
+
         for i, req in enumerate(group_reqs):
             req['rank'] = i + 1
             req['group_avg_score'] = group_avg_scores[group_nr]
             req['group_rank'] = group_ranks[group_nr]
 
-    # Flatten the grouped requirements and sort all requirements globally by final score
+
     sorted_reqs = [req for group_reqs in grouped_reqs.values() for req in group_reqs]
     sorted_reqs.sort(key=lambda r: (r['group_rank'], -r['final_score']))
 

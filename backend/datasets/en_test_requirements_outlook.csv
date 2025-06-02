@@ -1,0 +1,11 @@
+text
+"The system shall allow the user to search emails using filters such as sender, subject, date, and attachments."
+"The system shall display search results without duplicate emails and highlight matching keywords in subject and body."
+"The system’s search function shall return results within 2 seconds for datasets up to 1,000 emails."
+"The user shall be able to view and manage emails from multiple accounts in a unified inbox without switching views."
+"The system shall load inbox and calendar views within 3 seconds, even for mailboxes containing up to 10,000 emails."
+"The system shall support single sign-on (SSO) via Microsoft account across external services such as e-commerce platforms."
+"The user interface shall remain consistent and recognizable across desktop, web, and mobile platforms."
+"The system shall display emails belonging to the same conversation as a thread to improve message overview."
+"The system shall provide contextual tips that help users understand and use available features in the interface."
+"Users shall be able to mark emails as ""not spam"" if incorrectly filtered, and the system shall learn from this correction."

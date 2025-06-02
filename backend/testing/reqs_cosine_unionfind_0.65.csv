@@ -1,0 +1,63 @@
+requirement_text,predicted_cluster,true_group
+the system shall display all the products that can be configured.,0,1
+the system shall allow user to select the product to configure.,0,1
+the system shall display all the available components of the product to configure.,0,1
+the system shall enable user to add one or more component to the configuration.,1,1
+the system shall notify the user about any conflict in the current configuration.,2,1
+the system shall allow user to update the configuration to resolve conflict in the current configuration.,2,1
+the system shall allow user to confirm the completion of current configuration,3,1
+the system shall display detailed information of the selected products.,0,2
+the system shall provide browsing options to see product details.,0,2
+the system shall display detailed product categorization to the user.,0,3
+the system shall enable user to enter the search text on the screen.,4,4
+the system shall enable user to select multiple options on the screen to search.,4,4
+the system shall display all the matching products based on the search,5,4
+the system shall display only 10 matching result on the current screen.,6,4
+the system shall enable user to navigate between the search results.,4,4
+the system shall notify the user when no matching product is found on the search.,7,4
+the system shall allow user to create profile and set his credential.,8,5
+the system shall authenticate user credentials to view the profile.,8,5
+the system shall allow user to update the profile information.,8,5
+the system shall display both the active and completed order history in the customer profile.,9,6
+the system shall allow user to select the order from the order history.,10,6
+the system shall display the detailed information about the selected order.,10,6
+the system shall display the most frequently searched items by the user in the profile.,11,6
+the system shall allow user to register for newsletters and surveys in the profile.,12,6
+"the system shall provide online help, faq’s customer support, and sitemap options for customer support.",13,7
+the system shall allow user to select the support type he wants.,14,7
+the system shall allow user to enter the customer and product information for the support.,15,7
+the system shall display the customer support contact numbers on the screen.,15,7
+the system shall allow user to enter the contact number for support personnel to call.,15,7
+the system shall display the online help upon request.,16,7
+the system shall display the faq’s upon request.,17,7
+the system shall maintain customer email information as a required part of customer profile.,18,8
+the system shall send an order confirmation to the user through email.,15,8
+the system shall display detailed invoice for current order once it is confirmed.,19,9
+the system shall optionally allow user to print the invoice.,20,9
+the system shall provide shopping cart during online purchase.,21,10
+the system shall allow user to add/remove products in the shopping cart.,21,10
+the system shall display different shipping options provided by shipping department.,22,11
+the system shall enable user to select the shipping method during payment process.,22,11
+the system shall display the shipping charges.,22,11
+the system shall display tentative duration for shipping.,23,11
+the system shall allow user to enter the order information for tracking.,10,12
+the system shall display the current tracking information about the order.,10,12
+the system shall calculate tax for the order.,10,13
+the system shall display tax information for the order.,10,13
+the system shall display available payment methods for payment.,22,14
+the system shall allow user to select the payment method for order.,22,14
+the system shall display the orders that are eligible to change.,10,15
+the system shall allow user to select the order to be changed.,10,15
+the system shall allow user to cancel the order,24,15
+"the system shall allow user to change shipping, payment method.",22,15
+the system shall notify the user about any changes made to the order.,10,15
+"the system shall display the reviews and ratings of each product, when it is selected.",0,16
+the system shall enable the user to enter their reviews and ratings.,0,16
+the system shall display all the available financing options.,25,17
+the system shall allow user to select the financing option.,25,17
+the system shall notify the use about the financing request.,26,17
+the system shall allow user to view detailed sitemap.,27,18
+the system shall display all the available promotions to the user.,28,19
+the system shall allow user to select available promotion.,28,19
+the system shall allow user to confirm the purchase.,15,20
+the system shall enable user to enter the payment information.,22,20

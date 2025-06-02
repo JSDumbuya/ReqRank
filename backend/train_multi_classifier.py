@@ -14,7 +14,6 @@ import os
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 # Import and clean data
-
 full_NFR_data = read_csv("/Users/jariasallydumbuya/Library/CloudStorage/OneDrive-ITU/Computer Science/4. semester/Thesis/Datasets/Promise_exp/NFR_PROMISE.csv")
 requirementtext_nfr_file_path = "/Users/jariasallydumbuya/Library/CloudStorage/OneDrive-ITU/Computer Science/4. semester/Thesis/Datasets/Promise_exp/requirementtext_NFR_PROMISE.csv"
 

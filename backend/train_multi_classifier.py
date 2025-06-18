@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import pickle
 from utils import read_csv
-from preprocess import preprocess_classification_experiments
+from preprocess import preprocess_reqs
 from sentence_transformers import SentenceTransformer
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.svm import SVC
@@ -17,7 +17,7 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 full_NFR_data = read_csv("backend/datasets/NFR_PROMISE-kopi.csv")
 requirementtext_nfr_file_path = "backend/datasets/requirementtext_NFR_PROMISE-kopi.csv"
 
-cleaned_nfrs = preprocess_classification_experiments(requirementtext_nfr_file_path)
+cleaned_nfrs = preprocess_reqs(requirementtext_nfr_file_path)
 cleaned_nfrs_df = pd.DataFrame({'cleaned_nfr': cleaned_nfrs})
 
 full_NFR_data['cleaned_nfr'] = cleaned_nfrs_df['cleaned_nfr']

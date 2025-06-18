@@ -186,13 +186,13 @@ def prepare_stakeholders(list_of_stakeholders):
         name = stakeholder["name"]
         id = stakeholder["id"]
         if file_path:
-            preprocessed_sentences_sbert = preprocess_embeddings(file_path)
+            #preprocessed_sentences_sbert = preprocess_embeddings(file_path)
             preprocessed_feedback = preprocess_feedback(file_path)
             preprocessed_feedback = [doc for doc in preprocessed_feedback if len(doc.split()) >= 4]
             preprocessed_sentences_sa = preprocess_sentiment_analysis(file_path)
             sentiment_results = sentiment_pipeline(preprocessed_sentences_sa)
 
-            if len(preprocessed_sentences_sbert) >= 3000:
+            if len(preprocessed_feedback) >= 3000:
                 embeddings = embedding_model.encode(preprocessed_feedback, show_progress_bar=False)
                 representation_type = "bertopic"
             else:
@@ -200,9 +200,7 @@ def prepare_stakeholders(list_of_stakeholders):
                 embeddings = vectorizer.fit_transform(preprocessed_feedback)
                 representation_type = "lda"
            
-        
-        #Sentence (closest to original) is created to keep track of sentences accross different preprocessing steps for different tasks e.g. topic vs. SA
-        for i, sentence in enumerate(preprocessed_sentences_sbert):
+        for i, sentence in enumerate(preprocessed_feedback):
             sentence_metadata.append({
                 "sentence": sentence,
                 "embedding": embeddings[i],
@@ -218,7 +216,6 @@ def prepare_stakeholders(list_of_stakeholders):
     return sentence_metadata, all_sentences, all_embeddings, representation_type, vectorizer
 
 def derive_topics_and_score(sentence_metadata, all_sentences, all_embeddings, vectorizer):
-    #Fejl all_sentences er preprocessed_sentences_sbert dvs. de skal ændres afhængig af representation_type
     representation_type = sentence_metadata[0]["representation_type"]
     topics = []
 
@@ -261,7 +258,7 @@ def derive_topics_and_score(sentence_metadata, all_sentences, all_embeddings, ve
             weighted_score = score * weight
             topic_sentiments[topic].append(weighted_score)
         
-        #For popularity, register stakeholder influence only once per topic
+        #For popularity, register stakeholder influence/weight once per topic
         topic_stakeholder_weights[topic].append(weight)
     
     topic_sentiment_scores = {}
@@ -333,18 +330,19 @@ def prepare_requirements(recieved_reqs):
     req_texts = [req["text"] for req in recieved_reqs]
     req_df = pd.DataFrame(req_texts, columns=["req_text"])
 
-    preprocessed_requirements_only_norm = preprocess_reqs(req_df)
-    preprocessed_requirements = preprocess_reqs_clustering(req_df)
-    requirement_embeddings = embedding_model.encode(preprocessed_requirements, show_progress_bar=False)
+    preprocessed_requirements_normalized = preprocess_reqs(req_df)
+    preprocessed_requirements_clustering = preprocess_reqs_clustering(req_df)
+    requirement_embeddings_clustering = embedding_model.encode(preprocessed_requirements_clustering, show_progress_bar=False)
+    requirement_embeddings = embedding_model.encode(preprocessed_requirements_normalized, show_progress_bar=False)
 
-    distance_matrix = compute_cosine_distance(requirement_embeddings)
+    distance_matrix = compute_cosine_distance(requirement_embeddings_clustering)
     labels = cluster_reqs(distance_matrix)
 
     cluster_to_reqs = defaultdict(list)
     for idx, label in enumerate(labels):
         cluster_to_reqs[label].append(idx)
 
-    for i, req_text in enumerate(preprocessed_requirements_only_norm):
+    for i, req_text in enumerate(preprocessed_requirements_normalized):
         org_req = recieved_reqs[i]
         group_label = labels[i]
         group = cluster_to_reqs[group_label]
@@ -387,7 +385,6 @@ def classify_requirements(prepared_requirements, nfrweights):
         prepared_requirements[req_id]["type"] = "NFR" 
     
     #Multiclass 
-    # Error using aggresively preprocessed reqs here (preprocess_reqs_clustering) and not preprocess_reqs 
     category_ids = multi_class_classification(prepared_requirements)
 
     for category, req_ids in category_ids.items():
@@ -446,7 +443,7 @@ def calculate_final_score_and_rank(requirements, normalized_weights, include_cos
             else:
                 final_score += score * weight
      
-        # Dynamic quality weight to ensure it does not become overpowering, currently 5% of total score
+        # Quality weight set to ensure it does not become overpowering: currently 5% of total score
         total_weight = sum(normalized_weights.values())
         quality_weight = total_weight * 0.05 
         req['quality_weight'] = quality_weight  
@@ -502,7 +499,8 @@ def normalize_scores(requirements, include_cost, include_effort):
     for i, req in enumerate(requirements.values()):
         for j, score_key in enumerate(score_keys):
             value = normalized_scores[i][j]
-
+            
+            #Lower bound of 0.01 for lowest qaulity score, never 0.
             if score_key == 'quality_score':
                 value = max(value, 0.01)
                 

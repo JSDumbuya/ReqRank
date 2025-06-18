@@ -7,11 +7,11 @@ req_smell_terms = [
     # NASA ARM Tool
     "adequate", "be able to", "timely", "as appropriate", "can", "may", "optionally",
     # QuARS
-    "possibly", "eventually", "optionally", "having in mind", "take into account", "significant", "adequate",
+    "possibly", "eventually", "having in mind", "take into account", "significant",
     # RCM
-    "adequate", "appropriate", "normal", "similar", "better", "worse", "can", "may", "timely", "be able to",
+    "appropriate", "normal", "similar", "better", "worse",
     # ISO 29148 / IEEE 830
-    "user friendly", "easy to use", "cost effective", "almost always", "significant", "minimal", "if possible", "as appropriate", "as applicable", "it"
+    "user friendly", "easy to use", "cost effective", "almost always", "minimal", "if possible", "as applicable", "it"
 ]
 
 def find_req_smells(text):

@@ -7,7 +7,7 @@ from preprocess import preprocess_classification_experiments
 from utils import read_csv
 import pickle
 
-
+#Trained on the promise_exp dataset.
 full_data = read_csv("")
 requirement_text_file_path = ""
 

@@ -10,8 +10,8 @@ from imblearn.over_sampling import SMOTE
 from collections import Counter
 
 
-full_data = read_csv("/Users/jariasallydumbuya/Library/CloudStorage/OneDrive-ITU/Computer Science/4. semester/Thesis/Datasets/FR_NFR_Dataset/FR_NFR_Dataset.csv")
-requirement_text_file_path = "/Users/jariasallydumbuya/Library/CloudStorage/OneDrive-ITU/Computer Science/4. semester/Thesis/Datasets/FR_NFR_Dataset/FR_NFR_Dataset_requirementtext.csv"
+full_data = read_csv("backend/datasets/FR_NFR_Dataset-kopi.csv")
+requirement_text_file_path = "backend/datasets/FR_NFR_Dataset_requirementtext-kopi.csv"
 
 cleaned_reqs = preprocess_classification_experiments(requirement_text_file_path)
 cleaned_reqs_df = pd.DataFrame({'cleaned_reqs': cleaned_reqs})

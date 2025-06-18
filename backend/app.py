@@ -218,6 +218,7 @@ def prepare_stakeholders(list_of_stakeholders):
     return sentence_metadata, all_sentences, all_embeddings, representation_type, vectorizer
 
 def derive_topics_and_score(sentence_metadata, all_sentences, all_embeddings, vectorizer):
+    #Fejl all_sentences er preprocessed_sentences_sbert dvs. de skal ændres afhængig af representation_type
     representation_type = sentence_metadata[0]["representation_type"]
     topics = []
 
@@ -231,7 +232,6 @@ def derive_topics_and_score(sentence_metadata, all_sentences, all_embeddings, ve
         else: 
             topic_size = 50
         topic_model = BERTopic(umap_model=umap_model, min_topic_size=topic_size)
-        topic_model = BERTopic()
         topics, _ = topic_model.fit_transform(all_sentences, all_embeddings)
 
     elif representation_type == "lda":
@@ -386,7 +386,8 @@ def classify_requirements(prepared_requirements, nfrweights):
     for req_id in nfr_ids:
         prepared_requirements[req_id]["type"] = "NFR" 
     
-    #Multiclass  
+    #Multiclass 
+    # Error using aggresively preprocessed reqs here (preprocess_reqs_clustering) and not preprocess_reqs 
     category_ids = multi_class_classification(prepared_requirements)
 
     for category, req_ids in category_ids.items():

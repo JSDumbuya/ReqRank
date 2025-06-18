@@ -19,6 +19,8 @@ import pandas as pd
 import numpy as np
 import hdbscan
 
+#Trying HBDSCAN and LDA + distilbert embeddings for topic modelling setup on 'small' datasets
+
 tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased")
 model = DistilBertModel.from_pretrained("distilbert-base-uncased")
 
@@ -31,7 +33,6 @@ def get_topic_keywords(lda_model, vectorizer, top_n=5):
     return topic_keywords
 
 def get_distilbert_embeddings(sentences):
-    # Tokenize and get embeddings for each sentence
     embeddings = []
     for sentence in sentences:
         inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True, max_length=512)

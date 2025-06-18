@@ -3,13 +3,6 @@ import textstat
 
 
 #Lexical requirement smells: 
-# Ambigous terms
-# Subjective terms
-# Vague terms
-'''Gathered from:
-https://ceur-ws.org/Vol-3122/NLP4RE-paper-3.pdf (ARM, QuARS, RCM)
-file:///Users/jariasallydumbuya/Downloads/resmells14_korrektur_2.pdf (ISO)
-'''
 req_smell_terms = [
     # NASA ARM Tool
     "adequate", "be able to", "timely", "as appropriate", "can", "may", "optionally",
@@ -32,11 +25,5 @@ def find_req_smells(text):
 
 
 #Morphological smells 
-#Flesh score - readability of a requirement
-'''
-Also captures sentence lenght + unredability - syllables per word
-See: file:///Users/jariasallydumbuya/Downloads/Software_Requirement_Smells_and_Detection_Techniqu.pdf
-'''
-
 def flesch_reading_ease(text):
     return round(textstat.flesch_reading_ease(text), 2)

@@ -8,8 +8,8 @@ from utils import read_csv
 import pickle
 
 
-full_data = read_csv("/Users/jariasallydumbuya/Library/CloudStorage/OneDrive-ITU/Computer Science/4. semester/Thesis/Datasets/Promise_exp/PROMISE_exp.csv")
-requirement_text_file_path = "/Users/jariasallydumbuya/Library/CloudStorage/OneDrive-ITU/Computer Science/4. semester/Thesis/Datasets/Promise_exp/requirement_text_PROMISE.csv"
+full_data = read_csv("")
+requirement_text_file_path = ""
 
 cleaned_reqs = preprocess_classification_experiments(requirement_text_file_path)
 cleaned_reqs_df = pd.DataFrame({'cleaned_reqs': cleaned_reqs})

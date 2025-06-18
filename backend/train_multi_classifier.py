@@ -14,8 +14,8 @@ import os
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 # Import and clean data
-full_NFR_data = read_csv("/Users/jariasallydumbuya/Library/CloudStorage/OneDrive-ITU/Computer Science/4. semester/Thesis/Datasets/Promise_exp/NFR_PROMISE.csv")
-requirementtext_nfr_file_path = "/Users/jariasallydumbuya/Library/CloudStorage/OneDrive-ITU/Computer Science/4. semester/Thesis/Datasets/Promise_exp/requirementtext_NFR_PROMISE.csv"
+full_NFR_data = read_csv("backend/datasets/NFR_PROMISE-kopi.csv")
+requirementtext_nfr_file_path = "backend/datasets/requirementtext_NFR_PROMISE-kopi.csv"
 
 cleaned_nfrs = preprocess_classification_experiments(requirementtext_nfr_file_path)
 cleaned_nfrs_df = pd.DataFrame({'cleaned_nfr': cleaned_nfrs})
@@ -43,6 +43,7 @@ param_grid = {
     'class_weight': ['balanced'] 
 }
 
+#cv = cross validation.
 grid_search = GridSearchCV(SVC(kernel='rbf'), param_grid, cv=5, scoring='accuracy', n_jobs=-1, verbose=1)
 
 grid_search.fit(X_train, y_train)
